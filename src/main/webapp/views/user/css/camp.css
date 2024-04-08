@@ -1,0 +1,59 @@
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+@font-face {
+    font-family: 'Ycomputer-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/Ycomputer-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.sound-only{
+    position: absolute;
+    left: -9999em;
+}
+body{
+    background-color: #fffdf5;
+}
+header {
+    background-color: #fffdf5;
+<<<<<<< HEAD
+    height: 20%;
+=======
+    height: 16%;
+>>>>>>> b1972fae2eafa1f937d640e94059cd57620edc9d
+}
+header .wrap {
+    width: 94%;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+header .wrap .logo a img {
+    width: 110px;
+    padding: 20px 0;
+}
+header .wrap .gnb-wrap .gnb{
+    display: flex;
+    flex-direction: row;
+}
+header .wrap .gnb-wrap .gnb .depth1{
+    margin: 35px;
+    font-size: 17px;
+}
+header .wrap .gnb-wrap .gnb .depth1 a{
+    font-family: 'GmarketSansMedium';
+    font-weight: 100;
+    text-decoration: none;
+    color: #1F18F0;
+}
+header .wrap .gnb-wrap .gnb .depth1 a:hover{
+    color: #F57804;
+}
+

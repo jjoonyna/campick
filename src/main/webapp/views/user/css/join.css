@@ -1,0 +1,96 @@
+
+/*회원가입(biz_join.jsp) ui */
+
+#delete_display{
+	font-family: 'GmarketSansMedium';
+	width:600px; height:1200x;
+	margin-left:auto; margin-right:auto;
+}
+#pw_change_display{
+	font-family: 'GmarketSansMedium';
+	width:600px; height:1200x;
+	margin-left:auto; margin-right:auto;
+}
+#join_wrap{
+	font-family: 'GmarketSansMedium';
+	width:600px; height:1200x;
+	margin-left:auto; margin-right:auto;
+}
+#join_wrap .join_title{
+	margin:2px 0 0 200px; 
+	width:150px;
+	font-size:20px;
+	text-align:center;
+	padding:40px;
+}
+#join_wrap #join_t {
+	width: 100%;
+	border-top: 1px solid #444444;
+	border-collapse: collapse;
+}
+
+#join_wrap #join_t th {
+	border-bottom: 1px solid #c0c0c0;
+	padding: 10px;
+	text-align: right;
+}
+#join_wrap #join_t td {
+	border-bottom: 1px solid #c0c0c0;
+	padding: 10px;
+}
+#join_wrap #join_t img{
+	width: 300px;
+	height: 150px;
+	object-fit: cover;
+}
+
+
+#join_wrap #join_t .text{
+	width: 100px;
+	height: 20px
+ }
+#join_wrap #join_t .pw{
+	width: 120px;
+	height: 20px
+ }
+ 
+ #join_wrap #join_t .code{
+	width: 70px;
+	height: 20px
+ }
+
+#join_wrap #join_t .addr{
+	width: 200px;
+	height: 20px
+ }
+
+#join_wrap #join_t .email{
+	width: 150px;
+	height: 20px
+ }
+ 
+#join_wrap #join_t .input_button{
+    border : double;
+    background-color: white;
+    border-radius: 4px;
+    border-color:#F57804;
+    width: 120px; height:25px; 
+}
+#join_wrap #join_t .check{
+    border : double;
+    background-color: white;
+    border-radius: 4px;
+    border-color:#F57804;
+    width: 80px; height:25px; 
+}
+
+#join_wrap #join_menu{
+	margin:30px 0 0 220px;
+}
+#join_wrap #join_menu .button{
+    width: 100px; height:30px;
+     border-radius: 4px;
+    background-color:#F57804;
+    border:#F57804;
+    color: #fffdf5;
+}

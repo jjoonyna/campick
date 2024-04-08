@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+
+body{
+	align-items: center;
+	width: 600px;
+	height: 400px;
+	background-color: #fffdf5;
+}
+
+#table{
+	width: 300px;
+	margin: 50px auto; 
+}
+#table #title{
+	width: 300px;
+	margin: 50px auto; 
+}
+#table table{
+	border: 2px solid;
+	border-collapse: collapse;
+}
+#table table td{
+	border: 2px solid;
+}
+#table table .tr{
+	width: 80px;
+	height: 30px;
+}
+#table table .td{
+	width: 200px;
+	height: 30px;
+}
+#table table .textbox{
+	width: 200px;
+	height: 30px;
+	border: none;
+	outline: none;
+	background-color: #fffdf5;
+}
+button{
+	margin: 20px 0px;
+	float: right;
+	width: 50px;
+	height: 30px;
+	color: white;
+	background-color: #1F18F0;
+}
+#findid{
+	width: 300px;
+	margin: 50px auto; 
+}

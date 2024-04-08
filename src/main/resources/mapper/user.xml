@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.choongang.campick.mapper.UserDAO">
+
+<!-- 
+
+
+
+			공통 기능 start 
+
+
+
+-->
+
+	<select id="nickcheck" parameterType="String" resultType="cmp_user">
+	select * from cmp_user where user_nick=#{user_nick}
+	</select>
+	<!-- 회원 조회 로그인 등 모든 회원 조회시에 사용 -->
+	<select id="selectUser" parameterType="String" resultType="cmp_user">
+		select
+		*
+		from
+		cmp_user
+		where
+		user_id = #{user_id}
+	</select>
+	
+	<!-- 회원 삭제(공통) -->
+	<update id="deleteUser" parameterType="String">
+		UPDATE cmp_user
+		SET
+		user_kind = 'd'
+		WHERE user_id=#{user_id}
+	</update>
+
+	<!-- 비번 수정 -->
+	<update id="updatePwd" parameterType="cmp_user">
+		update cmp_user set
+		user_pw=#{user_pw}
+		where
+		user_id=#{user_id}
+	</update>
+	
+<!-- 
+
+
+
+			일반 회원 기능 start 
+
+
+
+-->
+
+	<!-- 일반 회원 가입 -->
+	<insert id="insertUser" parameterType="cmp_user">
+		INSERT INTO cmp_user(
+		user_id,
+		user_pw,
+		user_nm,
+		user_gender,
+		user_nick,
+		user_birth,
+		user_tel,
+		user_code,
+		user_addr1,
+		user_addr2,
+		user_email,
+		user_pic,
+		user_kind
+		)VALUES(
+		#{user_id},
+		#{user_pw},
+		#{user_nm},
+		#{user_gender},
+		#{user_nick},
+		#{user_birth},
+		#{user_tel},
+		#{user_code},
+		#{user_addr1},
+		#{user_addr2},
+		#{user_email},
+		#{user_pic, jdbcType=VARCHAR},
+		'u')
+	</insert>
+
+	<!-- 일반 회원 수정 -->
+	<update id="updateUser" parameterType="cmp_user">
+		UPDATE
+		cmp_user
+		SET
+		user_nick=#{user_nick},
+		user_tel=#{user_tel},
+		user_code=#{user_code},
+		user_addr1=#{user_addr1},
+		user_addr2=#{user_addr2},
+		user_email=#{user_email},
+		user_pic=#{user_pic,jdbcType=VARCHAR}
+		WHERE
+		user_id=#{user_id}
+	</update>
+	
+	<!-- 일반 회원 아이디 & 비밀번호 찾기 -->
+	<select id="findUser" parameterType="String" resultType="cmp_user">
+		select
+		*
+		from
+		cmp_user
+		where
+		user_tel = #{user_tel}
+	</select>
+	
+<!-- 
+
+
+
+			사업 회원 기능 start 
+
+
+
+-->
+
+	<!-- 사업자 회원 가입 -->
+	<insert id="insertBiz" parameterType="cmp_user">
+		insert into cmp_user(
+		user_biz,
+		user_nm,
+		user_id,
+		user_nick,
+		user_pw,
+		user_tel,
+		user_code,
+		user_addr1,
+		user_addr2,
+		user_email,
+		user_kind
+		)values(
+		#{user_biz},
+		#{user_nm},
+		#{user_id},
+		#{user_nick},
+		#{user_pw},
+		#{user_tel},
+		#{user_code},
+		#{user_addr1},
+		#{user_addr2},
+		#{user_email},
+		'b'
+		)
+	</insert>
+
+	<!-- 사업자 회원 수정 -->
+	<update id="updateBiz" parameterType="cmp_user">
+		update cmp_user set
+		user_nm=#{user_nm},
+		user_tel=#{user_tel},
+		user_code=#{user_code},
+		user_addr1=#{user_addr1},
+		user_addr2=#{user_addr2},
+		user_email=#{user_email},
+		user_pic=#{user_pic}
+		where
+		user_id=#{user_id}
+	</update>
+
+	<!-- 사업자번호 찾기 아이디 비밀번호 찾을 때 사용 -->
+	<select id="selectBiz" parameterType="cmp_user" resultType="cmp_user">
+		select
+		*
+		from
+		cmp_user
+		where
+		user_biz = #{user_biz}
+	</select>
+
+	<!-- 사업자 비번 찾기 -->
+	<select id="findPwd" resultType="cmp_user" parameterType="cmp_user">
+		select
+		user_pw
+		from
+		cmp_user
+		where
+		user_id=#{user_id} and user_nm=#{user_nm} and
+		user_biz=#{user_biz}
+	</select>
+
+
+</mapper>

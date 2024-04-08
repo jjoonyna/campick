@@ -1,0 +1,97 @@
+@charset "UTF-8";
+button{
+	border: none;
+ 	outline: none;
+  	background-color: inherit ;
+  	cursor: pointer;
+}
+#main{
+	font-family: 'GmarketSansMedium';
+	display: flex;
+	flex-direction:row;
+	width: 94%;
+    max-width: 1280px;
+    height: 100%;
+}
+#main #mylist{
+	display: flex;
+	flex-direction: column;
+	width: 100px;
+	margin-left: 6%;
+}
+#main #mylist ul{
+	list-style-type: none;
+}
+#main #mylist ul li{
+	list-style-type: none;
+	
+}
+#main #mylist button{
+	border: none;
+ 	background-color: transparent;
+ 	width: 100px;
+ 	height: 70px;
+ 	color: #1F18F0;
+}
+#main #mylist #myInfo_list{
+	display: none;
+}
+#main #mylist #myInfo_list button{
+	border: none;
+ 	background-color: transparent;
+ 	width: 100px;
+ 	height: 25px;
+ 	color: #1F18F0;
+}
+#main #mylist #review_list{
+	display: none;
+}
+#main #mylist #review_list button{
+	border: none;
+ 	background-color: transparent;
+ 	width: 100px;
+ 	height: 25px;
+ 	color: #1F18F0;
+}
+
+#main #line{
+ border-left: thin solid #808080;
+ height:100%;
+ left: 15%;
+ position: absolute;
+}
+#mypage{
+	display: flex;
+	flex-direction: column;
+}
+
+#myInfo_check{
+	margin: 20px 400px;;
+}
+#myInfo_check #info_table{
+	width: 400px;
+	height:200px;
+	border-collapse: collapse;
+}
+#myInfo_check #info_table caption{
+	margin: 30px auto;
+	color: #F57804;
+}
+#myInfo_check #info_table tr{
+	border-bottom: 2px solid;
+}
+#review_check{
+	margin: 20px 400px;;
+}
+#review_check #review_table{
+	width: 400px;
+	height:100px;
+	border-collapse: collapse;
+}
+#review_check #review_table caption{
+	margin: 30px auto;
+	color: #F57804;
+}
+#review_check #review_table tr{
+	border-bottom: 2px solid;
+}
