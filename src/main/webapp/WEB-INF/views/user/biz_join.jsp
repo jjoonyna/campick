@@ -1,54 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="./header.jsp"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <title>사업자 회원가입 폼</title>
-<link rel="stylesheet" type="text/css" href="./css/join.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/join.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="./js/join.js"></script>
+<script src="/resources/js/join.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-
+<jsp:include page="/resources/commons/header.jsp" />
+<jsp:include page="/resources/commons/gnb.jsp" />
 
 </head>
 <body>
-
-	<header>
-		<div class="wrap">
-			<h1 class="logo">
-				<a href="#"><img src="images/logo2.png"></a> <span
-					class="sound-only">사이트로고</span>
-			</h1>
-			<nav class="gnb-wrap">
-				<ul class="gnb">
-					<li class="depth1"><a href="#">캠픽정보</a></li>
-					<li class="depth1"><a href="#">캠픽지도</a></li>
-					<li class="depth1"><a href="#">캠픽후기</a></li>
-					<li class="depth1"><a href="#">캠픽알림</a></li>
-				</ul>
-			</nav>
-			<div class="gnb-right">
-				<c:if test="${sessionScope.user_id == null }">
-					<a href="./login.jsp"> <img
-						src="./icons/ico_profile_black.svg" alt="로그인"></a>
-				</c:if>
-				<c:if
-					test="${sessionScope.user_id != null && sessionScope.user_kind=='u' }">
-					<a href="./user_mypage.jsp"> <img
-						src="./icons/ico_profile_black.svg" alt="로그인"></a>
-				</c:if>
-				<c:if
-					test="${sessionScope.user_id != null && sessionScope.user_kind=='b' }">
-					<a href="./biz_mypage.jsp"> <img
-						src="./icons/ico_profile_black.svg" alt="로그인"></a>
-				</c:if>
-			</div>
-		</div>
-	</header>
-
-
 	<main>
 		<div id="join_wrap">
 			<h2 class="join_title">사업자 회원 가입</h2>
@@ -63,7 +28,7 @@
 							class="input_button" onclick="businessNumber()" />
 							<div id="bizcheck"></div></td>
 					</tr>
-					
+
 					<tr>
 						<th>이름</th>
 						<td><input type="text" name="user_nm" id="user_nm"
@@ -95,9 +60,10 @@
 					<tr>
 						<th>비밀번호확인</th>
 						<td><input type="password" name="user_pw2" id="user_pw2"
-							class="pw" /><div id="pwdcheck"></div></td>
+							class="pw" />
+						<div id="pwdcheck"></div></td>
 					</tr>
-					
+
 					<tr>
 						<th>성별</th>
 						<td><input type="radio" name="gender" id="man" value="남자"
@@ -107,10 +73,10 @@
 
 					<tr>
 						<th>생년월일</th>
-						<td><input type="text" name="user_birth"
-							id="user_birth" class="text" /></td>
+						<td><input type="text" name="user_birth" id="user_birth"
+							class="text" /></td>
 					</tr>
-					
+
 					<tr>
 						<th>휴대폰 번호</th>
 						<td><input type="tel" name="user_tel" id="user_tel"

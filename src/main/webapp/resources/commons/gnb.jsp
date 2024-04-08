@@ -1,0 +1,38 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>gnb</title>
+</head>
+<body>
+	<header>
+		<div class="wrap">
+			<h1 class="logo">
+				<a href="#"><img src="/resources/images/logo2.png"></a> <span
+					class="sound-only">사이트로고</span>
+			</h1>
+			<nav class="gnb-wrap">
+				<ul class="gnb">
+					<li class="depth1"><a href="#">캠픽정보</a></li>
+					<li class="depth1"><a href="#">캠픽지도</a></li>
+					<li class="depth1"><a href="#">캠픽후기</a></li>
+					<li class="depth1"><a href="#">캠픽알림</a></li>
+				</ul>
+			</nav>
+			<div class="gnb-right">
+				<c:if test="${sessionScope.user_id == null }">
+				<a href="./login.jsp"> <img src="/resources/icons/ico_profile_black.svg" alt="로그인"></a>
+				</c:if>
+				<c:if test="${sessionScope.user_id != null && sessionScope.user_kind=='u' }">
+				<a href="./user_mypage.jsp"> <img src="/resources/icons/ico_profile_black.svg" alt="로그인"></a>
+				</c:if>
+				<c:if test="${sessionScope.user_id != null && sessionScope.user_kind=='b' }">
+				<a href="./biz_mypage.jsp"> <img src="/resources/icons/ico_profile_black.svg" alt="로그인"></a>
+				</c:if>
+			</div>
+		</div>
+	</header>
+</body>
+</html>

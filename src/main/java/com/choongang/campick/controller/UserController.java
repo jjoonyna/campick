@@ -151,6 +151,15 @@ public class UserController {
 //	}
 
 	/*
+	 * 일반 회원 로그인폼
+	 */
+    @GetMapping("/login")
+    public String loginPage() {
+        return "user/login"; // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
+    }
+	
+	
+	/*
 	 * 일반 회원 로그인
 	 */
 	@PostMapping("/login_user")
@@ -199,7 +208,13 @@ public class UserController {
 		return new ResponseEntity<>(map,HttpStatus.OK);
 	}
 	
-	
+	/*
+	 * 일반 회원 정보 수정 
+	 */
+    @GetMapping("/update_user")
+    public String updateuser() {
+        return "user/user_mypage"; // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
+    }
 	
 	/*
 	 * 일반 회원 정보 수정
