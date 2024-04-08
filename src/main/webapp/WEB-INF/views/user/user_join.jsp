@@ -1,52 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="./header.jsp"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <title>일반 회원가입 폼</title>
-<link rel="stylesheet" type="text/css" href="./css/join.css" />
+<link rel="stylesheet" type="text/css" href="/resources/static/css/join.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="./js/join.js"></script>
+<script src="/resources/static/js/join.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+	<jsp:include page="/resources/commons/header.jsp"/>
+<jsp:include page="/resources/static/commons/gnb.jsp" />
 
 </head>
 <body>
 
-	<header>
-
-		<div class="wrap">
-			<h1 class="logo">
-				<a href="#"><img src="images/logo2.png"></a> <span
-					class="sound-only">사이트로고</span>
-			</h1>
-			<nav class="gnb-wrap">
-				<ul class="gnb">
-					<li class="depth1"><a href="#">캠픽정보</a></li>
-					<li class="depth1"><a href="#">캠픽지도</a></li>
-					<li class="depth1"><a href="#">캠픽후기</a></li>
-					<li class="depth1"><a href="#">캠픽알림</a></li>
-				</ul>
-			</nav>
-			<div class="gnb-right">
-				<c:if test="${sessionScope.user_id == null }">
-					<a href="./login.jsp"> <img
-						src="./icons/ico_profile_black.svg" alt="로그인"></a>
-				</c:if>
-				<c:if
-					test="${sessionScope.user_id != null && sessionScope.user_kind=='u' }">
-					<a href="./user_mypage.jsp"> <img
-						src="./icons/ico_profile_black.svg" alt="로그인"></a>
-				</c:if>
-				<c:if
-					test="${sessionScope.user_id != null && sessionScope.user_kind=='b' }">
-					<a href="./biz_mypage.jsp"> <img
-						src="./icons/ico_profile_black.svg" alt="로그인"></a>
-				</c:if>
-			</div>
-		</div>
-	</header>
+	
 	<main>
 		<div id="join_wrap">
 			<h2 class="join_title">일반 회원 가입</h2>
