@@ -20,11 +20,7 @@ body{
 }
 header {
     background-color: #fffdf5;
-<<<<<<< HEAD
     height: 20%;
-=======
-    height: 16%;
->>>>>>> b1972fae2eafa1f937d640e94059cd57620edc9d
 }
 header .wrap {
     width: 94%;

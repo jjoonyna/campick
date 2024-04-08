@@ -1,45 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="header.jsp"%>
 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+
 <meta charset="UTF-8">
-<link rel="stylesheet" href="./css/login.css">
-<script type="text/javascript" src="./js/login.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>로그인</title>
+	<jsp:include page="/resources/commons/gnb.jsp"/>
+	<jsp:include page="/resources/commons/header.jsp"/>
+ 	
+<link rel="stylesheet" href="/resources/css/login.css">
+<script type="text/javascript" src="/resources/js/login.js"></script>
+
 </head>
 
 <body>
-	<header>
-		<div class="wrap">
-			<h1 class="logo">
-				<a href="#"><img src="./images/logo2.png"></a> <span
-					class="sound-only">사이트로고</span>
-			</h1>
-			<nav class="gnb-wrap">
-				<ul class="gnb">
-					<li class="depth1"><a href="#">캠픽정보</a></li>
-					<li class="depth1"><a href="#">캠픽지도</a></li>
-					<li class="depth1"><a href="#">캠픽후기</a></li>
-					<li class="depth1"><a href="#">캠픽알림</a></li>
-				</ul>
-			</nav>
-			<div class="gnb-right">
-				<c:if test="${sessionScope.user_id == null }">
-				<a href="./login.jsp"> <img src="./icons/ico_profile_black.svg" alt="로그인"></a>
-				</c:if>
-				<c:if test="${sessionScope.user_id != null && sessionScope.user_kind=='u' }">
-				<a href="./user_mypage.jsp"> <img src="./icons/ico_profile_black.svg" alt="로그인"></a>
-				</c:if>
-				<c:if test="${sessionScope.user_id != null && sessionScope.user_kind=='b' }">
-				<a href="./biz_mypage.jsp"> <img src="./icons/ico_profile_black.svg" alt="로그인"></a>
-				</c:if>
-			</div>
-		</div>
-	</header>
 	
 	
 	<main id="main">
@@ -68,9 +46,9 @@
 					</div>
 				</form>
 				<span id="sns_login">
-				<button id="kakao_login_ok"><img src="./icons/kakao.png" alt="kakao"></button>
-				<button id="google_login_ok"><img src="./icons/google.png" alt="goole"> </button>
-				<button id="naver_login_ok"><img src="./icons/naver.png" alt="naver"></button>
+				<button id="kakao_login_ok"><img src="/resources/icons/kakao.png" alt="kakao"></button>
+				<button id="google_login_ok"><img src="/resources/icons/google.png" alt="goole"> </button>
+				<button id="naver_login_ok"><img src="/resources/icons/naver.png" alt="naver"></button>
 				</span>
 				<hr>
 			</div>
