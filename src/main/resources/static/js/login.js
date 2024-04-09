@@ -51,7 +51,7 @@ $(function(){
 				if(result==1){
 					//성공
 					alert("로그인 완료");
-					location.href="./user_mypage.jsp";
+					location.href="./user_mypage";
 				}else if(result==-1){
 					//정보 불러오기 실패
 					alert("로그인 실패");
@@ -98,7 +98,7 @@ $(function(){
 				if(result==1){
 					//성공
 					alert("로그인 완료");
-					location.href="./biz_mypage.jsp";
+					location.href="./biz_mypage";
 				}else if(result==-1){
 					//정보 불러오기 실패
 					alert("로그인 실패");

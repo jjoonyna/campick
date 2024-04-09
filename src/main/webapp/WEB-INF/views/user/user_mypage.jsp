@@ -5,11 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>mypage</title>
+<jsp:include page="/resources/commons/header.jsp" />
 <link rel="stylesheet" href="./css/user_mypage.css">
 <link rel="stylesheet" href="./css/join.css">
 <script type="text/javascript" src="./js/user_mypage.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<jsp:include page="/resources/commons/header.jsp" />
 <jsp:include page="/resources/commons/gnb.jsp" />
 </head>
 <body>

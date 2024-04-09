@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.sql.Date;
+import java.util.List;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -22,6 +22,37 @@ import lombok.RequiredArgsConstructor;
 public class CampService {
 	
 	private final CampDAO dao;
+	
+	
+	public int count() {
+		return dao.count();
+	}
+
+	public List<Camp> campList(Camp camp) {
+		return dao.campList(camp);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public void campinsert(Camp camp) throws Exception {
 		StringBuilder urlBuilder = new StringBuilder("https://apis.data.go.kr/B551011/GoCamping/basedList"); /*URL*/
@@ -154,4 +185,6 @@ public class CampService {
         		
         		
 		}
+
+
 }

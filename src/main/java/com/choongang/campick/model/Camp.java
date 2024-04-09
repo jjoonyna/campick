@@ -50,8 +50,10 @@ public class Camp {
 	 String firstImageUrl;
 	 String cmp_pic;
 	 String cmp_fav;
-	 String  cmp_like;
-	 String  cmp_rprt;
+	 String cmp_like;
+	 String cmp_rprt;
 	 String cmp_rent;
 	 Date cmp_regDate;
+	 
+	 int start;
 }

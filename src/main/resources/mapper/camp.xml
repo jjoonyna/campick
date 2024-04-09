@@ -4,6 +4,31 @@
 
 <mapper namespace="com.choongang.campick.mapper.CampDAO">
 
+<select id="count" parameterType="camp" resultType="int">
+	select count(*) from camp
+	
+	
+	
+</select>
+
+
+<select id="campList" parameterType="camp" resultType="camp">
+	select * from camp 
+	
+	
+	order by cmp_like desc limit #{start},10
+</select>
+
+
+
+
+
+
+
+
+
+
+
 <insert id="insert" parameterType="camp">
 	insert into camp(
 	contentId,
