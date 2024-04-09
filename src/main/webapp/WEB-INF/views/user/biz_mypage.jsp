@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>마이페이지</title>
-<link rel="stylesheet" href="/resources/css/biz_mypage.css">
-<link rel="stylesheet" href="/resources/css/join.css">
-<script type="text/javascript" src="/resources/js/biz_mypage.js"></script>
+<link rel="stylesheet" href="./css/biz_mypage.css">
+<link rel="stylesheet" href="./css/join.css">
+<script type="text/javascript" src="./js/biz_mypage.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <jsp:include page="/resources/commons/header.jsp" />
 <jsp:include page="/resources/commons/gnb.jsp" />
