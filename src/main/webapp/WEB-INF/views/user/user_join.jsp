@@ -5,12 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>일반 회원가입 폼</title>
-<link rel="stylesheet" type="text/css" href="/resources/static/css/join.css" />
+<link rel="stylesheet" type="text/css" href="/resourcescss/join.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="/resources/static/js/join.js"></script>
+<script src="/resources/js/join.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	<jsp:include page="/resources/commons/header.jsp"/>
-<jsp:include page="/resources/static/commons/gnb.jsp" />
+<jsp:include page="/resources/commons/gnb.jsp" />
 
 </head>
 <body>

@@ -184,24 +184,24 @@ $(function(){
 
 $(function(){
 	$("#user_id_find").click(function(){
-		window.open("./user_id_find.jsp","ID찾기","width=600px,height=500px,top=150,left=500");
+		window.open("user_id_find","ID찾기","width=600px,height=500px,top=150,left=500");
 	});
 });
 
 $(function(){
 	$("#user_pw_find").click(function(){
-		window.open("./user_pw_find.jsp","PW찾기","width=600px,height=500px,top=150,left=500");
+		window.open("user_pw_find","PW찾기","width=600px,height=500px,top=150,left=500");
 	});
 });
 
 $(function(){
 	$("#biz_id_find").click(function(){
-		window.open("./biz_id_find.jsp","ID찾기","width=600px,height=500px,top=150,left=500");
+		window.open("biz_id_find","ID찾기","width=600px,height=500px,top=150,left=500");
 	});
 });
 
 $(function(){
 	$("#biz_pw_find").click(function(){
-		window.open("./biz_pw_find.jsp","PW찾기","width=600px,height=500px,top=150,left=500");
+		window.open("biz_pw_find","PW찾기","width=600px,height=500px,top=150,left=500");
 	});
 });

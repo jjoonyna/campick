@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ include file="./header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,13 +24,13 @@
 			</nav>
 			<div class="gnb-right">
 				<c:if test="${sessionScope.user_id == null }">
-				<a href="./login.jsp"> <img src="/resources/icons/ico_profile_black.svg" alt="로그인"></a>
+				<a href="login"> <img src="/resources/icons/ico_profile_black.svg" alt="로그인"></a>
 				</c:if>
 				<c:if test="${sessionScope.user_id != null && sessionScope.user_kind=='u' }">
-				<a href="./user_mypage.jsp"> <img src="/resources/icons/ico_profile_black.svg" alt="로그인"></a>
+				<a href="user_mypage"> <img src="/resources/icons/ico_profile_black.svg" alt="로그인"></a>
 				</c:if>
 				<c:if test="${sessionScope.user_id != null && sessionScope.user_kind=='b' }">
-				<a href="./biz_mypage.jsp"> <img src="/resources/icons/ico_profile_black.svg" alt="로그인"></a>
+				<a href="biz_mypage"> <img src="/resources/icons/ico_profile_black.svg" alt="로그인"></a>
 				</c:if>
 			</div>
 		</div>

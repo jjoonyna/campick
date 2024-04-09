@@ -41,7 +41,7 @@
 							<br> 
 							<span class="login_pw">비밀번호: <input type="password" name="user_pw" id="pwd" size="20" /></span>
 							<span id="login_menu">
-							<a id="user_id_find">ID / </a><a id="user_pw_find">PW찾기 | </a><a href="./user_join.jsp">회원가입</a></span>
+							<a id="user_id_find">ID / </a><a id="user_pw_find">PW찾기 | </a><a href="user_join">회원가입</a></span>
 						</span> 
 					</div>
 				</form>
@@ -64,7 +64,7 @@
 							<br> 
 							<span class="login_pw">비밀번호: <input type="password" name="user_pw" id="biz_pwd" size="20" /></span>
 							<span id="login_menu">
-							<a id="biz_id_find">ID / </a><a id="biz_pw_find">PW찾기 | </a><a href="./biz_join.jsp">회원가입</a></span>
+							<a id="biz_id_find">ID / </a><a id="biz_pw_find">PW찾기 | </a><a href="biz_join">회원가입</a></span>
 						</span> 
 					</div>
 				</form>

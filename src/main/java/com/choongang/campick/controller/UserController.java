@@ -157,6 +157,38 @@ public class UserController {
     public String loginPage() {
         return "user/login"; // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
     }
+    @GetMapping("/user_id_find")
+    public String user_id_find() {
+    	return "user/user_id_find"; // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
+    }
+    @GetMapping("/user_pw_find")
+    public String user_pw_find() {
+    	return "user/user_pw_find"; // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
+    }
+    @GetMapping("/biz_id_find")
+    public String biz_id_find() {
+    	return "user/biz_id_find"; // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
+    }
+    @GetMapping("/biz_pw_find")
+    public String biz_pw_find() {
+    	return "user/biz_pw_find"; // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
+    }
+    @GetMapping("/biz_join")
+    public String biz_join() {
+    	return "user/biz_join"; // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
+    }
+    @GetMapping("/user_join")
+    public String user_join() {
+    	return "user/user_join"; // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
+    }
+    @GetMapping("/user_mypage")
+    public String user_mypage() {
+    	return "user/user_mypage"; // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
+    }
+    @GetMapping("/biz_mypage")
+    public String biz_mypage() {
+    	return "user/biz_mypage"; // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
+    }
 	
 	
 	/*
@@ -208,13 +240,7 @@ public class UserController {
 		return new ResponseEntity<>(map,HttpStatus.OK);
 	}
 	
-	/*
-	 * 일반 회원 정보 수정 
-	 */
-    @GetMapping("/update_user")
-    public String updateuser() {
-        return "user/user_mypage"; // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
-    }
+
 	
 	/*
 	 * 일반 회원 정보 수정
