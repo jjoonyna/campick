@@ -43,8 +43,9 @@
 	extshrCo,
 	themaEnvrnCl,
 	animalCmgCl,
-	firstImageUrl,
-	)values(
+	firstImageUrl
+	)
+	values(
 	#{contentId},
 	#{facltNm},
 	#{lctCl},
@@ -82,7 +83,7 @@
 	#{extshrCo},
 	#{themaEnvrnCl},
 	#{animalCmgCl},
-	#{firstImageUrl},	
+	#{firstImageUrl}	
 	)
 </insert>
 

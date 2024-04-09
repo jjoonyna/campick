@@ -1,7 +1,13 @@
 package com.choongang.campick.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.choongang.campick.model.Camp;
 import com.choongang.campick.service.CampService;
@@ -20,4 +26,14 @@ public class CampController {
 		System.out.println("성공");
 		return "./views/user/login.jsp";
 	}
+	
+	
+	@GetMapping("")
+	@ResponseBody
+	public ResponseEntity<Map<String,Object>> camplist(){
+		Map map = new HashMap();
+		
+		return new ResponseEntity<>(map,HttpStatus.OK);
+	}
+	
 }
