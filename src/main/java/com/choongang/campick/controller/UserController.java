@@ -183,21 +183,11 @@ public class UserController {
     	return "user/user_join"; // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
     }
     @GetMapping("/user_mypage")
-    public String user_mypage(HttpSession session, Model model) {
-    	String user_id = (String)session.getAttribute("user_id");
-		User db = service.selectUser(user_id); // 회원이 있는지 없는지 확인
-    	model.addAttribute("user_id",db.getUser_id());
-    	model.addAttribute("user_addr1",db.getUser_addr1());
-    	model.addAttribute("user_addr2",db.getUser_addr2());
+    public String user_mypage() {
 		return "user/user_mypage"; // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
     }
     @GetMapping("/biz_mypage")
-    public String biz_mypage(HttpSession session, Model model) {
-    	String user_id = (String)session.getAttribute("user_id");
-		User db = service.selectUser(user_id); // 회원이 있는지 없는지 확인
-    	model.addAttribute("user_id",db.getUser_id());
-    	model.addAttribute("user_addr1",db.getUser_addr1());
-    	model.addAttribute("user_addr2",db.getUser_addr2());
+    public String biz_mypage() {
     	return "user/biz_mypage"; // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
     }
 	

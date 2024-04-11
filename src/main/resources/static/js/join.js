@@ -270,7 +270,7 @@ $(function(){
 			user_addr1: $('#user_addr1').val(),
 			user_addr2: $('#user_addr2').val(),
 			user_email: $('#user_email').val(),
-			user_kind: $('#user_kind').val(),
+			user_kind: $('#user_kind').val()
 			};
       $.ajax({
          type : "POST",

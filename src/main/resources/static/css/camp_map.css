@@ -1,0 +1,30 @@
+@charset "UTF-8";
+#main{
+	font-family: 'GmarketSansMedium';
+	display: flex;
+	flex-direction:column;
+	width: 94%;
+    max-width: 1280px;
+    height: 100%;
+}
+#main #select{
+	display: flex;
+	flex-direction: row;
+	margin: 10px auto;
+}
+#main #select #doNm{
+	-o-appearance: none;
+	-webkit-appearance: none;
+  	-moz-appearance: none;
+  	appearance: none;
+	width: 80px;
+	height: 20px;
+}
+#main #weather{
+	margin: 10px auto;
+}
+#main #map{
+	display: flex;
+	flex-direction: row;
+	margin: 50px auto;
+}

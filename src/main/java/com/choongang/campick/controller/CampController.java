@@ -27,7 +27,14 @@ public class CampController {
 		service.campinsert(camp);
 		System.out.println("성공");
 	}
-	
+	@GetMapping("camp_map")
+	public String camp_map(){
+		return "camp/camp_map";
+	}
+	@GetMapping("camp_list")
+	public String camp_list(){
+		return "camp/camp_list";
+	}
 	//캠핑장 목록 불러오기 기본(페이징 형식으로) 스크롤 방식으로 바뀔시 변경예정
 	@GetMapping("camplist/{page}")
 	@ResponseBody
@@ -61,6 +68,7 @@ public class CampController {
 		map.put("pageCount", pageCount);
 		map.put("listcount", listcount);
 		map.put("search", camp.getSearch());
+		map.put("page",page );
 		System.out.println(map.get("camplist"));
 		System.out.println(map.get("search"));
 		return new ResponseEntity<>(map,HttpStatus.OK);

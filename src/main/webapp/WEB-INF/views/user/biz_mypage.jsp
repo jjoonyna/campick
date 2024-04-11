@@ -52,11 +52,11 @@
 
 					<tr>
 						<td>id</td>
-						<td></td>
+						<td id="biz_id"></td>
 					</tr>
 					<tr>
 						<td>주소</td>
-						<td></td>
+						<td id="biz_addr1"></td>
 					</tr>
 				</table>
 			</div>
@@ -112,13 +112,6 @@
 							class="pw" /></td>
 					</tr>
 
-
-
-					<tr>
-						<th>생년월일</th>
-						<td><input type="text" name="user_birth" id="info_birth"
-							class="text" /></td>
-					</tr>
 
 
 					<tr>

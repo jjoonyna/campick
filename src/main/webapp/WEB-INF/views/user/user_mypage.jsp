@@ -50,11 +50,11 @@
 					<caption>내정보</caption>
 					<tr>
 						<td>id</td>
-						<td>${user_id }</td>
+						<td id="user_id"></td>
 					</tr>					
 					<tr>
 						<td><br>주소</td>
-						<td><br>${user_addr1 } ${user_addr2 }</td>
+						<td id="user_addr1"><br></td>
 					</tr>
 				</table>
 			</div>
