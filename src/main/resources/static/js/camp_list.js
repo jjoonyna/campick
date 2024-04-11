@@ -49,9 +49,28 @@ $(function(){
 			
 			// 페이징 처리 추가
             var pagination = "";
+            var pagination = "";
+            var pagination = "";
+            var pagination = "";
+            var pagination = "";
+            var pagination = "";
+            var pagination = "";
+            var pagination = "";
+            var pagination = "";
+            var pagination = "";
+            var pagination = "";
+            var pagination = "";
+            var pagination = "";
             for (var i = result.startPage; i <= result.endPage; i++) {
-                pagination += "<span class='page-item " + (i === result.page ? "active" : "") + "'>";
-                pagination += "<a id=subject href='javascript:camp_list(" + i + ")'>" + i + "</a></span>";
+                pagination += "";
+                pagination += "";
+                pagination += "";
+                pagination += "";
+                pagination += "";
+                pagination += "";
+                pagination += "";
+                pagination += "";
+                pagination += "";
             }
             pagination += "</div>";
             $("#pagiset pagiset-circ").html(pagination);

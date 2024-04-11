@@ -157,7 +157,6 @@
 						<a
 							href="gnb.do?pageNum=1<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
 							class="pagiset-link pagiset-first"
-							style="width: 100px;"
 						>
 							처음
 						</a>
@@ -167,7 +166,6 @@
 							<a
 								href="gnb.do?pageNum=${result.startPage - 1}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
 								class="pagiset-link pagiset-prev"
-								style="width: 100px;"
 							>
 								이전
 							</a>
@@ -178,7 +176,6 @@
 							<a
 								href="gnb.do?pageNum=${i}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
 								class="pagiset-link<c:if test="${result.currentPage==i}"> active-fill</c:if>"
-								style="width: 100px;"
 							>
 								${i}
 							</a>
@@ -189,7 +186,6 @@
 							<a
 								href="gnb.do?pageNum=${result.endPage + 1}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
 								class="pagiset-link pagiset-next"
-								style="width: 100px;"
 							>
 								다음
 							</a>
@@ -199,7 +195,6 @@
 						<a
 							href="gnb.do?pageNum=${result.lastPage}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
 							class="pagiset-link pagiset-last"
-							style="width: 100px;"
 						>
 							마지막
 						</a>
