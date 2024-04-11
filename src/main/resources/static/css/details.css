@@ -2,9 +2,9 @@
 
 main h1 { margin: 1.5% 0 4% 0; text-align: center; font-size: 35px; font-family: 'Ycomputer-Regular'; }
 main .main-conteiner{ display: flex; }
-main .imageset-img { width: 30%; justify-content: left; margin: 0 5% 0 20%; }
-main .contents-right{ justify-content: right; margin: 0 20% 0 0; }
-main .contents-right > div{font-size: 17px;padding: 5px 0;}
+main .main-conteiner .imageset-img > img{ width: 50%; justify-content: left; margin: 0 5% 0 35%; }
+main .main-conteiner .contents-right{ justify-content: right; margin: 0 20% 0 0; }
+main .main-conteiner .contents-right > div{font-size: 17px; padding: 5px 0;}
 
 
 main .contents-button{ display: flex; flex-flow: row-reverse; margin: 3% 15% 0 0;}

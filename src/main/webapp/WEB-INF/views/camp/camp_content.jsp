@@ -28,14 +28,15 @@
             	<div>최대예약인원 : ${result.cmp_maxpp }</div><br/>
             	<div>최대숙박일자 : ${result.cmp_staydate }</div><br/>
             	<div>최대이용금액 : ${result.cmp_price }</div><br/>
-            </div>
-           </div>
+            
         <div class="contents-button">
         	<div><a href="#" class="inqry">예약하기</a></div>
         	<div><a href="#"><img src="./icons/ico_bell_black.svg"></a></div>
         	<div><a href="#"><img src="./icons/ico_star_black.svg"></a></div>
         	<div><a href="#"><img src="./icons/ico_heart_black.svg"></a></div>
         </div>
+        </div>
+       </div>
         <h1>${result.facltNm }</h1>
         <div class="introduction">
             <div class="intro">
