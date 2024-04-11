@@ -35,7 +35,7 @@ public class AppointmentController {
 	
 
 //
-//		//예약 조회
+//		//예약 조회(마이페이지)
 //		@GetMapping("/insert_userappointment")
 //		@ResponseBody
 //		public ResponseEntity<Map<String,Object>> insert_userappointment(HttpSession session){
@@ -57,7 +57,7 @@ public class AppointmentController {
 //		
 //	
 //
-//		//예약 삭제
+//		//예약 삭제(마이페이지)
 //	
 //		@PostMapping("/delete_userappointment")
 //		@ResponseBody
@@ -81,7 +81,7 @@ public class AppointmentController {
 //		}
 //
 //		
-//		//사업자 예약 조회
+//		//사업자 예약 조회(마이페이지)
 //		@GetMapping("/insert_bizappointment")
 //		@ResponseBody
 //		public ResponseEntity<Map<String,Object>> insert_bizappointment(HttpSession session){
@@ -102,7 +102,7 @@ public class AppointmentController {
 //		}
 //		
 //		
-//		//사업자 예약 삭제
+//		//사업자 예약 삭제(마이페이지)
 //		@PostMapping("/delete_bizappointment")
 //		@ResponseBody
 //		public ResponseEntity<Integer> delete_bizappointment(@RequestBody String reservationId) {
