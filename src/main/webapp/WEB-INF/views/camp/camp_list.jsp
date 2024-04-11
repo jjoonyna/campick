@@ -152,55 +152,55 @@
 				<br>
 				<br>
 				<div id="pagein"></div>
-<!-- 				<nav id="pagiset pagiset-circ"> -->
-<!-- 					<div class="pagiset-ctrl"> -->
-<!-- 						<a -->
-<%-- 							href="gnb.do?pageNum=1<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>" --%>
-<!-- 							class="pagiset-link pagiset-first" -->
-<!-- 						> -->
-<!-- 							처음 -->
-<!-- 						</a> -->
-<!-- 					</div> -->
-<%-- 					<c:if test="${result.currentPage gt 1}"> --%>
-<!-- 						<div class="pagiset-ctrl"> -->
-<!-- 							<a -->
-<%-- 								href="gnb.do?pageNum=${result.startPage - 1}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>" --%>
-<!-- 								class="pagiset-link pagiset-prev" -->
-<!-- 							> -->
-<!-- 								이전 -->
-<!-- 							</a> -->
-<!-- 						</div> -->
-<%-- 					</c:if> --%>
-<!-- 					<div class="pagiset-list"> -->
-<%-- 						<c:forEach var="i" begin="${result.startPage}" end="${result.endPage}"> --%>
-<!-- 							<a -->
-<%-- 								href="gnb.do?pageNum=${i}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>" --%>
-<%-- 								class="pagiset-link<c:if test="${result.currentPage==i}"> active-fill</c:if>" --%>
-<!-- 							> -->
-<%-- 								${i} --%>
-<!-- 							</a> -->
-<%-- 						</c:forEach> --%>
-<!-- 					</div> -->
-<%-- 					<c:if test="${result.currentPage lt result.lastPage}"> --%>
-<!-- 						<div class="pagiset-ctrl"> -->
-<!-- 							<a -->
-<%-- 								href="gnb.do?pageNum=${result.endPage + 1}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>" --%>
-<!-- 								class="pagiset-link pagiset-next" -->
-<!-- 							> -->
-<!-- 								다음 -->
-<!-- 							</a> -->
-<!-- 						</div> -->
-<%-- 					</c:if> --%>
-<!-- 					<div class="pagiset-ctrl"> -->
-<!-- 						<a -->
-<%-- 							href="gnb.do?pageNum=${result.lastPage}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>" --%>
-<!-- 							class="pagiset-link pagiset-last" -->
-<!-- 							style="width: 100px;" -->
-<!-- 						> -->
-<!-- 							마지막 -->
-<!-- 						</a> -->
-<!-- 					</div> -->
-<!-- 				</nav> -->
+				<nav id="pagiset pagiset-circ">
+					<div class="pagiset-ctrl">
+						<a
+							href="gnb.do?pageNum=1<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
+							class="pagiset-link pagiset-first"
+						>
+							처음
+						</a>
+					</div>
+					<c:if test="${result.currentPage gt 1}">
+						<div class="pagiset-ctrl">
+							<a
+								href="gnb.do?pageNum=${result.startPage - 1}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
+								class="pagiset-link pagiset-prev"
+							>
+								이전
+							</a>
+						</div>
+					</c:if>
+					<div class="pagiset-list">
+						<c:forEach var="i" begin="${result.startPage}" end="${result.endPage}">
+							<a
+								href="gnb.do?pageNum=${i}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
+								class="pagiset-link<c:if test="${result.currentPage==i}"> active-fill</c:if>"
+							>
+								${i}
+							</a>
+						</c:forEach>
+					</div>
+					<c:if test="${result.currentPage lt result.lastPage}">
+						<div class="pagiset-ctrl">
+							<a
+								href="gnb.do?pageNum=${result.endPage + 1}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
+								class="pagiset-link pagiset-next"
+							>
+								다음
+							</a>
+						</div>
+					</c:if>
+					<div class="pagiset-ctrl">
+						<a
+							href="gnb.do?pageNum=${result.lastPage}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
+							class="pagiset-link pagiset-last"
+							style="width: 100px;"
+						>
+							마지막
+						</a>
+					</div>
+				</nav>
 			</div>
 		</div>
 	</main>

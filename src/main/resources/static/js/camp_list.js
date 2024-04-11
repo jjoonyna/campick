@@ -17,7 +17,10 @@ $(function(){
 //		contentType: "application/json",
 //        data : JSON.stringify(formdata),
 		success : function(result){		
-			var content = ""
+			var content = "<div><span>"
+			 content = "<h2 class='textset-tit'>"
+			 content = " 총&nbsp; "+result.listcount+"개의 Pick!<img src='./icons/flag1.gif''>"
+			 content = "</h2></span></div>"
 			$.each(result.camplist, function (index, item) {
 		          content += "<div class='cardset cardset-hor cardset-xl' id='cardInto'>";
 		          content += "<figure class='cardset-figure'>";
@@ -63,9 +66,8 @@ $(function(){
             var pagination = "<br><br>";
              pagination += "<nav id='pagiset pagiset-circ'>";
              pagination += "<div class='pagiset-ctrl'>";
-             if(search==null && induty==null && doNm==nulll && sigunguNm==nulll){
 			 
-             pagination += "<a href='camplist?page=1' class='pagiset-link pagiset-first'>";
+             pagination += "<a class='pagiset-link pagiset-first' href='camp_list?page=1'";
              pagination += "class='pagiset-link pagiset-first'";
              pagination += ">";
              pagination += "처음";
@@ -73,7 +75,7 @@ $(function(){
              pagination += "</div>";
              if(result.page>1){
              pagination += "<div class='pagiset-ctrl'>";
-             pagination += "<a href='camplist?page="+result.startPage - 1+"class='pagiset-link pagiset-first'>";
+             pagination += "<a class='pagiset-link pagiset-first' href='camp_list?page="+result.startPage - 1;
              pagination += ">";
              pagination += "이전";
              pagination += "</a>";
@@ -82,7 +84,7 @@ $(function(){
              pagination += "<div class='pagiset-list'>";
              
             for (var i = result.startPage; i <= result.endPage; i++) {
-                pagination += "<a href='camplist?page="+i+"class='pagiset-link";
+                pagination += "<a class='pagiset-link' href='camp_list?page="+i;
                 if(result.page==i){
 					pagination += "active-fill"
 				}
@@ -92,21 +94,20 @@ $(function(){
             }
             if(result.page<result.pageCount){
             pagination += "<div class='pagiset-ctrl'>";
-            pagination += "<a href='camplist?page="+result.endPage + 1+"class='pagiset-link pagiset-next'";
+            pagination += "<a class='pagiset-link pagiset-next' href='camp_list?page="+result.endPage + 1;
             pagination += ">";
             pagination += "다음";
             pagination += "</a>";
             pagination += "</div>";
 			}
             pagination += "<div class='pagiset-ctrl'>";
-            pagination += "<a ";
-            pagination += "href='camplist?page="+result.lastPage+"class='pagiset-link pagiset-last'";
+            pagination += "<a class='pagiset-link pagiset-last'";
+            pagination += "href='camp_list?page="+result.lastPage;
             pagination += ">";
             pagination += "마지막";
             pagination += "</a>";
             pagination += "</div>";
             pagination += "</nav>";
-            }
             $("#pagein").html(pagination);
 			
 		}			

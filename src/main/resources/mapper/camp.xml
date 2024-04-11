@@ -110,7 +110,7 @@
 
 		</where>
 
-		order by cmp_like desc limit #{start},10
+		order by firstImageUrl desc limit #{start},10
 
 	</select>
 

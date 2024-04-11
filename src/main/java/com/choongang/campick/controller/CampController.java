@@ -73,6 +73,8 @@ public class CampController {
 		map.put("listcount", listcount);
 		map.put("search", camp.getSearch());
 		map.put("page",pageno );
+		System.out.println(page);
+		System.out.println(map.get("listcount"));
 		System.out.println(map.get("camplist"));
 		System.out.println(map.get("search"));
 		return new ResponseEntity<>(map,HttpStatus.OK);

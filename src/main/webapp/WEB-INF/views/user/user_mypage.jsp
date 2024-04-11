@@ -25,19 +25,19 @@
 						<li><button id="delete">회원탈퇴</button></li>
 					</ul>
 				</li>
-				<li>
-					<button>찜목록</button>
-				</li>
-				<li>
-					<button>예약목록</button>
-				</li>
-				<li>
-					<button id="review">내후기</button>
-					<ul id="review_list">
-						<li><button>댓글후기</button></li>
-						<li><button>이용후기</button></li>
-					</ul>
-				</li>
+<!-- 				<li> -->
+<!-- 					<button>찜목록</button> -->
+<!-- 				</li> -->
+<!-- 				<li> -->
+<!-- 					<button>예약목록</button> -->
+<!-- 				</li> -->
+<!-- 				<li> -->
+<!-- 					<button id="review">내후기</button> -->
+<!-- 					<ul id="review_list"> -->
+<!-- 						<li><button>댓글후기</button></li> -->
+<!-- 						<li><button>이용후기</button></li> -->
+<!-- 					</ul> -->
+<!-- 				</li> -->
 			</ul>
 		</div>
 		<div id="line"></div>
