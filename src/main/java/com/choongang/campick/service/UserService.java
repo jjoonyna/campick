@@ -3,6 +3,7 @@ package com.choongang.campick.service;
 import org.springframework.stereotype.Service;
 
 import com.choongang.campick.mapper.UserDAO;
+import com.choongang.campick.model.Camp;
 import com.choongang.campick.model.User;
 
 import lombok.RequiredArgsConstructor;
@@ -97,6 +98,7 @@ public class UserService {
 	public User nickcheck(String user_nick) {
 		return dao.nickcheck(user_nick);
 	}
+
 
 
 

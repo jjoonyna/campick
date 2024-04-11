@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.choongang.campick.mapper.AppointmentDAO;
 import com.choongang.campick.model.Appointment;
+import com.choongang.campick.model.Camp;
 import com.choongang.campick.model.User;
 
 import lombok.RequiredArgsConstructor;
@@ -36,8 +37,16 @@ public class AppointmentService {
 	
 	// 사업자 회원 예약 삭제
 
-
-
+	
+	//예약페이지
+	public Camp selectapoint(int contentId) {
+		return dao.selectapoint(contentId);
+	}
+	//예약정보확인
+	public Appointment selectresult(int apt_no) {
+		return dao.selectresult(apt_no);
+	}
+	
 
 
 }
