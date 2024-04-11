@@ -8,12 +8,14 @@ $(function(page){
 			$.each(result.camplist, function (index, item) {
 		          content += "<div class='cardset cardset-hor cardset-xl' id='cardInto'>";
 		          content += "<figure class='cardset-figure'>";
-		          content += "<img class='cardset-img' src='"+(item.firstImageUrl)+"' alt='위치아이콘'">";
+		          content += "<img class='cardset-img' src='"+(item.firstImageUrl)+"' alt='위치아이콘'>";
 		          content += "</figure>";
 		          content += "<div class='cardset-body'>";
 		          content += "<h2 class='cardset-tit'>"+item.facltNm+"<h2>";
 		          content += "<h6 class='cardset-desc'>"+item.lineIntro+"<h6>";
+		          content += "<div class='badgeset-wrap'>"
 		          content += "<div style='display: flex; align-item: center;'>";
+		          
 		    });			
 			$("#cardlist").html(content);
 			
