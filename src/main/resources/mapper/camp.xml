@@ -114,15 +114,8 @@
 
 	</select>
 
-
-
-
-
-
-
 	<!-- 캠핑장 등록하기 -->
 	<insert id="insertBizCmp" parameterType="camp">
-
 		insert into camp(
 			contentId,
 			user_id,

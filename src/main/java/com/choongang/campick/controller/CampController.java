@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.choongang.campick.model.Camp;
-import com.choongang.campick.model.User;
 import com.choongang.campick.service.CampService;
 
 import jakarta.servlet.http.HttpSession;
@@ -31,14 +30,17 @@ public class CampController {
 		service.campinsert(camp);
 		System.out.println("성공");
 	}
+	
 	@GetMapping("camp_map")
 	public String camp_map(){
 		return "camp/camp_map";
 	}
+	
 	@GetMapping("camp_list")
 	public String camp_list(){
 		return "camp/camp_list";
 	}
+	
 	//캠핑장 목록 불러오기 기본(페이징 형식으로) 스크롤 방식으로 바뀔시 변경예정
 	@GetMapping("camplist/{page}")
 	@ResponseBody
@@ -99,9 +101,6 @@ public class CampController {
 	}
 	
 	
-	
-	
-	
 	/*
 	 * 사업자 소유 캠핑장 삭제하기
 	 */
@@ -123,39 +122,5 @@ public class CampController {
 
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
-	//캠핑장 상세페이지
-	   @GetMapping("/cmp_content/{contentId}")
-	    @ResponseBody
-	    public ResponseEntity<Map<String, Object>> cmp_content(@RequestBody Camp camp, @PathVariable("contentid") String contentid ) {
-	        Camp db = service.getCamp(contentid); // 상세정보 구하기
-
-	        Map<String, Object> map = new HashMap<>();
-	        map.put("db", db);
-
-	        return new ResponseEntity<>(map, HttpStatus.OK);
-	    }
-
-	   //상세페이지 아아디
-		@PostMapping("/contentId")
-		@ResponseBody
-		public ResponseEntity<Integer> login_user(@RequestBody Camp camp,HttpSession session) {
-			//	@PathVariable("user_id") String user_id
-
-			System.out.println("contentId : " + camp.getContentId()); // 입력한 아이디가 제대로 들어가는지 확인
-
-			Camp db = service.selectcontent( camp.getContentId()); // 회원이 있는지 없는지 확인
-				int result = 0;
-			
-					// 따라서 위의 두 조건절이 true 값이어야 로그인 가능함.
-					System.out.println("완료!");
-					session.setAttribute("contentid", db.getContentId());
-					return new ResponseEntity<>(result, HttpStatus.OK);
-					}
-
-		}
-
-	   
-	   
-	   
-	   
 	
+}

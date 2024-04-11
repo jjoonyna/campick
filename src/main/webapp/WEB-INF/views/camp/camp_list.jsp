@@ -12,99 +12,101 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./css/camp_list.css">
 <script src="./js/camp_list.js"></script>
-<link rel="icon" href="./images/logo2.png">
-<title>camplist</title>
 <jsp:include page="/resources/commons/gnb.jsp" />
+<link rel="icon" href="./images/logo2.png">
+<title>CAMPICK</title>
 </head>
 <body>
 
 	<main>
 
-      <!-- 상단 검색 영역 -->
-      <div class="campland-N19" data-bid="MXLu84reVj" id="">
-         <div class="contents-inner">
-            <div class="contents-container container-md">
-               <div class="textset textset-sub"
-                  style="text-align: center; font-size: 42px; color: #1F18F0;">
-                  <p style="font-family: 'Ycomputer-Regular', Times, serif;">
-                     "어디로 떠나볼까..? "<img src="../icons/car1.gif"
-                        style="width: 40px; height: 40px;">
-                  </p>
-               </div>
-               <br> <br>
 
 
 
-
-<form>
-               <!-- 검색 항목 -->
-               <div style="display: flex; justify-content: center; flex-wrap: wrap;">
-                  <div style="margin-right: 20px; margin-bottom: 20px;">
-                     <label for="induty" style="font-size: 13px;">테마</label>
-                     <select id="induty" name="induty" style="width: 65px; height: 20px;">
-                        <option value="" disabled selected>전체</option>
-                        <option value="motel">일반야영</option>
-                        <option value="autocamp">자동차</option>
-                        <option value="motel">트레일러</option>
-                        <option value="caravan">카라반</option>
-                        <option value="caravan">글램핑</option>
-                     </select>
-                  </div>
-                  <div style="margin-right: 4px;">
-                     <label for="doNm" style="font-size: 13px;">지역</label>
-                     <select id="doNm" name="doNm" style="width: 50px; height: 20px;">
-                        <option value="" disabled selected>전체</option>
-                        <option value="seoul">서울</option>
-                        <option value="gyeonggi">경기도</option>
-                        <option value="gangwon">강원도</option>
-                     </select>
-                  </div>
-                  <div style="margin-bottom: 20px;">
-                     <label for="sigunguNm" style="font-size: 13px;"></label> <select
-                        id="sigunguNm" name="sigunguNm" style="width: 50px; height: 20px;">
-                        <option value="" disabled selected>전체</option>
-                        <option value="chuncheon">춘천</option>
-                        <option value="gangneung">강릉</option>
-                     </select>
-                  </div>
-               </div>
+		<!-- 상단 검색 영역 -->
+		<div class="campland-N19" data-bid="MXLu84reVj" id="">
+			<div class="contents-inner">
+				<div class="contents-container container-md">
+					<div class="textset textset-sub"
+						style="text-align: center; font-size: 42px; color: #1F18F0;">
+						<p style="font-family: 'Ycomputer-Regular', Times, serif;">
+							"어디로 떠나볼까..? "<img src="../icons/car1.gif"
+								style="width: 40px; height: 40px;">
+						</p>
+					</div>
+					<br> <br>
 
 
 
 
 
+					<!-- 검색 항목 -->
+					<div style="display: flex; justify-content: center; flex-wrap: wrap;">
+						<div style="margin-right: 20px; margin-bottom: 20px;">
+							<label for="induty" style="font-size: 18px; margin-right: 8px;">테마</label>
+							<select id="induty" name="induty" style="width: 150px;">
+								<option value="" disabled selected>전체</option>
+								<option value="motel">일반야영</option>
+								<option value="autocamp">자동차</option>
+								<option value="motel">트레일러</option>
+								<option value="caravan">카라반</option>
+								<option value="caravan">글램핑</option>
+							</select>
+						</div>
+						<div style="margin-right: 2px;">
+							<label for="doNm" style="font-size: 18px; margin-right: 8px;">지역</label>
+							<select id="doNm" name="doNm">
+								<option value="" disabled selected>전체</option>
+								<option value="seoul">서울</option>
+								<option value="gyeonggi">경기도</option>
+								<option value="gangwon">강원도</option>
+							</select>
+						</div>
+						<div style="margin-bottom: 20px;">
+							<label for="sigunguNm" style="font-size: 18px;"></label> <select
+								id="sigunguNm" name="sigunguNm">
+								<option value="" disabled selected>전체</option>
+								<option value="chuncheon">춘천</option>
+								<option value="gangneung">강릉</option>
+							</select>
+						</div>
+					</div>
 
-               <!-- 검색창 -->
-               <div style="display: flex; justify-content: center;">
-                  
-                     <label for="search">검색</label>
-                     <input type="text" id="search" name="search"
-                        placeholder="캠핑장명을 검색해주세요"
-                        >
-               
-               </div>
 
 
 
 
-               <!-- 검색 버튼 -->
-               <div
-                  style="display: flex; justify-content: center; margin-top: 20px;">
-                  <button id="searchBtn">검색</button>
-               </div>
-               <br> <br> <br> <br>
-<!--                <div> -->
-<!--                   <span> -->
-<!--                      <h2 class="textset-tit" style="margin-bottom: 18px; font-size: 30px;"> -->
-<%--                         총&nbsp;<c:out value="${result.listcount}"/>개의 Pick!<img src="../icons/flag1.gif" style="width: 40px; height: 40px; margin-left: 0px;"> --%>
-                        
-<!--                      </h2> -->
-<!--                   </span> -->
-<!--                </div> -->
-                  </form>
-               
-               
-<!-- 					카드 세트 -->
+
+					<!-- 검색창 -->
+					<div style="display: flex; justify-content: center;">
+						<form action="/search" method="GET"
+							style="display: flex; align-items: center;">
+							<label for="search" style="font-size: 18px; margin-right: 15px;">검색</label>
+							<input type="text" id="search" name="search"
+								placeholder="캠핑장명을 검색해주세요"
+								style="width: 430px; height: 40px; border: 2px solid #ccc; border-radius: 8px; padding: 0 16px;">
+						</form>
+					</div>
+
+
+
+
+					<!-- 검색 버튼 -->
+					<div
+						style="display: flex; justify-content: center; margin-top: 20px;">
+						<button id="searchBtn">검색</button>
+					</div>
+					<br> <br> <br> <br>
+					<div>
+						<span>
+							<h2 class="textset-tit" style="margin-bottom: 18px; font-size: 30px;">
+								총&nbsp;<c:out value="${result.listcount}"/>개의 Pick!<img src="../icons/flag1.gif" style="width: 40px; height: 40px; margin-left: 0px;">
+								
+							</h2>
+						</span>
+					</div>
+
+					<!-- 카드 세트 -->
 					<div id="cardlist">
 					
 							<c:forEach items="${camplist}" var="vo" varStatus="varStatus">
@@ -152,55 +154,58 @@
 <!-- 				페이지 -->
 				<br>
 				<br>
-				<div id="pagein"></div>
 				<nav id="pagiset pagiset-circ">
-<!-- 					<div class="pagiset-ctrl"> -->
-<!-- 						<a -->
-<%-- 							href="gnb.do?pageNum=1<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>" --%>
-<!-- 							class="pagiset-link pagiset-first" -->
-<!-- 						> -->
-<!-- 							처음 -->
-<!-- 						</a> -->
-<!-- 					</div> -->
-<%-- 					<c:if test="${result.currentPage gt 1}"> --%>
-<!-- 						<div class="pagiset-ctrl"> -->
-<!-- 							<a -->
-<%-- 								href="gnb.do?pageNum=${result.startPage - 1}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>" --%>
-<!-- 								class="pagiset-link pagiset-prev" -->
-<!-- 							> -->
-<!-- 								이전 -->
-<!-- 							</a> -->
-<!-- 						</div> -->
-<%-- 					</c:if> --%>
-<!-- 					<div class="pagiset-list"> -->
-<%-- 						<c:forEach var="i" begin="${result.startPage}" end="${result.endPage}"> --%>
-<!-- 							<a -->
-<%-- 								href="gnb.do?pageNum=${i}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>" --%>
-<%-- 								class="pagiset-link<c:if test="${result.currentPage==i}"> active-fill</c:if>" --%>
-<!-- 							> -->
-<%-- 								${i} --%>
-<!-- 							</a> -->
-<%-- 						</c:forEach> --%>
-<!-- 					</div> -->
-<%-- 					<c:if test="${result.currentPage lt result.lastPage}"> --%>
-<!-- 						<div class="pagiset-ctrl"> -->
-<!-- 							<a -->
-<%-- 								href="gnb.do?pageNum=${result.endPage + 1}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>" --%>
-<!-- 								class="pagiset-link pagiset-next" -->
-<!-- 							> -->
-<!-- 								다음 -->
-<!-- 							</a> -->
-<!-- 						</div> -->
-<%-- 					</c:if> --%>
-<!-- 					<div class="pagiset-ctrl"> -->
-<!-- 						<a -->
-<%-- 							href="gnb.do?pageNum=${result.lastPage}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>" --%>
-<!-- 							class="pagiset-link pagiset-last" -->
-<!-- 							style="width: 100px;" -->
-<!-- 						> -->
-<!-- 							마지막 -->
-<!-- 						</a> -->
-<!-- 					</div> -->
+					<div class="pagiset-ctrl">
+						<a
+							href="gnb.do?pageNum=1<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
+							class="pagiset-link pagiset-first"
+							style="width: 100px;"
+						>
+							처음
+						</a>
+					</div>
+					<c:if test="${result.currentPage gt 1}">
+						<div class="pagiset-ctrl">
+							<a
+								href="gnb.do?pageNum=${result.startPage - 1}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
+								class="pagiset-link pagiset-prev"
+								style="width: 100px;"
+							>
+								이전
+							</a>
+						</div>
+					</c:if>
+					<div class="pagiset-list">
+						<c:forEach var="i" begin="${result.startPage}" end="${result.endPage}">
+							<a
+								href="gnb.do?pageNum=${i}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
+								class="pagiset-link<c:if test="${result.currentPage==i}"> active-fill</c:if>"
+								style="width: 100px;"
+							>
+								${i}
+							</a>
+						</c:forEach>
+					</div>
+					<c:if test="${result.currentPage lt result.lastPage}">
+						<div class="pagiset-ctrl">
+							<a
+								href="gnb.do?pageNum=${result.endPage + 1}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
+								class="pagiset-link pagiset-next"
+								style="width: 100px;"
+							>
+								다음
+							</a>
+						</div>
+					</c:if>
+					<div class="pagiset-ctrl">
+						<a
+							href="gnb.do?pageNum=${result.lastPage}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
+							class="pagiset-link pagiset-last"
+							style="width: 100px;"
+						>
+							마지막
+						</a>
+					</div>
 				</nav>
 			</div>
 		</div>

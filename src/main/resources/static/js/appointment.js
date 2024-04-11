@@ -132,14 +132,9 @@ $(function(){
          success : function(result){
             if(result!=null){
                //성공
-               $("#user_id").val(result.user_id);
-               $("#firstImageUrl").val(result.firstImageUrl);
-               $("#lineIntro").val(result.lineIntro);
-               $("#intro").val(result.intro);
-               $("#faclNm").val(result.faclNm);
-               $("#intro").val(result.intro);
-               $("#cmp_staydate").val(result.cmp_staydate);
-               $("#price").val(result.price);
+               $("#facltNm").val(result.facltNm);
+               $("#cmp_price").val(result.cmp_price);
+               $("#cmp_staydate").val(result.cmp_startdate);
                $("#cmp_maxpp").val(result.cmp_maxpp);
 			}else if(result==null){
 				//정보 불러오기 실패
@@ -191,7 +186,7 @@ $(function(){
 			};
 		$.ajax({
 			type : "POST",
-			url : "http://localhost:80/apt_user_cmp",
+			url : "http://localhost:80/camp_appointment",
 			contentType: "application/json",
 			data : JSON.stringify(formdata),
 			success : function(result){
