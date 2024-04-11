@@ -2,7 +2,7 @@ package com.choongang.campick.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.choongang.campick.model.User;
+import com.choongang.campick.model.Appointment;
 
 
 @Mapper
@@ -10,8 +10,12 @@ public interface AppointmentDAO {
 
 
 	
-	// 회원 예약 조회
-	User selectuserApponintment(String user_id);
+	// 일반 회원 예약 조회
+	public Appointment selectUserApt(String user_id);
+
+	// 일반 회원 캠핑장 예약하기
+	public int aptUserCamp(Appointment apt);
+
 	
 	// 회원 예약 삭제 
 

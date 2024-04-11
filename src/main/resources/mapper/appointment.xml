@@ -6,9 +6,9 @@
 
 
 	
-	<!-- 회원 예약 조회 -->
-	<insert id="insertuser2" parameterType="cmp_user2">
-		INSERT INTO cmp_user(
+	<!-- 일반 회원 예약 하기 -->
+	<insert id="aptUserCamp" parameterType="apt">
+		INSERT INTO appointment(
 			apt_no,
 			cmp_no,
 			user_id,
@@ -28,10 +28,20 @@
 			#{apt_pp},
 			#{apt_req},
 			#{apt_staydate},
-			#{apt_staydate},
-			#{apt_at},
-			'u2')
+			#{apt_price},
+			'n')
 		</insert>
+		
+	<!-- 일반회원 예약 상세 조회 -->
+	<select id="selectUserApt" parameterType="String" resultType="apt">
+		select
+		* 
+		from
+		appointment
+		where
+		
+	</select>
+	
 	
 	<!-- 회원 예약 삭제 -->
 	<update id="deleteUser2" parameterType="String">
@@ -42,7 +52,7 @@
 	</update>
 	
 	<!-- 사업자 예약 조회 -->
-<insert id="insertBiz2" parameterType="cmp_user2">
+<insert id="insertBiz2" parameterType="apt">
 		INSERT INTO cmp_user(
 			apt_no,
 			cmp_no,
@@ -68,11 +78,11 @@
 			'b2')
 		</insert>
 
-	<!-- 사업자 예약 삭제 -->
-	<update id="deleteBiz2" parameterType="String">
+	<!-- 사업자가 예약 취소 -->
+	<update id="biz_cancel_apt" parameterType="String">
 		UPDATE cmp_user
 		SET
-		user_kind = 'db2'
+		user_kind = 'b'
 		WHERE user_id=#{user_id}
 	</update>
 
