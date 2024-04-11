@@ -8,37 +8,16 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<jsp:include page="/resources/commons/header.jsp" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="./css/reset.css">
-<link rel="stylesheet" href="./css/camp.css">
-<link rel="stylesheet" href="./css/plugin.css">
-<link rel="stylesheet" href="./css/template.css">
-<link rel="stylesheet" href="./css/common.css">
-<link rel="stylesheet" href="./css/style.css">
-<link rel="stylesheet" href="./css/setting.css">
+<link rel="stylesheet" href="./css/camp_list.css">
+<script src="./js/camp_list.js"></script>
+<jsp:include page="/resources/commons/gnb.jsp" />
 <link rel="icon" href="./images/logo2.png">
 <title>CAMPICK</title>
 </head>
 <body>
-	<header>
-		<div class="wrap">
-			<h1 class="logo">
-				<a href="#"><img src="\images\logo2.png"></a> <span
-					class="sound-only">사이트로고</span>
-			</h1>
-			<nav class="gnb-wrap">
-				<ul class="gnb">
-					<li class="depth1"><a href="#">캠픽정보</a></li>
-					<li class="depth1"><a href="#">캠픽지도</a></li>
-					<li class="depth1"><a href="#">캠픽후기</a></li>
-					<li class="depth1"><a href="#">캠픽알림</a></li>
-				</ul>
-			</nav>
-			<div class="gnb-right">
-				<a href="#"><img src="../icons/ico_profile_black.svg" alt="로그인"></a>
-			</div>
-		</div>
-	</header>
+
 	<main>
 
 
@@ -128,7 +107,7 @@
 					</div>
 
 					<!-- 카드 세트 -->
-					
+					<div id="cardlist">
 							<c:forEach items="${camplist}" var="vo" varStatus="varStatus">
 								<div class="cardset cardset-hor cardset-xl" id="cardInto<c:out value="${varStatus.index}"/>">
 									<figure class="cardset-figure">
@@ -168,12 +147,13 @@
 									</div>
 								</div>
 							</c:forEach>
+					</div>
 				</div>
 
 				<!-- 페이지 -->
 				<br>
 				<br>
-				<nav class="pagiset pagiset-circ">
+				<nav id="pagiset pagiset-circ">
 					<div class="pagiset-ctrl">
 						<a
 							href="gnb.do?pageNum=1<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
