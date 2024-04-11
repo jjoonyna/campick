@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 @JsonAutoDetect
-@Alias("cmp_user2")
+@Alias("apt")
 public class Appointment {
 	private String apt_no;			// 예약 번호
 	private String cmp_no;			// 캠핑장 번호

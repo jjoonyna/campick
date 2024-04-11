@@ -20,7 +20,6 @@ public class User {
 	private String user_code;	// 우편번호
 	private String user_addr1;	// 기본주소
 	private String user_addr2;	// 상세주소
-	private String user_pic;	// 프로필사진
 	private String user_email;	// 이메일
 	private String user_kind; 	// 회원 상태
 	private String user_gender; // 성별
