@@ -1,4 +1,10 @@
-﻿	 	 
+﻿//취소버튼 클릭시
+$(function(){
+	$('.cancle').click(function(){
+		location="biz_mypage";
+	});
+});
+	 	 
 function post_search(){
 	alert("우편번호 검색 버튼을 클릭하세요!");
 }
@@ -175,7 +181,11 @@ function domain_list() {
 //가입완료 내용(일반)
 $(function(){
    $("#user_join_ok").click(function(){
-
+  	if($.trim($("#image").val())==""){
+		 alert("프로필 사진 넣어 주세요!");
+		 $("#image").val("").focus();
+		 return false;
+	 }
 	 if($.trim($("#user_nm").val())==""){
 		 alert("이름을 입력하세요!");
 		 $("#user_nm").val("").focus();
@@ -247,6 +257,7 @@ $(function(){
 	 if(nick_check()==false){
 		 return false;
 	 }
+		var	user_pic = $('#image').val()
 		var formdata = {
 			user_id: $('#user_id').val(),
 			user_pw: $('#user_pw').val(),
@@ -263,14 +274,14 @@ $(function(){
 			};
       $.ajax({
          type : "POST",
-         url : encodeURI("http://localhost:80/insert_user"),
+         url : encodeURI("http://localhost:80/insert_user/"+user_pic),
          contentType: "application/json",
          data : JSON.stringify(formdata),
          success : function(result){
             if(result==1){
                //성공
                alert("회원가입 완료");
-               location.href="./login.jsp";
+               location.href="login";
 			}else if(result==0){
 				//정보 불러오기 실패
 				alert("로그인 실패");
@@ -406,7 +417,7 @@ $(function(){
             if(result==1){
                //성공
                alert("회원가입 완료");
-               location.href="./login.jsp";
+               location.href="login";
 			}else if(result==0){
 				//정보 불러오기 실패
 				alert("로그인 실패");

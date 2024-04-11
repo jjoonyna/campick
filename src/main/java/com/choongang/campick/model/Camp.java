@@ -14,6 +14,7 @@ public class Camp {
 	 String facltNm;
 	 String lctCl;
 	 String allar; 
+	 String lineIntro;
 	 String intro;
 	 String featureNm;
 	 String induty;
@@ -56,4 +57,5 @@ public class Camp {
 	 Date cmp_regDate;
 	 
 	 int start;
+	 String search;
 }

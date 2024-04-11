@@ -24,6 +24,7 @@
 				<table id="join_t">
 
 				
+				
 
 					<tr>
 						<th>이름</th>
@@ -111,7 +112,7 @@
 
 				<div id="join_menu">
 					<input type="button" value="회원가입" class="button" id="user_join_ok" />
-					&nbsp <input type="button" value="가입취소" class="button" />
+					&nbsp <input type="button" value="가입취소" class="cancle" />
 
 				</div>
 

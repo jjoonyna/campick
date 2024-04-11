@@ -1,3 +1,11 @@
+//취소버튼 클릭시
+$(function(){
+	$('.cancle').click(function(){
+		location="biz_mypage";
+	});
+});
+
+
 //내정보 클릭시 내정보목록 보여주기 
 $(function(){
 	$("#myInfo").click(function(){
@@ -46,16 +54,16 @@ $(function(){
          success : function(result){
             if(result!=null){
                //성공
-               $("#user_id").val(result.user_id);
-               $("#user_biz").val(result.user_biz);
-               $("#user_nm").val(result.user_nm);
-               $("#user_nick").val(result.user_nick);
-               $("#user_birth").val(result.user_birth);
-               $("#user_tel").val(result.user_tel);
-               $("#user_code").val(result.user_code);
-               $("#user_addr1").val(result.user_addr1);
-               $("#user_addr2").val(result.user_addr2);
-               $("#user_email").val(result.user_email);
+               $("#info_id").val(result.user_id);
+               $("#info_biz").val(result.user_biz);
+               $("#info_nm").val(result.user_nm);
+               $("#info_nick").val(result.user_nick);
+               $("#info_birth").val(result.user_birth);
+               $("#info_tel").val(result.user_tel);
+               $("#info_code").val(result.user_code);
+               $("#info_addr1").val(result.user_addr1);
+               $("#info_addr2").val(result.user_addr2);
+               $("#info_email").val(result.user_email);
 			}else if(result==null){
 				//정보 불러오기 실패
 				alert("정보 불러오기 실패");
@@ -82,6 +90,29 @@ $(function(){
 		$("#pw_change_display").show(); 
 		$("#delete_display").hide(); 
 		
+		
+		$.ajax({
+         type : "GET",
+         url : encodeURI("http://localhost:80/biz_info"),
+         contentType: "application/json",
+         success : function(result){
+            if(result!=null){
+               //성공
+               $("#change_id").val(result.user_id);
+			}else if(result==null){
+				//정보 불러오기 실패
+				alert("정보 불러오기 실패");
+				history.back();
+			}
+            
+         },
+         error: function(xhr, status, error) {
+           console.error("AJAX 요청 실패:", status, error); 
+           alert("서버에서 데이터를 가져오는 중 오류가 발생했습니다.");
+          }
+         
+      });
+		
 	});
 });
 	//회원탈퇴 클릭시
@@ -92,6 +123,28 @@ $(function(){
 		$("#pw_change_display").hide(); 
 		$("#delete_display").show(); 
 		
+		
+		$.ajax({
+         type : "GET",
+         url : encodeURI("http://localhost:80/biz_info"),
+         contentType: "application/json",
+         success : function(result){
+            if(result!=null){
+               //성공
+               $("#delete_id").val(result.user_id);
+			}else if(result==null){
+				//정보 불러오기 실패
+				alert("정보 불러오기 실패");
+				history.back();
+			}
+            
+         },
+         error: function(xhr, status, error) {
+           console.error("AJAX 요청 실패:", status, error); 
+           alert("서버에서 데이터를 가져오는 중 오류가 발생했습니다.");
+          }
+         
+      });
 	});
 });
 
@@ -178,14 +231,14 @@ function nick_check(){
 $(function(){
    $("#user_change_ok").click(function(){
 	
-	 if($.trim($("#user_nm").val())==""){
+	 if($.trim($("#info_nm").val())==""){
 		 alert("이름을 입력하세요!");
-		 $("#user_nm").val("").focus();
+		 $("#info_nm").val("").focus();
 		 return false;
 	 }
-	 if($.trim($("#user_nick").val())==""){
+	 if($.trim($("#info_nick").val())==""){
 		 alert("닉네임을 입력하세요!");
-		 $("#user_nick").val("").focus();
+		 $("#info_nick").val("").focus();
 		 return false;
 	 }
 	 if($.trim($("#info_pw").val())==""){
@@ -193,50 +246,65 @@ $(function(){
 		 $("#info_pw").val("").focus();
 		 return false;
 	 }
-	 if($.trim($("#user_birth").val())==""){
+	 if($.trim($("#info_birth").val())==""){
 		 alert("생년월일를 입력하세요!");
-		 $("#user_birth").val("").focus();
+		 $("#info_birth").val("").focus();
 		 return false;
 	 }
-	 if($.trim($("#user_tel").val())==""){
+	 if($.trim($("#info_tel").val())==""){
 		 alert("휴대폰 번호를 입력하세요!");
-		 $("#user_tel").val("").focus();
+		 $("#info_tel").val("").focus();
 		 return false;
 	 }
-	 if($.trim($("#user_code").val())==""){
+	 if($.trim($("#info_code").val())==""){
 		 alert("우편번호를 입력하세요!");
-		 $("#user_code").val("").focus();
+		 $("#info_code").val("").focus();
 		 return false;
 	 }
-	 if($.trim($("#user_addr1").val())==""){
+	 if($.trim($("#info_addr1").val())==""){
 		 alert("기본 주소를 입력하세요!");
-		 $("#user_addr1").val("").focus();
+		 $("#info_addr1").val("").focus();
 		 return false;
 	 }
-	 if($.trim($("#user_addr2").val())==""){
+	 if($.trim($("#info_addr2").val())==""){
 		 alert("상세 주소를 입력하세요!");
-		 $("#user_addr2").val("").focus();
+		 $("#info_addr2").val("").focus();
 		 return false;
 	 }
 
-	 if($.trim($("#user_email").val())==""){
+	 if($.trim($("#info_email").val())==""){
 		 alert("이메일 입력하세요!");
-		 $("#user_email").val("").focus();
+		 $("#info_email").val("").focus();
 		 return false;
 	 }
-      var user = $('#user_change_ok').serialize();
+      var formdata = {
+			user_id: $('#info_id').val(),
+			user_pw: $('#info_pw').val(),
+			user_nm: $('#info_nm').val(),
+			user_nick: $('#info_nick').val(),
+			user_birth: $('#info_birth').val(),
+			user_tel: $('#info_tel').val(),
+			user_code: $('#info_code').val(),
+			user_addr1: $('#info_addr1').val(),
+			user_addr2: $('#info_addr2').val(),
+			user_email: $('#info_email').val(),
+			};
       $.ajax({
          type : "POST",
-         url : "http://localhost:80/user_change_ok",
+         url : "http://localhost:80/update_biz",
          contentType: "application/json",
-         data : JSON.stringify(user),
+         data : JSON.stringify(formdata),
          success : function(result){
             if(result==1){
                //성공
+               alert("정보수정 완료");
+               location="biz_mypage";
             }else if(result==-1){
                //정보 불러오기 실패
-            }else if(result==2){
+               alert("비밀번호가 다릅니다");
+            }else if(result==0){
                //비번 다름
+              	alert("회원정보 수정 실패");
             }
             
          },
@@ -252,7 +320,7 @@ $(function(){
 $(function(){
    $("#pw_change_ok").click(function(){
 	   
-	 if($.trim($("#user_pw").val())==""){
+	 if($.trim($("#change_pw").val())==""){
 		 alert("현재 비밀번호를 입력하세요!");
 		 $("#user_pw").val("").focus();
 		 return false;
@@ -274,19 +342,27 @@ $(function(){
 		 $("#new_user_pw").focus();
 		 return false;
 	 }
-      var user = $('#pw_change_ok').serialize();
+       var formdata = {
+			user_id: $('#change_id').val(),
+			user_pw: $('#change_pw').val(),
+			};
+		var new_pw = $('#new_user_pw').val();
       $.ajax({
          type : "POST",
-         url : "http://localhost:80/pw_change_ok",
+         url : "http://localhost:80/updatemybiz_pwd/"+new_pw,
          contentType: "application/json",
-         data : JSON.stringify(user),
+         data : JSON.stringify(formdata),
          success : function(result){
             if(result==1){
                //성공
+               alert("정보수정 완료");
+               location="login";
             }else if(result==-1){
                //정보 불러오기 실패
-            }else if(result==2){
+               alert("비밀번호가 다릅니다");
+            }else if(result==0){
                //비번 다름
+              	alert("회원정보 수정 실패");
             }
             
          },
@@ -308,19 +384,26 @@ $(function(){
 		 return false;
 	 }
 	
-      var user = $('#delete_ok').serialize();
+       var formdata = {
+			user_id: $('#delete_id').val(),
+			user_pw: $('#delete_pw').val(),
+			};
       $.ajax({
          type : "POST",
-         url : "http://localhost:80/delete_ok",
+         url : "http://localhost:80/delete_biz",
          contentType: "application/json",
-         data : JSON.stringify(user),
+         data : JSON.stringify(formdata),
          success : function(result){
             if(result==1){
                //성공
-            }else if(result==-1){
+                alert("회원탈퇴 완료");
+               location="login";
+            }else if(result==0){
                //정보 불러오기 실패
-            }else if(result==2){
+               alert("회원탈퇴 실패");
+            }else if(result==-1){
                //비번 다름
+               alert("비밀번호가 틀렸습니다");
             }
             
          },

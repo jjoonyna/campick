@@ -114,7 +114,7 @@
 				<div id="join_menu">
 					<input type="button" id="biz_join_ok" value="회원가입" class="button" />
 					&nbsp <input type="button" id="biz_join_cancle" value="가입취소"
-						class="button" />
+						class="cancle" />
 				</div>
 
 			</form>

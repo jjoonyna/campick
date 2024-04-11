@@ -87,7 +87,7 @@
 #join_wrap #join_menu{
 	margin:30px 0 0 220px;
 }
-#join_wrap #join_menu .button{
+#join_wrap #join_menu .button, .cancle{
     width: 100px; height:30px;
      border-radius: 4px;
     background-color:#F57804;

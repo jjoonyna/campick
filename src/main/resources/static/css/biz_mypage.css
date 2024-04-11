@@ -78,6 +78,7 @@ button{
 }
 #myInfo_check #info_table tr{
 	border-bottom: 2px solid;
+	margin-top: 10px;
 }
 #review_check{
 	margin: 20px 400px;;
@@ -93,4 +94,5 @@ button{
 }
 #review_check #review_table tr{
 	border-bottom: 2px solid;
+	margin-top: 10px;
 }
