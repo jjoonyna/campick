@@ -84,13 +84,13 @@
 		WHERE user_id=#{user_id}
 	</update>
 	
-<select id="selectapoint" parameterType="int" resultType="camp">
-	select * from camp where contentId = #{contentId}
-</select>
+<!-- <select id="selectapoint" parameterType="int" resultType="camp"> -->
+<!-- 	select * from camp where contentId = #{contentId} -->
+<!-- </select> -->
 
-<select id="selectresult" parameterType="int" resultType="cmp_user2">
-	select * from cmp_user where apt_no = #{apt_no}
-</select>
+<!-- <select id="selectresult" parameterType="int" resultType="cmp_user2"> -->
+<!-- 	select * from cmp_user where apt_no = #{apt_no} -->
+<!-- </select> -->
 </mapper>
 
 
