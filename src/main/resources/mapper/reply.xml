@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.choongang.campick.mapper.ReplyDAO">
+
+
+	<!-- 댓글 작성 -->
+	<insert id="insertCmpReply" parameterType="cmp_reply">
+		insert into cmp_reply(
+			cmp_no,
+			user_id,
+			re_content,
+			re_date
+		)values(
+			#{cmp_no},
+			#{user_id},
+			#{re_content},
+			#{re_date}
+		)
+	</insert>
+	
+	<!-- 댓글 조회 : 조회해서 삭제, 뿌려주기등을 위함. -->
+	<select id="selectReply" parameterType="String" resultType="cmp_reply">
+		select
+				* 
+		from
+				cmp_reply
+		where 
+				user_id = #{user_id}
+	</select>
+	
+	<!-- 댓글 삭제 -->
+	<update id="deleteReply" parameterType="cmp_reply">
+		update 
+			cmp_reply 
+		set
+			user_id = #{user_id}
+	</update>
+</mapper>

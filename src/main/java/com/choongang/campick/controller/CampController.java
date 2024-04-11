@@ -78,10 +78,6 @@ public class CampController {
 	
 	
 	
-	//예약 페이지
-    @GetMapping("/camp_appointment")
-    public String loginPage() {
-        return "camp/camp_appointment"; // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
-    }
+
 	
 }
