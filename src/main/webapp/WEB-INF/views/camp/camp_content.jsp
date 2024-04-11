@@ -15,7 +15,8 @@
 <body>
     <main>
         <h1>${result.facltNm }</h1>
-            <div class="images">
+        <div class="main-conteiner">
+            <div class="imageset-img">
             	<c:if test="${result.firstImageUrl != null}">
                  	<img src="${result.firstImageUrl}">
             	</c:if>
@@ -23,7 +24,12 @@
                 	<img src="./images/ai-generated-8673421_1280.jpg" alt="이미지 1">
             	</c:if>
             </div>
-           
+            <div class="contents-right">
+            	<div>최대예약인원 : ${result.cmp_maxpp }</div><br/>
+            	<div>최대숙박일자 : ${result.cmp_staydate }</div><br/>
+            	<div>최대이용금액 : ${result.cmp_price }</div><br/>
+            </div>
+           </div>
         <div class="contents-button">
         	<div><a href="#" class="inqry">예약하기</a></div>
         	<div><a href="#"><img src="./icons/ico_bell_black.svg"></a></div>

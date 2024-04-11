@@ -4,17 +4,25 @@ main h1 { margin: 1.5% 0 4% 0; text-align: center; font-size: 35px; font-family:
 main .main-conteiner{ display: flex; }
 main .imageset-img { width: 30%; justify-content: left; margin: 0 5% 0 20%; }
 main .contents-right{ justify-content: right; margin: 0 20% 0 0; }
-main .contents-right .scriptCalendar{ text-align:center; }
-main .contents-right .scriptCalendar > thead > .days { color:#fffdf5; }
-main .contents-right .scriptCalendar > thead > tr > td { width:50px; height:50px; }
-main .contents-right .scriptCalendar > thead > tr:first-child > td{font-weight:bold;}
-main .contents-right .scriptCalendar > thead > tr:last-child > td{background-color:#1F18F0;}
-main .contents-right .scriptCalendar > tbody > tr > td{width:50px;height:50px;}
-main .contents-right .scriptCalendar .calendarBtn { cursor:pointer; } 
+main .contents-right > div{font-size: 17px;padding: 5px 0;}
 
-main .contents-button{ display: flex; flex-flow: nowrap; }
+
+main .contents-button{ display: flex; flex-flow: row-reverse; margin: 3% 15% 0 0;}
 main .contents-button > div { margin: 20px 20px; }
-main .contents-button div > img { width: 35px; }
+main .contents-button div a > img { width: 35px;}
 main .contents-button div .inqry{ display: inline-block; text-align: center; text-decoration: none; color: #fff; font-weight: bold; width: 110px; border-radius: 22px; background-color: #F57804; line-height: 44px; }
 
-main .introduction{ padding: 5% 0; font-size: 25px; }
+main .introduction{ display: flex; margin: 5% 5%;  align-items: center; }
+main .introduction img{ width: 150px; height: 150;}
+main .introduction .intro{padding: 0 5%;}
+
+main .products{padding: 2% 10%; font-size: 25px; font-family: 'GmarketSansMedium';}
+main .products .products2{ font-size: 17px; padding: 2% 0;}
+main .products .products2 > div{padding: 5px 0;}
+
+main > h2{ font-size: 25px; padding: 0 10%;}
+main .mapresult {display:flex; align-items: center; padding: 0 10%; font-family: 'GmarketSansMedium';}
+main .mapresult .mapresult2 { font-size: 17px; padding: 2% 5%;}
+main .mapresult .mapresult2 > div {padding: 5px 0;}
+
+main #map{margin: 5% 0; width:50%;height:350px;}

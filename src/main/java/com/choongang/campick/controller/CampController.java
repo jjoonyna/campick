@@ -88,6 +88,10 @@ public class CampController {
 	System.out.println("캠핑장 등록");
 	int result = service.insertBizCmp(camp);
 	System.out.println("result : " + result);
+	@GetMapping("camp_content")
+	public String camp_content(){
+		return "camp/camp_content";
+	}
 	
 	return new ResponseEntity<>(result, HttpStatus.OK);
 }
