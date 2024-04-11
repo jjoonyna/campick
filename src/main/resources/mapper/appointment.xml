@@ -9,7 +9,6 @@
 	<!-- 일반 회원 예약 하기 -->
 	<insert id="aptUserCamp" parameterType="apt">
 		INSERT INTO appointment(
-			apt_no,
 			cmp_no,
 			user_id,
 			user_nm,
@@ -20,11 +19,10 @@
 			apt_price,
 			apt_at
 		)VALUES(
-			#{apt_no},
 			#{cmp_no},
 			#{user_id},
 			#{user_nm},
-			#{apt_date},
+			now(),
 			#{apt_pp},
 			#{apt_req},
 			#{apt_staydate},
@@ -94,6 +92,7 @@
 	select * from cmp_user where apt_no = #{apt_no}
 </select>
 </mapper>
+
 
 
 

@@ -194,5 +194,14 @@ public class CampService {
 		return dao.selectBizCmp(contentId);
 	}
 
+	//캠핑장 상세페이지 
+	public Camp getCamp(String contentid) {
+		return dao.getCamp(contentid);
+	}
+	
+	// 상세페이지 아이디
+	public Camp selectcontent(String contentId) {
+		return dao.selectcontent(contentId);
+	}
 
 }

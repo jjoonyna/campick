@@ -19,13 +19,18 @@ public interface AppointmentDAO {
 	public int aptUserCamp(Appointment apt);
 
 	
-	// 회원 예약 삭제 
-
+	// 회원 예약 취소하기 
+	public int cancelUserApt(String user_id);
 	
 	// 사업자 회원 예약 조회
-	
-	
+	public Appointment selectbizAppointment(String user_id);
+
 	// 사업자 회원 예약 삭제
+	public int cancelbizApt(String user_id);
+
+
+	
+	
 	
 	//예약페이지
 	Camp selectapoint(int contentId);

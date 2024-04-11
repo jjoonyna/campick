@@ -150,7 +150,7 @@ public class UserController {
 //
 //		return new ResponseEntity<>(result, HttpStatus.OK);
 //	}
-
+	
 	/*
 	 * 일반 회원 로그인폼
 	 */

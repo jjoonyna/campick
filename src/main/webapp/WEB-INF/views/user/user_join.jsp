@@ -19,7 +19,7 @@
 	<main>
 		<div id="join_wrap">
 			<h2 class="join_title">일반 회원 가입</h2>
-			<form id="user_joinform">
+			<form id="user_joinform" method="post">
 			<input type="hidden" id="user_kind" name="user_kind" value="u">
 				<table id="join_t">
 
