@@ -51,7 +51,7 @@ $(function(){
             var pagination = "";
             for (var i = result.startPage; i <= result.endPage; i++) {
                 pagination += "<span class='page-item " + (i === result.page ? "active" : "") + "'>";
-                pagination += "<a id=subject href='javascript:camp_content(" + i + ")'>" + i + "</a></span>";
+                pagination += "<a id=subject href='javascript:camp_list(" + i + ")'>" + i + "</a></span>";
             }
             pagination += "</div>";
             $("#pagiset pagiset-circ").html(pagination);

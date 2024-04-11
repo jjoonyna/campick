@@ -181,11 +181,7 @@ function domain_list() {
 //가입완료 내용(일반)
 $(function(){
    $("#user_join_ok").click(function(){
-  	if($.trim($("#image").val())==""){
-		 alert("프로필 사진 넣어 주세요!");
-		 $("#image").val("").focus();
-		 return false;
-	 }
+  	
 	 if($.trim($("#user_nm").val())==""){
 		 alert("이름을 입력하세요!");
 		 $("#user_nm").val("").focus();
@@ -257,7 +253,6 @@ $(function(){
 	 if(nick_check()==false){
 		 return false;
 	 }
-		var	user_pic = $('#image').val()
 		var formdata = {
 			user_id: $('#user_id').val(),
 			user_pw: $('#user_pw').val(),
@@ -274,7 +269,7 @@ $(function(){
 			};
       $.ajax({
          type : "POST",
-         url : encodeURI("http://localhost:80/insert_user/"+user_pic),
+         url : encodeURI("http://localhost:80/insert_user"),
          contentType: "application/json",
          data : JSON.stringify(formdata),
          success : function(result){
