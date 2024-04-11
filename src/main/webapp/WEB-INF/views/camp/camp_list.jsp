@@ -36,7 +36,7 @@
 
 
 
-
+<form>
                <!-- 검색 항목 -->
                <div style="display: flex; justify-content: center; flex-wrap: wrap;">
                   <div style="margin-right: 20px; margin-bottom: 20px;">
@@ -76,13 +76,12 @@
 
                <!-- 검색창 -->
                <div style="display: flex; justify-content: center;">
-                  <form action="/search" method="GET"
-                     style="display: flex; align-items: center;">
-                     <label for="search" style="font-size: 13px; margin-right: 8px;">검색</label>
-                     <input type="text" id="searchBar" name="searchBar"
+                  
+                     <label for="search">검색</label>
+                     <input type="text" id="search" name="search"
                         placeholder="캠핑장명을 검색해주세요"
-                        style="width: 188px; height: 15px; border: 2px solid #ccc; border-radius: 6px; padding: 0 16px;">
-                  </form>
+                        >
+               
                </div>
 
 
@@ -102,7 +101,7 @@
                      </h2>
                   </span>
                </div>
-               
+                  </form>
                
                
 					<!-- 카드 세트 -->
@@ -152,54 +151,56 @@
 				<!-- 페이지 -->
 				<br>
 				<br>
-				<nav id="pagiset pagiset-circ">
-					<div class="pagiset-ctrl">
-						<a
-							href="gnb.do?pageNum=1<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
-							class="pagiset-link pagiset-first"
-						>
-							처음
-						</a>
-					</div>
-					<c:if test="${result.currentPage gt 1}">
-						<div class="pagiset-ctrl">
-							<a
-								href="gnb.do?pageNum=${result.startPage - 1}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
-								class="pagiset-link pagiset-prev"
-							>
-								이전
-							</a>
-						</div>
-					</c:if>
-					<div class="pagiset-list">
-						<c:forEach var="i" begin="${result.startPage}" end="${result.endPage}">
-							<a
-								href="gnb.do?pageNum=${i}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
-								class="pagiset-link<c:if test="${result.currentPage==i}"> active-fill</c:if>"
-							>
-								${i}
-							</a>
-						</c:forEach>
-					</div>
-					<c:if test="${result.currentPage lt result.lastPage}">
-						<div class="pagiset-ctrl">
-							<a
-								href="gnb.do?pageNum=${result.endPage + 1}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
-								class="pagiset-link pagiset-next"
-							>
-								다음
-							</a>
-						</div>
-					</c:if>
-					<div class="pagiset-ctrl">
-						<a
-							href="gnb.do?pageNum=${result.lastPage}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
-							class="pagiset-link pagiset-last"
-						>
-							마지막
-						</a>
-					</div>
-				</nav>
+				<div id="pagein"></div>
+<!-- 				<nav id="pagiset pagiset-circ"> -->
+<!-- 					<div class="pagiset-ctrl"> -->
+<!-- 						<a -->
+<%-- 							href="gnb.do?pageNum=1<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>" --%>
+<!-- 							class="pagiset-link pagiset-first" -->
+<!-- 						> -->
+<!-- 							처음 -->
+<!-- 						</a> -->
+<!-- 					</div> -->
+<%-- 					<c:if test="${result.currentPage gt 1}"> --%>
+<!-- 						<div class="pagiset-ctrl"> -->
+<!-- 							<a -->
+<%-- 								href="gnb.do?pageNum=${result.startPage - 1}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>" --%>
+<!-- 								class="pagiset-link pagiset-prev" -->
+<!-- 							> -->
+<!-- 								이전 -->
+<!-- 							</a> -->
+<!-- 						</div> -->
+<%-- 					</c:if> --%>
+<!-- 					<div class="pagiset-list"> -->
+<%-- 						<c:forEach var="i" begin="${result.startPage}" end="${result.endPage}"> --%>
+<!-- 							<a -->
+<%-- 								href="gnb.do?pageNum=${i}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>" --%>
+<%-- 								class="pagiset-link<c:if test="${result.currentPage==i}"> active-fill</c:if>" --%>
+<!-- 							> -->
+<%-- 								${i} --%>
+<!-- 							</a> -->
+<%-- 						</c:forEach> --%>
+<!-- 					</div> -->
+<%-- 					<c:if test="${result.currentPage lt result.lastPage}"> --%>
+<!-- 						<div class="pagiset-ctrl"> -->
+<!-- 							<a -->
+<%-- 								href="gnb.do?pageNum=${result.endPage + 1}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>" --%>
+<!-- 								class="pagiset-link pagiset-next" -->
+<!-- 							> -->
+<!-- 								다음 -->
+<!-- 							</a> -->
+<!-- 						</div> -->
+<%-- 					</c:if> --%>
+<!-- 					<div class="pagiset-ctrl"> -->
+<!-- 						<a -->
+<%-- 							href="gnb.do?pageNum=${result.lastPage}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>" --%>
+<!-- 							class="pagiset-link pagiset-last" -->
+<!-- 							style="width: 100px;" -->
+<!-- 						> -->
+<!-- 							마지막 -->
+<!-- 						</a> -->
+<!-- 					</div> -->
+<!-- 				</nav> -->
 			</div>
 		</div>
 	</main>

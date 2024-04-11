@@ -3,7 +3,6 @@ package com.choongang.campick.service;
 import org.springframework.stereotype.Service;
 
 import com.choongang.campick.mapper.UserDAO;
-import com.choongang.campick.model.Appointment;
 import com.choongang.campick.model.User;
 
 import lombok.RequiredArgsConstructor;

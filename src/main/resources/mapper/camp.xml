@@ -120,7 +120,7 @@
 
 
 
-
+<!--  캠핑장 db저장 -->
 	<insert id="insert" parameterType="camp">
 		insert into camp(
 		contentId,
