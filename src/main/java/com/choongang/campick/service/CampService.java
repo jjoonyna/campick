@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.choongang.campick.mapper.CampDAO;
 import com.choongang.campick.model.Camp;
+import com.choongang.campick.model.User;
 
 import lombok.RequiredArgsConstructor;
 
@@ -177,6 +178,14 @@ public class CampService {
         		
         		
 		}
-
+	//캠핑장 상세페이지 
+	public Camp getCamp(String contentid) {
+		return dao.getCamp(contentid);
+	}
+	
+	// 상세페이지 아이디
+	public Camp selectcontent(String contentId) {
+		return dao.selectcontent(contentId);
+	}
 
 }

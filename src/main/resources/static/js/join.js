@@ -268,7 +268,7 @@ $(function(){
 			user_kind: $('#user_kind').val()
 			};
       $.ajax({
-         type : "POST",
+         type : "Post",
          url : encodeURI("http://localhost:80/insert_user"),
          contentType: "application/json",
          data : JSON.stringify(formdata),

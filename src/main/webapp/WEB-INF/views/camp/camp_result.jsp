@@ -61,8 +61,7 @@
 										<div class="bbuttons">
     											<button type="submit"
 													class="aptbutton">예약 목록</button>
-    											<button type="reset" class="aptcancel"
-    												onclick="$('#board_name').focus();">예약 취소</button>
+    											<button type="reset" class="aptcancel">예약 취소</button>
   										</div>
 								</div>
 						</div>
