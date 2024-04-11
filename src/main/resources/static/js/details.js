@@ -30,6 +30,9 @@ $(function(){
                //$("#animalCmgCl").val(result.animalCmgCl);//애완동물출입(환경)
                //$("#firstImageUrl").val(result.firstImageUrl);//대표이미지
                //$("#cmp_pic").val(result.cmp_pic);//캠핑장이미지
+               //$("#cmp_maxpp").val(result.cmp_maxpp);//최대 예약 인원
+               //$("#cmp_staydate ").val(result.cmp_staydate);//최대 숙박 일자
+               //$("#cmp_price").val(result.cmp_price);//최대 이용 금액
 			}else if(result==null){
 				//정보 불러오기 실패
 				alert("정보 불러오기 실패");

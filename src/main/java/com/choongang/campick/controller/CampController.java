@@ -74,7 +74,10 @@ public class CampController {
 		return new ResponseEntity<>(map,HttpStatus.OK);
 	}
 	
-	
+	@GetMapping("camp_content")
+	public String camp_content(){
+		return "camp/camp_content";
+	}
 	
 	
 	
