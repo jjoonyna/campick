@@ -120,81 +120,113 @@
 
 
 
-<!--  캠핑장 db저장 -->
-	<insert id="insert" parameterType="camp">
+	<!-- 캠핑장 등록하기 -->
+	<insert id="insertBizCmp" parameterType="camp">
+
 		insert into camp(
-		contentId,
-		facltNm,
-		lctCl,
-		lineIntro,
-		intro,
-		featureNm,
-		induty,
-		doNm,
-		sigunguNm,
-		zipcode,
-		addr1,
-		mapX,
-		mapY,
-		tel,
-		homepage,
-		gnrlSiteCo,
-		autoSiteCo,
-		glampSiteCo,
-		caravSiteCo,
-		glampInnerFclty,
-		caravInnerFclty,
-		trlerAcmpnyAt,
-		caravAcmpnyAt,
-		toiletCo,
-		swrmCo,
-		wtrplCo,
-		brazierCl,
-		sbrsCl,
-		sbrsEtc,
-		posblFcltyCl,
-		extshrCo,
-		themaEnvrnCl,
-		animalCmgCl,
-		firstImageUrl
-		)
-		values(
-		#{contentId},
-		#{facltNm},
-		#{lctCl},
-		#{lineIntro},
-		#{intro},
-		#{featureNm},
-		#{induty},
-		#{doNm},
-		#{sigunguNm},
-		#{zipcode},
-		#{addr1},
-		#{mapX},
-		#{mapY},
-		#{tel},
-		#{homepage},
-		#{gnrlSiteCo},
-		#{autoSiteCo},
-		#{glampSiteCo},
-		#{caravSiteCo},
-		#{glampInnerFclty},
-		#{caravInnerFclty},
-		#{trlerAcmpnyAt},
-		#{caravAcmpnyAt},
-		#{toiletCo},
-		#{swrmCo},
-		#{wtrplCo},
-		#{brazierCl},
-		#{sbrsCl},
-		#{sbrsEtc},
-		#{posblFcltyCl},
-		#{extshrCo},
-		#{themaEnvrnCl},
-		#{animalCmgCl},
-		#{firstImageUrl}
+			contentId,
+			user_id,
+			facltNm,
+			lctCl,
+			lineIntro,
+			intro,
+			featureNm,
+			induty,
+			doNm,
+			sigunguNm,
+			zipcode,
+			addr1,
+			mapX,
+			mapY,
+  			tel,
+  			homepage,
+  			gnrlSiteCo,
+  			autoSiteCo,
+  			glampSiteCo,
+  			caravSiteCo,
+			glampInnerFclty,
+			caravInnerFclty,
+			toiletCo,
+			swrmCo,
+			wtrplCo,
+			brazierCl,
+			sbrsCl,
+			sbrsEtc,
+			posblFcltyCl,
+			extshrCo,
+			themaEnvrnCl,
+			animalCmgCl,
+			firstImageUrl,
+			cmp_pic,
+			cmp_fav,
+			cmp_like,
+			cmp_maxpp,
+			cmp_staydate,
+			cmp_price,
+			trlerAcmpnyAt,
+			caravAcmpnyAt
+		)values(
+			#{contentId},
+			#{user_id},
+			#{facltNm},
+			#{lctCl},
+			#{lineIntro},
+			#{intro},
+			#{featureNm},
+			#{induty},
+			#{doNm},
+			#{sigunguNm},
+			#{zipcode},
+			#{addr1},
+			#{mapX},
+			#{mapY},
+  			#{tel},
+  			#{homepage},
+  			#{gnrlSiteCo},
+  			#{autoSiteCo},
+  			#{glampSiteCo},
+  			#{caravSiteCo},
+			#{glampInnerFclty},
+			#{caravInnerFclty},
+			#{toiletCo},
+			#{swrmCo},
+			#{wtrplCo},
+			#{brazierCl},
+			#{sbrsCl},
+			#{sbrsEtc},
+			#{posblFcltyCl},
+			#{extshrCo},
+			#{themaEnvrnCl},
+			#{animalCmgCl},
+			#{firstImageUrl},
+			#{cmp_pic},
+			#{cmp_fav},
+			#{cmp_like},
+			#{cmp_maxpp},
+			#{cmp_staydate},
+			#{cmp_price},
+			#{trlerAcmpnyAt},
+			#{caravAcmpnyAt}
 		)
 	</insert>
-
-
+	
+	<!-- 캠핑장 조회하기 -->
+	<select id="selectBizCmp" parameterType="String" resultType="camp">
+		select
+				*
+		from
+				camp
+		where
+				contentId = #{contentId}
+	</select>
+ 
+	<!-- 캠핑장 등록 삭제 -->
+	<update id="deleteBizCmp" parameterType="String">
+		UPDATE camp
+		SET
+		cmp_kind = 'd'
+		WHERE contentId = #{contentId}
+	</update>
+	
+	
 </mapper>

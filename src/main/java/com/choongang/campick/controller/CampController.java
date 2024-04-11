@@ -9,11 +9,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.choongang.campick.model.Camp;
 import com.choongang.campick.service.CampService;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -75,7 +78,41 @@ public class CampController {
 	}
 	
 	
+	// 사업자 소유 캠핑장 등록하기
+	@PostMapping("/insert_biz_cmp")
+	@ResponseBody
+	public ResponseEntity<Integer> insert_biz_cmp(@RequestBody Camp camp){
+	System.out.println("캠핑장 등록");
+	int result = service.insertBizCmp(camp);
+	System.out.println("result : " + result);
 	
+	return new ResponseEntity<>(result, HttpStatus.OK);
+}
+	
+	
+	
+	
+	
+	/*
+	 * 사업자 소유 캠핑장 삭제하기
+	 */
+	@PostMapping("/delete_biz_cmp")
+	@ResponseBody
+	public ResponseEntity<Integer> delete_biz_cmp(@RequestBody Camp camp, HttpSession session) {
 
+		int result = 0; // 결과 값 받는 객체 선언
+
+		Camp db = service.selectBizCmp(camp.getContentId()); // select된 회원 값을 db 객체에 넣는다
+			// contentid 값만 가져와서 비교하여 삭제하기
+		if (db.getContentId().equals(camp.getContentId())) { // 암호화된 비밀번호와 회원이 입력한 값을 인코딩하여 비교, 일치할 경우
+			result = service.deleteBizCmp(camp.getContentId()); // // delete를 result 객체에 대입
+			session.invalidate();
+		} else { // 일치하지 않을 경우, result = -1 반환
+			result = -1;
+		}
+		System.out.println("result:" + result); // 결과값 test 출력
+
+		return new ResponseEntity<>(result, HttpStatus.OK);
+	}
 	
 }
