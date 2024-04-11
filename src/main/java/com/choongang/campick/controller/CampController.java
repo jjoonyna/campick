@@ -42,7 +42,7 @@ public class CampController {
 	//캠핑장 목록 불러오기 기본(페이징 형식으로) 스크롤 방식으로 바뀔시 변경예정
 	@GetMapping("camplist/{page}")
 	@ResponseBody
-	public ResponseEntity<Map<String,Object>> camplist(@PathVariable("page") String page, Camp camp){
+	public ResponseEntity<Map<String,Object>> camplist(@PathVariable("page") String page,@RequestBody Camp camp){
 		Map map = new HashMap();
 		if (page == null || page.equals("")) {
 			page = "1";
@@ -88,13 +88,15 @@ public class CampController {
 	System.out.println("캠핑장 등록");
 	int result = service.insertBizCmp(camp);
 	System.out.println("result : " + result);
+	return new ResponseEntity<>(result, HttpStatus.OK);
+	}
+	
+	
 	@GetMapping("camp_content")
 	public String camp_content(){
 		return "camp/camp_content";
-	}
 	
-	return new ResponseEntity<>(result, HttpStatus.OK);
-}
+	}
 	
 	
 	
