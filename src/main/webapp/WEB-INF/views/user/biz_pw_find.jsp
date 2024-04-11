@@ -3,10 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<jsp:include page="/resources/commons/header.jsp" />
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/resources/css/find.css">
 <script type="text/javascript" src="/resources/js/find.js"></script>
-<jsp:include page="/resources/commons/header.jsp" />
 <title>비밀번호찾기</title>
 </head>
 <body>

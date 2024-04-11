@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,10 +37,10 @@ public class UserController {
 	public ResponseEntity<Integer> nickname_check(@PathVariable("user_nick") String user_nick){
 		int result = 0;
 		User user = service.nickcheck(user_nick);
-		if(user == null) {
-			result=0;
-		}else {
+		if(user != null) {
 			result=1;
+		}else {
+			result=0;
 		}
 		return new ResponseEntity<>(result,HttpStatus.OK);
 	}
@@ -50,10 +51,10 @@ public class UserController {
 	public ResponseEntity<Integer> id_check(@PathVariable("user_id") String user_id){
 		int result = 0;
 		User user = service.selectUser(user_id);
-		if(user == null) {
-			result=0;
-		}else {
+		if(user != null) {
 			result=1;
+		}else {
+			result=0;
 		}
 		return new ResponseEntity<>(result,HttpStatus.OK);
 	}
@@ -183,7 +184,7 @@ public class UserController {
     }
     @GetMapping("/user_mypage")
     public String user_mypage() {
-    	return "user/user_mypage"; // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
+		return "user/user_mypage"; // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
     }
     @GetMapping("/biz_mypage")
     public String biz_mypage() {
@@ -223,6 +224,25 @@ public class UserController {
 	@GetMapping("/user_info")
 	@ResponseBody
 	public ResponseEntity<Map<String,Object>> user_info(HttpSession session){
+		Map map = new HashMap();
+		String user_id = (String)session.getAttribute("user_id");
+		System.out.println(user_id);
+		User db = service.selectUser(user_id); // 회원이 있는지 없는지 확인
+		map.put("user_id", db.getUser_id());
+		map.put("user_nm", db.getUser_nm());
+		map.put("user_nick", db.getUser_nick());
+		map.put("user_birth", db.getUser_birth());
+		map.put("user_tel", db.getUser_tel());
+		map.put("user_code", db.getUser_code());
+		map.put("user_addr1", db.getUser_addr1());
+		map.put("user_addr2", db.getUser_addr2());
+		map.put("user_email", db.getUser_email());
+		
+		return new ResponseEntity<>(map,HttpStatus.OK);
+	}
+	@GetMapping("/biz_info")
+	@ResponseBody
+	public ResponseEntity<Map<String,Object>> biz_info(HttpSession session){
 		Map map = new HashMap();
 		String user_id = (String)session.getAttribute("user_id");
 		System.out.println(user_id);
@@ -313,7 +333,7 @@ public class UserController {
 	 */
 	@PostMapping("delete_user")
 	@ResponseBody
-	public ResponseEntity<Integer> delete_user(@RequestBody User user) {
+	public ResponseEntity<Integer> delete_user(@RequestBody User user, HttpSession session) {
 
 		int result = 0; // 결과 값 받는 객체 선언
 
@@ -321,6 +341,7 @@ public class UserController {
 
 		if (passwordEncoder.matches(user.getUser_pw(), db.getUser_pw())) { // 암호화된 비밀번호와 회원이 입력한 값을 인코딩하여 비교, 일치할 경우
 			result = service.deleteUser(user.getUser_id()); // // delete를 result 객체에 대입
+			session.invalidate();
 		} else { // 일치하지 않을 경우, result = -1 반환
 			result = -1;
 		}
@@ -407,29 +428,26 @@ public class UserController {
 	/*
 	 * 일반 회원 비밀번호 수정 : 마이페이지에서 비밀번호 수정
 	 */
-	@PostMapping("/updatemyuser_pwd")
+	@PostMapping("/updatemyuser_pwd/{new_pw}")
 	@ResponseBody
-	public ResponseEntity<User> updatemyuser_pwd(@RequestBody User user) {
+	public ResponseEntity<Integer> updatemyuser_pwd(@PathVariable("new_pw") String new_pw, @RequestBody User user, HttpSession session) {
 
 		int result = 0;
-
-		System.out.println(user.getUser_pw());
-
-		String encpassword = passwordEncoder.encode(user.getUser_pw());
-		System.out.println("바뀐 비번 암호화:" + encpassword);
-		user.setUser_pw(encpassword);
-
-		result = service.updatePwd(user);
-
-		User db = null;
-		if (result == 1) {
-			db = service.selectUser(user.getUser_id());
-			return new ResponseEntity<>(db, HttpStatus.OK);
-		} else {
-			System.out.println("에러");
-			return new ResponseEntity<>(user, HttpStatus.BAD_REQUEST);
+		User db = service.selectUser(user.getUser_id());		// select된 회원 값을 db 객체에 넣는다
+		
+		if (passwordEncoder.matches(user.getUser_pw(), db.getUser_pw())) {	// 암호화된 비밀번호와 회원이 입력한 값을 인코딩하여 비교, 일치할 경우
+			String encpassword = passwordEncoder.encode(new_pw);
+			System.out.println("바뀐 비번 암호화:" + encpassword);
+			user.setUser_pw(encpassword);
+			result = service.updatePwd(user);
+			session.invalidate();
+		} else {															// 일치하지 않을 경우, result = -1 반환
+			result = -1;								
 		}
+
+			return new ResponseEntity<>(result, HttpStatus.OK);
 	}
+
 	
 	////////////////////////////////////////////// 
 	//  										//	
@@ -623,14 +641,15 @@ public class UserController {
 	 */
 	@PostMapping("delete_biz")
 	@ResponseBody
-	public ResponseEntity<Integer> delete_biz(@RequestBody User user) {
+	public ResponseEntity<Integer> delete_biz(@RequestBody User user, HttpSession session) {
 		
 		int result = 0;		// 결과 값 받는 객체 선언
 		
 		User db = service.selectUser(user.getUser_id());		// select된 회원 값을 db 객체에 넣는다
 		
 		if (passwordEncoder.matches(user.getUser_pw(), db.getUser_pw())) {	// 암호화된 비밀번호와 회원이 입력한 값을 인코딩하여 비교, 일치할 경우
-			result = service.deleteUser(user.getUser_id());					// // delete를 result 객체에 대입
+			result = service.deleteUser(user.getUser_id());	// // delete를 result 객체에 대입
+			session.invalidate();
 		} else {															// 일치하지 않을 경우, result = -1 반환
 			result = -1;
 		}
@@ -720,28 +739,23 @@ public class UserController {
 	/* 
 	 * 사업자 회원 비밀번호 수정 : 마이페이지에서 비밀번호 수정
 	 */
-	@PostMapping("/updatemybiz_pwd")
+	@PostMapping("/updatemybiz_pwd/{new_pw}")
 	@ResponseBody
-	public ResponseEntity<Map<String, Object>> updatemybiz_pwd(@RequestBody User user) {
+	public ResponseEntity<Integer> updatemybiz_pwd(@PathVariable("new_pw") String new_pw, @RequestBody User user, HttpSession session) {
 
 		int result = 0;
+		User db = service.selectUser(user.getUser_id());		// select된 회원 값을 db 객체에 넣는다
 		
-		String encpassword = passwordEncoder.encode(user.getUser_pw());
-		System.out.println("바뀐 비번 암호화:" + encpassword);
-		user.setUser_pw(encpassword);
-
-		result = service.updatePwd(user);
-		
-		if (result == 1) {
-			User db = service.selectUser(user.getUser_id());
-			Map map = new HashMap<>();
-			map.put("db", db);
-
-			return new ResponseEntity<>(map, HttpStatus.OK);
-		} else {
-			System.out.println("에러");
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		if (passwordEncoder.matches(user.getUser_pw(), db.getUser_pw())) {	// 암호화된 비밀번호와 회원이 입력한 값을 인코딩하여 비교, 일치할 경우
+			String encpassword = passwordEncoder.encode(new_pw);
+			System.out.println("바뀐 비번 암호화:" + encpassword);
+			user.setUser_pw(encpassword);
+			result = service.updatePwd(user);
+			session.invalidate();
+		} else {															// 일치하지 않을 경우, result = -1 반환
+			result = -1;								
 		}
+			return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 
 

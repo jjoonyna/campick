@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.sql.Date;
+import java.util.List;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -23,10 +23,41 @@ public class CampService {
 	
 	private final CampDAO dao;
 	
+	
+	public int count() {
+		return dao.count();
+	}
+
+	public List<Camp> campList(Camp camp) {
+		return dao.campList(camp);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public void campinsert(Camp camp) throws Exception {
 		StringBuilder urlBuilder = new StringBuilder("https://apis.data.go.kr/B551011/GoCamping/basedList"); /*URL*/
         urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=voB7ESMA%2BHSFSzn28KxDvL3ub8O44vBlG8EXxn8a4EGLKfCrKjLs8QXFNl7N9%2BpQcxemttb58KasoyO%2BZby7dg%3D%3D"); /*Service Key*/
-        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("10", "UTF-8")); /*한 페이지 결과 수(조회 날짜로 검색 시 사용 안함)*/
+        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("60", "UTF-8")); /*한 페이지 결과 수(조회 날짜로 검색 시 사용 안함)*/
         urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지번호(조회 날짜로 검색 시 사용 안함)*/
         urlBuilder.append("&" + URLEncoder.encode("_type","UTF-8") + "=" + URLEncoder.encode("json", "UTF-8")); /*xml 또는 json*/
         urlBuilder.append("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*통보시간 검색(조회 날짜 입력이 없을 경우 한달동안 예보통보 발령 날짜의 리스트 정보를 확인)*/
@@ -71,7 +102,7 @@ public class CampService {
         			String contentId = (String)gocamping.get("contentId");
         			 String facltNm = (String)gocamping.get("facltNm");
         			 String lctCl = (String)gocamping.get("lctCl");
-        			 String allar = (String)gocamping.get("allar");
+        			 String lineIntro = (String)gocamping.get("lineIntro");
         			 String intro = (String)gocamping.get("intro");
         			 String featureNm = (String)gocamping.get("featureNm");
         			 String induty = (String)gocamping.get("induty");
@@ -81,16 +112,12 @@ public class CampService {
         			 String addr1 = (String)gocamping.get("addr1");
         			 String mapX = (String)gocamping.get("mapX");
         			 String mapY = (String)gocamping.get("mapY");
-        			 String direction = (String)gocamping.get("direction");
         			 String tel = (String)gocamping.get("tel");
         			 String homepage = (String)gocamping.get("homepage");
-        			 String manageNmpr = (String)gocamping.get("manageNmpr");
         			 String gnrlSiteCo = (String)gocamping.get("gnrlSiteCo");
         			 String autoSiteCo = (String)gocamping.get("autoSiteCo");
         			 String glampSiteCo = (String)gocamping.get("glampSiteCo");
-        			 String caravSiteCo = (String)gocamping.get("caravSiteCo");
         			 String indvdlCaravSiteCo = (String)gocamping.get("indvdlCaravSiteCo");
-        			 String tooltip = (String)gocamping.get("tooltip");
         			 String glampInnerFclty = (String)gocamping.get("glampInnerFclty");
         			 String caravInnerFclty = (String)gocamping.get("caravInnerFclty");
         			 String trlerAcmpnyAt = (String)gocamping.get("trlerAcmpnyAt");
@@ -108,7 +135,6 @@ public class CampService {
         			 String firstImageUrl = (String)gocamping.get("firstImageUrl");
         			 
         			 camp.setAddr1(addr1);
-        			 camp.setAllar(allar);
         			 camp.setAnimalCmgCl(animalCmgCl);
         			 camp.setAutoSiteCo(autoSiteCo);
         			 camp.setBrazierCl(brazierCl);
@@ -116,7 +142,6 @@ public class CampService {
         			 camp.setCaravInnerFclty(caravInnerFclty);
         			 camp.setCaravSiteCo(indvdlCaravSiteCo);
         			 camp.setContentId(contentId);
-        			 camp.setDirection(direction);
         			 camp.setDoNm(doNm);
         			 camp.setExtshrCo(extshrCo);
         			 camp.setFacltNm(facltNm);
@@ -127,10 +152,9 @@ public class CampService {
         			 camp.setGnrlSiteCo(gnrlSiteCo);
         			 camp.setHomepage(homepage);
         			 camp.setInduty(induty);
-        			 camp.setIndvdlCaravSiteCo(indvdlCaravSiteCo);
         			 camp.setIntro(intro);
         			 camp.setLctCl(lctCl);
-        			 camp.setManageNmpr(manageNmpr);
+        			 camp.setLineIntro(lineIntro);
         			 camp.setMapX(mapX);
         			 camp.setMapY(mapY);
         			 camp.setPosblFcltyCl(posblFcltyCl);
@@ -141,7 +165,6 @@ public class CampService {
         			 camp.setTel(tel);
         			 camp.setThemaEnvrnCl(themaEnvrnCl);
         			 camp.setToiletCo(toiletCo);
-        			 camp.setTooltip(tooltip);
         			 camp.setTrlerAcmpnyAt(trlerAcmpnyAt);
         			 camp.setWtrplCo(wtrplCo);
         			 camp.setZipcode(zipcode);
@@ -154,4 +177,6 @@ public class CampService {
         		
         		
 		}
+
+
 }

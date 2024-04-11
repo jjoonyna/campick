@@ -5,11 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>마이페이지</title>
+<jsp:include page="/resources/commons/header.jsp" />
 <link rel="stylesheet" href="./css/biz_mypage.css">
 <link rel="stylesheet" href="./css/join.css">
 <script type="text/javascript" src="./js/biz_mypage.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<jsp:include page="/resources/commons/header.jsp" />
 <jsp:include page="/resources/commons/gnb.jsp" />
 </head>
 <body>
@@ -52,11 +52,11 @@
 
 					<tr>
 						<td>id</td>
-						<td>값</td>
+						<td id="biz_id"></td>
 					</tr>
 					<tr>
 						<td>주소</td>
-						<td>값</td>
+						<td id="biz_addr1"></td>
 					</tr>
 				</table>
 			</div>
@@ -65,11 +65,11 @@
 					<caption>내후기</caption>
 					<tr>
 						<td>댓글후기 수</td>
-						<td>값</td>
+						<td>0</td>
 					</tr>
 					<tr>
 						<td>이용후기 수</td>
-						<td>값</td>
+						<td>0</td>
 					</tr>
 				</table>
 
@@ -87,13 +87,13 @@
 
 					<tr>
 						<th>이름</th>
-						<td><input type="text" name="user_nm" id="user_nm"
+						<td><input type="text" name="user_nm" id="info_nm" readonly="readonly"
 							class="text" /></td>
 					</tr>
 
 					<tr>
 						<th>닉네임</th>
-						<td><input type="text" name="user_nick" id="user_nick"
+						<td><input type="text" name="user_nick" id="info_nick"
 							class="text" /> &nbsp <input type="button" value="중복 확인"
 							class="check" onclick="nick_check()" />
 							<div id="nickcheck"></div></td>
@@ -101,7 +101,7 @@
 
 					<tr>
 						<th>아이디</th>
-						<td><input type="text" name="user_id" id="user_id"
+						<td><input type="text" name="user_id" id="info_id"
 							class="text" readonly="readonly" /></td>
 					</tr>
 
@@ -115,21 +115,14 @@
 
 
 					<tr>
-						<th>생년월일</th>
-						<td><input type="text" name="user_birth" id="user_birth"
-							class="text" /></td>
-					</tr>
-
-
-					<tr>
 						<th>휴대폰 번호</th>
-						<td><input type="tel" name="user_tel" id="user_tel"
+						<td><input type="tel" name="user_tel" id="info_tel"
 							class="text" /></td>
 					</tr>
 
 					<tr>
 						<th>우편번호</th>
-						<td><input name="user_code" id="user_code" class="code"
+						<td><input name="user_code" id="info_code" class="code"
 							type="text" readonly onclick="post_search()" /> &nbsp <input
 							type="button" value="우편번호 검색" class="input_button"
 							onclick="openDaumPostcode()" /></td>
@@ -137,19 +130,19 @@
 
 					<tr>
 						<th>기본 주소</th>
-						<td><input name="user_addr1" id="user_addr1" class="addr"
+						<td><input name="user_addr1" id="info_addr1" class="addr"
 							type="text" readonly onclick="post_search()" /></td>
 					</tr>
 
 					<tr>
 						<th>상세 주소</th>
-						<td><input name="user_addr2" id="user_addr2" class="addr"
+						<td><input name="user_addr2" id="info_addr2" class="addr"
 							type="text" /></td>
 					</tr>
 
 					<tr>
 						<th>이메일</th>
-						<td><input name="user_email" id="user_email" class="email"
+						<td><input name="user_email" id="info_email" class="email"
 							type="text" /></td>
 					</tr>
 
@@ -158,7 +151,7 @@
 				<div id="join_menu">
 					<input type="button" value="수정완료" class="button"
 						id="user_change_ok" /> &nbsp <input type="button" value="취소"
-						class="button" />
+						class="cancle" />
 
 				</div>
 
@@ -175,14 +168,14 @@
 
 						<tr>
 							<th>아이디</th>
-							<td><input type="text" name="user_id" id="user_id"
+							<td><input type="text" name="user_id" id="change_id"
 								class="text" readonly="readonly" /></td>
 						</tr>
 
 
 						<tr>
 							<th>현재 비밀번호</th>
-							<td><input type="password" name="user_pw" id="user_pw"
+							<td><input type="password" name="user_pw" id="change_pw"
 								class="pw" /></td>
 						</tr>
 						<tr>
@@ -200,7 +193,7 @@
 
 					<div id="join_menu">
 						<input type="button" value="변경완료" class="button" id="pw_change_ok" />
-						&nbsp <input type="button" value="취소" class="button" />
+						&nbsp <input type="button" value="취소" class="cancle" />
 
 					</div>
 
@@ -217,7 +210,7 @@
 
 						<tr>
 							<th>아이디</th>
-							<td><input type="text" name="user_id" id="user_id"
+							<td><input type="text" name="user_id" id="delete_id"
 								class="text" readonly="readonly" /></td>
 						</tr>
 
@@ -232,7 +225,7 @@
 
 					<div id="join_menu">
 						<input type="button" value="탈퇴완료" class="button" id="delete_ok" />
-						&nbsp <input type="button" value="취소" class="button" />
+						&nbsp <input type="button" value="취소" class="cancle" />
 
 					</div>
 

@@ -13,7 +13,7 @@ public class Camp {
 	 String user_id; 
 	 String facltNm;
 	 String lctCl;
-	 String allar; 
+	 String lineIntro;
 	 String intro;
 	 String featureNm;
 	 String induty;
@@ -23,16 +23,12 @@ public class Camp {
 	 String addr1;
 	 String mapX; 
 	 String mapY; 
-	 String direction;
 	 String tel; 
 	 String homepage;
-	 String manageNmpr; 
 	 String gnrlSiteCo;
 	 String autoSiteCo; 
 	 String glampSiteCo; 
 	 String caravSiteCo; 
-	 String indvdlCaravSiteCo;
-	 String tooltip;
 	 String glampInnerFclty;
 	 String caravInnerFclty;
 	 String trlerAcmpnyAt;
@@ -50,8 +46,13 @@ public class Camp {
 	 String firstImageUrl;
 	 String cmp_pic;
 	 String cmp_fav;
-	 String  cmp_like;
-	 String  cmp_rprt;
-	 String cmp_rent;
+	 String cmp_like;
+	 int cmp_maxpp;
+	 int cmp_staydate; 
+	 int cmp_price; 
+
 	 Date cmp_regDate;
+	 
+	 int start;
+	 String search;
 }

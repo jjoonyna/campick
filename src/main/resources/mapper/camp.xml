@@ -4,87 +4,197 @@
 
 <mapper namespace="com.choongang.campick.mapper.CampDAO">
 
-<insert id="insert" parameterType="camp">
-	insert into camp(
-	contentId,
-	facltNm,
-	lctCl,
-	allar,
-	intro,
-	featureNm,
-	induty,
-	doNm,
-	sigunguNm,
-	zipcode,
-	addr1,
-	mapX,
-	mapY,
-	direction,
-	tel,
-	homepage,
-	manageNmpr,
-	gnrlSiteCo,
-	autoSiteCo,
-	glampSiteCo,
-	caravSiteCo,
-	indvdlCaravSiteCo,
-	tooltip,
-	glampInnerFclty,
-	caravInnerFclty,
-	trlerAcmpnyAt,
-	caravAcmpnyAt,
-	toiletCo,
-	swrmCo,
-	wtrplCo,
-	brazierCl,
-	sbrsCl,
-	sbrsEtc,
-	posblFcltyCl,
-	extshrCo,
-	themaEnvrnCl,
-	animalCmgCl,
-	firstImageUrl,
-	)values(
-	#{contentId},
-	#{facltNm},
-	#{lctCl},
-	#{allar},
-	#{intro},
-	#{featureNm},
-	#{induty},
-	#{doNm},
-	#{sigunguNm},
-	#{zipcode},
-	#{addr1},
-	#{mapX},
-	#{mapY},
-	#{direction},
-	#{tel},
-	#{homepage},
-	#{manageNmpr},
-	#{gnrlSiteCo},
-	#{autoSiteCo},
-	#{glampSiteCo},
-	#{caravSiteCo},
-	#{indvdlCaravSiteCo},
-	#{tooltip},
-	#{glampInnerFclty},
-	#{caravInnerFclty},
-	#{trlerAcmpnyAt},
-	#{caravAcmpnyAt},
-	#{toiletCo},
-	#{swrmCo},
-	#{wtrplCo},
-	#{brazierCl},
-	#{sbrsCl},
-	#{sbrsEtc},
-	#{posblFcltyCl},
-	#{extshrCo},
-	#{themaEnvrnCl},
-	#{animalCmgCl},
-	#{firstImageUrl},	
-	)
-</insert>
+
+
+	<!-- 캠핑장 기본목록 및 검색목록 개수 -->
+	<select id="count" parameterType="camp" resultType="int">
+		select count(*) from camp
+		<where>
+			<if
+				test="search != null and induty == null and doNm == null and sigunguNm ==null">
+				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%'
+			</if>
+			<if
+				test="search != null and induty == null and doNm != null and sigunguNm ==null">
+				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%' and doNm = #{doNm}
+			</if>
+			<if
+				test="search != null and induty == null and doNm != null and sigunguNm !=null">
+				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%' and doNm = #{doNm} and sigunguNm =#{sigunguNm}
+			</if>
+			<if
+				test="search != null and induty != null and doNm == null and sigunguNm ==null">
+				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%' and induty = #{induty}
+			</if>
+			<if
+				test="search != null and induty != null and doNm != null and sigunguNm ==null">
+				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%' and induty = #{induty} and doNm = #{doNm}
+			</if>
+			<if
+				test="search != null and induty != null and doNm != null and sigunguNm !=null">
+				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%' and induty = #{induty} and doNm = #{doNm} and sigunguNm = #{sigunguNm}
+			</if>
+			<if
+				test="search == null and induty != null and doNm == null and sigunguNm ==null">
+				induty = #{induty}
+			</if>
+			<if
+				test="search == null and induty != null and doNm != null and sigunguNm ==null">
+				induty = #{induty} and doNm = #{doNm}
+			</if>
+			<if
+				test="search == null and induty != null and doNm != null and sigunguNm !=null">
+				induty = #{induty} and doNm = #{doNm} and sigunguNm = #{sigunguNm}
+			</if>
+			<if
+				test="search == null and induty = null and doNm != null and sigunguNm ==null">
+				doNm = #{doNm}
+			</if>
+			<if
+				test="search == null and induty == null and doNm != null and sigunguNm !=null">
+				doNm = #{doNm} and sigunguNm = #{sigunguNm}
+			</if>
+
+		</where>
+
+	</select>
+
+	<!-- 캠핑장 기본 목록 및 검색목록 -->
+	<select id="campList" parameterType="camp" resultType="camp">
+		select * from camp
+		<where>
+			<if
+				test="search != null and induty == null and doNm == null and sigunguNm ==null">
+				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%'
+			</if>
+			<if
+				test="search != null and induty == null and doNm != null and sigunguNm ==null">
+				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%' and doNm = #{doNm}
+			</if>
+			<if
+				test="search != null and induty == null and doNm != null and sigunguNm !=null">
+				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%' and doNm = #{doNm} and sigunguNm =#{sigunguNm}
+			</if>
+			<if
+				test="search != null and induty != null and doNm == null and sigunguNm ==null">
+				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%' and induty = #{induty}
+			</if>
+			<if
+				test="search != null and induty != null and doNm != null and sigunguNm ==null">
+				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%' and induty = #{induty} and doNm = #{doNm}
+			</if>
+			<if
+				test="search != null and induty != null and doNm != null and sigunguNm !=null">
+				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%' and induty = #{induty} and doNm = #{doNm} and sigunguNm = #{sigunguNm}
+			</if>
+			<if
+				test="search == null and induty != null and doNm == null and sigunguNm ==null">
+				induty = #{induty}
+			</if>
+			<if
+				test="search == null and induty != null and doNm != null and sigunguNm ==null">
+				induty = #{induty} and doNm = #{doNm}
+			</if>
+			<if
+				test="search == null and induty != null and doNm != null and sigunguNm !=null">
+				induty = #{induty} and doNm = #{doNm} and sigunguNm = #{sigunguNm}
+			</if>
+			<if
+				test="search == null and induty = null and doNm != null and sigunguNm ==null">
+				doNm = #{doNm}
+			</if>
+			<if
+				test="search == null and induty == null and doNm != null and sigunguNm !=null">
+				doNm = #{doNm} and sigunguNm = #{sigunguNm}
+			</if>
+
+		</where>
+
+		order by cmp_like desc limit #{start},10
+
+	</select>
+
+
+
+
+
+
+
+
+	<insert id="insert" parameterType="camp">
+		insert into camp(
+		contentId,
+		facltNm,
+		lctCl,
+		lineIntro,
+		intro,
+		featureNm,
+		induty,
+		doNm,
+		sigunguNm,
+		zipcode,
+		addr1,
+		mapX,
+		mapY,
+		tel,
+		homepage,
+		gnrlSiteCo,
+		autoSiteCo,
+		glampSiteCo,
+		caravSiteCo,
+		glampInnerFclty,
+		caravInnerFclty,
+		trlerAcmpnyAt,
+		caravAcmpnyAt,
+		toiletCo,
+		swrmCo,
+		wtrplCo,
+		brazierCl,
+		sbrsCl,
+		sbrsEtc,
+		posblFcltyCl,
+		extshrCo,
+		themaEnvrnCl,
+		animalCmgCl,
+		firstImageUrl
+		)
+		values(
+		#{contentId},
+		#{facltNm},
+		#{lctCl},
+		#{lineIntro},
+		#{intro},
+		#{featureNm},
+		#{induty},
+		#{doNm},
+		#{sigunguNm},
+		#{zipcode},
+		#{addr1},
+		#{mapX},
+		#{mapY},
+		#{tel},
+		#{homepage},
+		#{gnrlSiteCo},
+		#{autoSiteCo},
+		#{glampSiteCo},
+		#{caravSiteCo},
+		#{glampInnerFclty},
+		#{caravInnerFclty},
+		#{trlerAcmpnyAt},
+		#{caravAcmpnyAt},
+		#{toiletCo},
+		#{swrmCo},
+		#{wtrplCo},
+		#{brazierCl},
+		#{sbrsCl},
+		#{sbrsEtc},
+		#{posblFcltyCl},
+		#{extshrCo},
+		#{themaEnvrnCl},
+		#{animalCmgCl},
+		#{firstImageUrl}
+		)
+	</insert>
 
 
 </mapper>

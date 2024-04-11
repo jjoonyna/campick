@@ -5,11 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>사업자 회원가입 폼</title>
+<jsp:include page="/resources/commons/header.jsp" />
 <link rel="stylesheet" type="text/css" href="./css/join.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="./js/join.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<jsp:include page="/resources/commons/header.jsp" />
 <jsp:include page="/resources/commons/gnb.jsp" />
 
 </head>
@@ -114,7 +114,7 @@
 				<div id="join_menu">
 					<input type="button" id="biz_join_ok" value="회원가입" class="button" />
 					&nbsp <input type="button" id="biz_join_cancle" value="가입취소"
-						class="button" />
+						class="cancle" />
 				</div>
 
 			</form>

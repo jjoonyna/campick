@@ -16,8 +16,8 @@
 			</h1>
 			<nav class="gnb-wrap">
 				<ul class="gnb">
-					<li class="depth1"><a href="#">캠픽정보</a></li>
-					<li class="depth1"><a href="#">캠픽지도</a></li>
+					<li class="depth1"><a href="camp_list">캠픽정보</a></li>
+					<li class="depth1"><a href="camp_map">캠픽지도</a></li>
 					<li class="depth1"><a href="#">캠픽후기</a></li>
 					<li class="depth1"><a href="#">캠픽알림</a></li>
 				</ul>

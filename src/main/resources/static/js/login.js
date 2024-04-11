@@ -51,8 +51,8 @@ $(function(){
 				if(result==1){
 					//성공
 					alert("로그인 완료");
-					location.href="./user_mypage.jsp";
-				}else if(result==-1){
+					location="user_mypage";
+				}else if(result==0){
 					//정보 불러오기 실패
 					alert("로그인 실패");
 					history.back();
@@ -65,7 +65,7 @@ $(function(){
 			},
 			error: function(xhr, status, error) {
         	console.error("AJAX 요청 실패:", status, error); 
-        	alert("서버에서 데이터를 가져오는 중 오류가 발생했습니다.");
+        	alert("없는 회원입니다");
     		}
 			
 		});
@@ -98,8 +98,8 @@ $(function(){
 				if(result==1){
 					//성공
 					alert("로그인 완료");
-					location.href="./biz_mypage.jsp";
-				}else if(result==-1){
+					location="biz_mypage";
+				}else if(result==0){
 					//정보 불러오기 실패
 					alert("로그인 실패");
 					history.back();
@@ -111,7 +111,7 @@ $(function(){
 			},
 			error: function(xhr, status, error) {
         	console.error("AJAX 요청 실패:", status, error); 
-        	alert("서버에서 데이터를 가져오는 중 오류가 발생했습니다.");
+        	alert("없는 회원입니다");
     		}
 			
 		});

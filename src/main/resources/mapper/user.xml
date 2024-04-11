@@ -92,6 +92,7 @@
 		SET
 		user_nick=#{user_nick},
 		user_tel=#{user_tel},
+		user_birth=#{user_birth},
 		user_code=#{user_code},
 		user_addr1=#{user_addr1},
 		user_addr2=#{user_addr2},
