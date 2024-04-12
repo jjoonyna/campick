@@ -3,7 +3,7 @@
 //취소버튼 클릭시
 $(function(){
 	$('.cancle').click(function(){
-		location="biz_mypage";
+		location="user_mypage";
 	});
 });
 
@@ -37,6 +37,7 @@ $(document).ready(function(){
 	$("#join_wrap").hide(); 
 	$("#pw_change_display").hide(); 
 	$("#delete_display").hide(); 
+	$(".boxbox").hide();
 	
 	$.ajax({
          type : "GET",
@@ -63,16 +64,15 @@ $(document).ready(function(){
       });
 	
 });
-
-	//내정보 수정 클릭시
+  //내정보 수정 클릭시
 $(function(){
-	$("#myInfo_change").click(function(){		
-		$("#mypage").hide();
-		$("#join_wrap").show();
-		$("#pw_change_display").hide(); 
-		$("#delete_display").hide(); 
-		
-		$.ajax({
+   $("#myInfo_change").click(function(){      
+      $("#mypage").hide();
+      $("#join_wrap").show();
+      $("#pw_change_display").hide(); 
+      $("#delete_display").hide(); 
+      $(".boxbox").hide();
+      $.ajax({
          type : "GET",
          url : encodeURI("http://localhost:80/user_info"),
          contentType: "application/json",
@@ -88,6 +88,69 @@ $(function(){
                $("#info_addr1").val(result.user_addr1);
                $("#info_addr2").val(result.user_addr2);
                $("#info_email").val(result.user_email);
+         }else if(result==null){
+            //정보 불러오기 실패
+            alert("정보 불러오기 실패");
+            history.back();
+         }
+            
+         },
+         error: function(xhr, status, error) {
+           console.error("AJAX 요청 실패:", status, error); 
+           alert("서버에서 데이터를 가져오는 중 오류가 발생했습니다.");
+          }
+         
+      });
+   });
+});
+
+//예약목록 확인
+
+$(function(){
+	$("#appoint").click(function(){		
+		$("#mypage").hide();
+		$("#join_wrap").hide();
+		$("#pw_change_display").hide(); 
+		$("#delete_display").hide(); 
+		$(".boxbox").show();
+		
+		var contentId="";
+		$.ajax({
+         type : "GET",
+         url : encodeURI("http://localhost:80/select_user_apt"),
+         contentType: "application/json",
+         success : function(result){
+            if(result!=null){
+               //성공
+               contentId=result.cmp_no;
+               $(".boldtit").text(result.user_id);
+               $("#participants").val(result.apt_pp);
+               $("#cmp_startdate").val(result.apt_date);
+               $("#content").val(result.apt_req);
+               $("#apt_price").val(result.apt_price);
+			}else if(result==null){
+				//정보 불러오기 실패
+				alert("정보 불러오기 실패");
+				history.back();
+			}
+            
+         },
+         error: function(xhr, status, error) {
+           console.error("AJAX 요청 실패:", status, error); 
+           alert("서버에서 데이터를 가져오는 중 오류가 발생했습니다.");
+          }
+         
+      });
+		$.ajax({
+         type : "GET",
+         url : encodeURI("http://localhost:80/select_user_camp/"+contentId),
+         contentType: "application/json",
+         success : function(result){
+            if(result!=null){
+               //성공
+               $("#cmp_nm").val(result.facltNm);
+               $("#cmp_addr").val(result.addr1);
+               $("#cmp_stay").val(result.cmp_staydate);
 			}else if(result==null){
 				//정보 불러오기 실패
 				alert("정보 불러오기 실패");

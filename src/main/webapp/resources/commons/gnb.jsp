@@ -14,14 +14,14 @@
 				<a href="camp_list"><img src="./images/logo2.png"></a> <span
 					class="sound-only">사이트로고</span>
 			</h1>
-<!-- 			<nav class="gnb-wrap"> -->
-<!-- 				<ul class="gnb"> -->
-<!-- 					<li class="depth1"><a href="camp_list">캠픽정보</a></li> -->
-<!-- 					<li class="depth1"><a href="camp_map">캠픽지도</a></li> -->
-<!-- 					<li class="depth1"><a href="#">캠픽후기</a></li> -->
-<!-- 					<li class="depth1"><a href="#">캠픽알림</a></li> -->
-<!-- 				</ul> -->
-<!-- 			</nav> -->
+			<nav class="gnb-wrap">
+				<ul class="gnb">
+					<li class="depth1"><a href="camp_list">캠픽정보</a></li>
+					<li class="depth1"><a href="camp_map">캠픽지도</a></li>
+					<li class="depth1"><a href="#">캠픽후기</a></li>
+					<li class="depth1"><a href="#">캠픽알림</a></li>
+				</ul>
+			</nav>
 			<div class="gnb-right">
 				<c:if test="${sessionScope.user_id == null }">
 				<a href="login"> <img src="./icons/ico_profile_black.svg" alt="로그인"></a>

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.choongang.campick.model.Appointment;
 import com.choongang.campick.model.Camp;
 import com.choongang.campick.service.CampService;
 
@@ -40,11 +41,21 @@ public class CampController {
 	public String camp_list(){
 		return "camp/camp_list";
 	}
-	
+	// 일반 회원 예약 상세 조회 캠핑정보 가져오기
+			@GetMapping("select_user_camp/{contentId}")
+			@ResponseBody
+			public ResponseEntity<Map<String,Object>> select_user_camp(@PathVariable("contentId") String contentId){
+				Map map = new HashMap();
+				Camp db = service.selectUserCamp(contentId); // 회원이 있는지 없는지 확인
+				map.put("facltNm", db.getFacltNm());
+				map.put("addr1", db.getAddr1());
+				map.put("cmp_staydate", db.getCmp_staydate());
+				return new ResponseEntity<>(map,HttpStatus.OK);
+			}
 	//캠핑장 목록 불러오기 기본(페이징 형식으로) 스크롤 방식으로 바뀔시 변경예정
 	@GetMapping("camplist/{page}")
 	@ResponseBody
-	public ResponseEntity<Map<String,Object>> camplist(@PathVariable("page") String page,@RequestBody Camp camp){
+	public ResponseEntity<Map<String,Object>> camplist(@PathVariable("page") String page, Camp camp){
 		Map map = new HashMap();
 		if (page == null || page.equals("")) {
 			page = "1";
@@ -94,8 +105,8 @@ public class CampController {
 	}
 	
 	
-	@GetMapping("camp_content")
-	public String camp_content(){
+	@GetMapping("camp_content/{campNo}")
+	public String camp_content(@PathVariable("campNo") String campNo){
 		return "camp/camp_content";
 	
 	}

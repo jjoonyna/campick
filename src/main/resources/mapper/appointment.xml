@@ -38,7 +38,7 @@
 		* 
 		from
 		appointment
-		where
+		where user_id=#{user_id}
 		
 	</select>
 	

@@ -25,4 +25,7 @@ public interface CampDAO {
 	// 캠핑장 조회하기
 	Camp selectBizCmp(String contentId);
 
+	Camp selectUserCamp(String contentId);
+
+
 }
