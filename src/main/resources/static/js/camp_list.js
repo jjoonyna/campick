@@ -59,7 +59,7 @@ function camplist(page){
              pagination += "<nav id='pagiset pagiset-circ'>";
              pagination += "<div class='pagiset-ctrl'>";
 			 
-             pagination += "<a class='pagiset-link pagiset-first' href='camp_list?page=1'";
+             pagination += "<a class='pagiset-link pagiset-first' href='javascript:camplist(" + (result.startPage-10) + ")'";
              pagination += "class='pagiset-link pagiset-first'";
              pagination += ">";
              pagination += "처음";
@@ -67,8 +67,7 @@ function camplist(page){
              pagination += "</div>";
              if(result.page>1){
              pagination += "<div class='pagiset-ctrl'>";
-             pagination += "<a class='pagiset-link pagiset-first' href='camp_list?page="+result.startPage-1;
-             pagination += ">";
+             pagination += "<a class='pagiset-link pagiset-first' href='javascript:camplist(" + (result.startPage-10) + ")'>";
              pagination += "이전";
              pagination += "</a>";
              pagination += "</div>";
@@ -79,18 +78,16 @@ function camplist(page){
                 pagination += "<span class='page-item " + (i === result.page ? "active" : "") + "'>";
                 pagination += "<a id=subject href='javascript:camplist(" + i + ")'>" + i + "</a></span>";
             }
-            if(result.page<result.pageCount){
+            if(result.endPage<result.pageCount){
             pagination += "<div class='pagiset-ctrl'>";
-            pagination += "<a class='pagiset-link pagiset-next' href='camp_list?page="+result.endPage+1;
-            pagination += ">";
+            pagination += "<a class='pagiset-link pagiset-next' href='javascript:camplist(" + (result.startPage+10) + ")'>";
             pagination += "다음";
             pagination += "</a>";
             pagination += "</div>";
 			}
             pagination += "<div class='pagiset-ctrl'>";
             pagination += "<a class='pagiset-link pagiset-last'";
-            pagination += "href='camp_list?page="+result.lastPage;
-            pagination += ">";
+            pagination += "href='javascript:camplist(" + (result.pageCount) + ")'>";
             pagination += "마지막";
             pagination += "</a>";
             pagination += "</div>";
