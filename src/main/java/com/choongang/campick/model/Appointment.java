@@ -23,6 +23,4 @@ public class Appointment {
 	private String apt_startdate;   //시작 일자    
 	
 
-
-
 }

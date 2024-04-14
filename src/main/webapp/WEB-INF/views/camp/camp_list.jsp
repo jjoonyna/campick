@@ -109,104 +109,105 @@
 					<!-- 카드 세트 -->
 					<div id="cardlist">
 					
-							<c:forEach items="${camplist}" var="vo" varStatus="varStatus">
-								<div class="cardset cardset-hor cardset-xl" id="cardInto<c:out value="${varStatus.index}"/>">
-									<figure class="cardset-figure">
-										<img class="cardset-img" src="../images/<c:out value="${vo.cmp_pic}"/>" alt="카드 이미지">
-									</figure>
-									<div class="cardset-body">
-										<h2 class="cardset-tit"><c:out value="${vo.facltNm}"/></h2>
-										<h6 class="cardset-desc"><c:out value="${vo.lineIntro }"/></h6>
-										<div class="badgeset-wrap">
-											<div style="display: flex; align-items: center;">
-												<img class="icon-sm" src="../icons/ico_location_black.svg" alt="위치 아이콘">
-												<span style="margin-left: 1px;"><c:out value="${vo.doNm }"/>&nbsp;<c:out value="${vo.sigunguNm }"/></span>
-												<img class="icon-sm" src="../icons/ico_phone_black.svg" alt="전화 아이콘">
-												<span style="margin-left: 1px;"><c:out value="${vo.tel }"/></span>
-												<img class="icon-sm" src="../icons/ico_star_black.svg" alt="즐찾 아이콘">
-												<span style="margin-left: 1px;"><c:out value="${vo.cmp_fav}"/>회</span>
-											</div>
-											<br> <br>
-											<div>
-												<c:if test="${vo.toiletCo gt 0}">
-													<img src="../images/wc1.png" style="width: 40px; height: 40px;">
-												</c:if>
-												<c:if test="${not empty vo.brazierCl}">
-													<img src="../images/barbeque1.png" style="width: 40px; height: 40px;">
-												</c:if>
-												<c:if test="${vo.swrmCo gt 0}">
-													<img src="../images/shower2.png" style="width: 40px; height: 40px;">
-												</c:if>
-												<c:if test="${vo.caravSiteCo gt 0}">
-													<img src="../images/caravan.png" style="width: 40px; height: 40px;">
-												</c:if>
-												<c:if test="${vo.animalCmgCl eq 'Y'}">
-													<img src="../images/pet1.png" style="width: 40px; height: 40px;">
-												</c:if>
-											</div>
-										</div>
-									</div>
-								</div>
-							</c:forEach>
-					</div>
+<%-- 							<c:forEach items="${camplist}" var="vo" varStatus="varStatus"> --%>
+<%-- 								<div class="cardset cardset-hor cardset-xl" id="cardInto<c:out value="${varStatus.index}"/>"> --%>
+<!-- 									<figure class="cardset-figure"> -->
+<%-- 										<img class="cardset-img" src="../images/<c:out value="${vo.cmp_pic}"/>" alt="카드 이미지"> --%>
+<!-- 									</figure> -->
+<!-- 									<div class="cardset-body"> -->
+<%-- 										<h2 class="cardset-tit"><c:out value="${vo.facltNm}"/></h2> --%>
+<%-- 										<h6 class="cardset-desc"><c:out value="${vo.lineIntro }"/></h6> --%>
+<!-- 										<div class="badgeset-wrap"> -->
+<!-- 											<div style="display: flex; align-items: center;"> -->
+<!-- 												<img class="icon-sm" src="../icons/ico_location_black.svg" alt="위치 아이콘"> -->
+<%-- 												<span style="margin-left: 1px;"><c:out value="${vo.doNm }"/>&nbsp;<c:out value="${vo.sigunguNm }"/></span> --%>
+<!-- 												<img class="icon-sm" src="../icons/ico_phone_black.svg" alt="전화 아이콘"> -->
+<%-- 												<span style="margin-left: 1px;"><c:out value="${vo.tel }"/></span> --%>
+<!-- 												<img class="icon-sm" src="../icons/ico_star_black.svg" alt="즐찾 아이콘"> -->
+<%-- 												<span style="margin-left: 1px;"><c:out value="${vo.cmp_fav}"/>회</span> --%>
+<!-- 											</div> -->
+<!-- 											<br> <br> -->
+<!-- 											<div> -->
+<%-- 												<c:if test="${vo.toiletCo gt 0}"> --%>
+<!-- 													<img src="../images/wc1.png" style="width: 40px; height: 40px;"> -->
+<%-- 												</c:if> --%>
+<%-- 												<c:if test="${not empty vo.brazierCl}"> --%>
+<!-- 													<img src="../images/barbeque1.png" style="width: 40px; height: 40px;"> -->
+<%-- 												</c:if> --%>
+<%-- 												<c:if test="${vo.swrmCo gt 0}"> --%>
+<!-- 													<img src="../images/shower2.png" style="width: 40px; height: 40px;"> -->
+<%-- 												</c:if> --%>
+<%-- 												<c:if test="${vo.caravSiteCo gt 0}"> --%>
+<!-- 													<img src="../images/caravan.png" style="width: 40px; height: 40px;"> -->
+<%-- 												</c:if> --%>
+<%-- 												<c:if test="${vo.animalCmgCl eq 'Y'}"> --%>
+<!-- 													<img src="../images/pet1.png" style="width: 40px; height: 40px;"> -->
+<%-- 												</c:if> --%>
+<!-- 											</div> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<%-- 							</c:forEach> --%>
+<!-- 					</div> -->
 				</div>
 
 <!-- 				페이지 -->
 				<br>
 				<br>
-				<nav id="pagiset pagiset-circ">
-					<div class="pagiset-ctrl">
-						<a
-							href="gnb.do?pageNum=1<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
-							class="pagiset-link pagiset-first"
-							style="width: 100px;"
-						>
-							처음
-						</a>
-					</div>
-					<c:if test="${result.currentPage gt 1}">
-						<div class="pagiset-ctrl">
-							<a
-								href="gnb.do?pageNum=${result.startPage - 1}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
-								class="pagiset-link pagiset-prev"
-								style="width: 100px;"
-							>
-								이전
-							</a>
-						</div>
-					</c:if>
-					<div class="pagiset-list">
-						<c:forEach var="i" begin="${result.startPage}" end="${result.endPage}">
-							<a
-								href="gnb.do?pageNum=${i}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
-								class="pagiset-link<c:if test="${result.currentPage==i}"> active-fill</c:if>"
-								style="width: 100px;"
-							>
-								${i}
-							</a>
-						</c:forEach>
-					</div>
-					<c:if test="${result.currentPage lt result.lastPage}">
-						<div class="pagiset-ctrl">
-							<a
-								href="gnb.do?pageNum=${result.endPage + 1}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
-								class="pagiset-link pagiset-next"
-								style="width: 100px;"
-							>
-								다음
-							</a>
-						</div>
-					</c:if>
-					<div class="pagiset-ctrl">
-						<a
-							href="gnb.do?pageNum=${result.lastPage}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>"
-							class="pagiset-link pagiset-last"
-							style="width: 100px;"
-						>
-							마지막
-						</a>
-					</div>
-				</nav>
+				<div id="pagein"></div>
+<!-- 				<nav id="pagiset pagiset-circ"> -->
+<!-- 					<div class="pagiset-ctrl"> -->
+<!-- 						<a -->
+<%-- 							href="gnb.do?pageNum=1<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>" --%>
+<!-- 							class="pagiset-link pagiset-first" -->
+<!-- 							style="width: 100px;" -->
+<!-- 						> -->
+<!-- 							처음 -->
+<!-- 						</a> -->
+<!-- 					</div> -->
+<%-- 					<c:if test="${result.currentPage gt 1}"> --%>
+<!-- 						<div class="pagiset-ctrl"> -->
+<!-- 							<a -->
+<%-- 								href="gnb.do?pageNum=${result.startPage - 1}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>" --%>
+<!-- 								class="pagiset-link pagiset-prev" -->
+<!-- 								style="width: 100px;" -->
+<!-- 							> -->
+<!-- 								이전 -->
+<!-- 							</a> -->
+<!-- 						</div> -->
+<%-- 					</c:if> --%>
+<!-- 					<div class="pagiset-list"> -->
+<%-- 						<c:forEach var="i" begin="${result.startPage}" end="${result.endPage}"> --%>
+<!-- 							<a -->
+<%-- 								href="gnb.do?pageNum=${i}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>" --%>
+<%-- 								class="pagiset-link<c:if test="${result.currentPage==i}"> active-fill</c:if>" --%>
+<!-- 								style="width: 100px;" -->
+<!-- 							> -->
+<%-- 								${i} --%>
+<!-- 							</a> -->
+<%-- 						</c:forEach> --%>
+<!-- 					</div> -->
+<%-- 					<c:if test="${result.currentPage lt result.lastPage}"> --%>
+<!-- 						<div class="pagiset-ctrl"> -->
+<!-- 							<a -->
+<%-- 								href="gnb.do?pageNum=${result.endPage + 1}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>" --%>
+<!-- 								class="pagiset-link pagiset-next" -->
+<!-- 								style="width: 100px;" -->
+<!-- 							> -->
+<!-- 								다음 -->
+<!-- 							</a> -->
+<!-- 						</div> -->
+<%-- 					</c:if> --%>
+<!-- 					<div class="pagiset-ctrl"> -->
+<!-- 						<a -->
+<%-- 							href="gnb.do?pageNum=${result.lastPage}<c:if test="${not empty search}">&search=${search}</c:if><c:if test="${not empty keyword}">&keyword=${keyword}</c:if>" --%>
+<!-- 							class="pagiset-link pagiset-last" -->
+<!-- 							style="width: 100px;" -->
+<!-- 						> -->
+<!-- 							마지막 -->
+<!-- 						</a> -->
+<!-- 					</div> -->
+<!-- 				</nav> -->
 			</div>
 		</div>
 	</main>

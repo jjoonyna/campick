@@ -7,6 +7,7 @@
 <title>mypage</title>
 <jsp:include page="/resources/commons/header.jsp" />
 <link rel="stylesheet" href="./css/user_mypage.css">
+<link rel="stylesheet" href="./css/camp_result.css">
 <link rel="stylesheet" href="./css/join.css">
 <script type="text/javascript" src="./js/user_mypage.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
@@ -28,9 +29,9 @@
 <!-- 				<li> -->
 <!-- 					<button>찜목록</button> -->
 <!-- 				</li> -->
-<!-- 				<li> -->
-<!-- 					<button>예약목록</button> -->
-<!-- 				</li> -->
+				<li>
+					<button id="appoint">예약목록</button>
+				</li>
 <!-- 				<li> -->
 <!-- 					<button id="review">내후기</button> -->
 <!-- 					<ul id="review_list"> -->
@@ -240,6 +241,56 @@
 			</div>
 		</div>
 
+
+		<!-- 예약자 정보 입력란 -->
+		<c:forEach items></c:forEach>
+		<div class="boxbox">
+			<div class="boxboxbox">
+				<div style="padding: 40px;">
+						<div class="card_body">
+							<h2 class="boldtit">님의 예약이 완료되었습니다!</h2><br><br>
+									<table class="formline">
+										<tr class="onlybottomline">
+											<td class="tabletdtext">숙소 정보 : </td>
+											<td class="tabletdtext"><div class="readdatas" id="cmp_nm" name="cmp_nm" ></div></td>
+										</tr>
+										<tr class="onlybottomline">
+											<td class="tabletdtext">위치 : </td>
+											<td class="tabletdtext"><div class="readdatas" id="cmp_addr" name="cmp_addr"></div></td>
+										</tr>
+										<tr class="onlybottomline">
+											<td class="tabletdtext">날짜 : </td>
+											<td class="tabletdtext"><input type="text" id="cmp_startdate" name="cmp_startdate"   class="readdatas">
+											<td class="tabletdtext"><input type="text"  class="readdatas" id="cmp_stay" name="cmp_stay"/></td>
+											
+										</tr>
+										<tr class="onlybottomline">
+											<td class="tabletdtext">인원 : </td>
+											<td class="tabletdtext"><input type="text"  class="readdatas" id="participants" name="apt_pp" required/></td>
+										</tr>
+										<tr class="onlybottomline">
+											<td class="tabletdtext">요청 사항 : </td>
+											<td class="tabletdtext"><input type="text"  class="readdatas" id="content" name="apt_req" required/></td>
+										</tr>
+										<tr class="onlybottomline">
+											<td class="tabletdtext">결제 내역 : </td>
+											<td class="tabletdtext"><input type="text" class="readdatas" onchange="payment()" id="apt_price" name="apt_price" required/></td>
+										</tr>
+									</table>
+								</div>
+								<br><br>
+								<div class="bbuttons">
+  											<button type="submit"
+											class="aptbutton">예약 목록</button>
+  											<button type="reset" class="apt_cancle"
+  												">예약 취소</button>
+										</div>
+						</div>
+				</div>
+			</div>
+					
+					
+		
 
 	</main>
 

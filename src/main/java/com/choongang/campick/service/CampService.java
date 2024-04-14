@@ -194,5 +194,10 @@ public class CampService {
 		return dao.selectBizCmp(contentId);
 	}
 
+	public Camp selectUserCamp(String contentId) {
+		return dao.selectUserCamp(contentId);
+	}
+
+
 
 }

@@ -30,9 +30,9 @@
 <!-- 				<li> -->
 <!-- 					<button>캠핑장관리</button> -->
 <!-- 				</li> -->
-<!-- 				<li> -->
-<!-- 					<button>예약목록</button> -->
-<!-- 				</li> -->
+				<li>
+					<button>예약목록</button>
+				</li>
 <!-- 				<li> -->
 <!-- 					<button id="review">내후기</button> -->
 <!-- 					<ul id="review_list"> -->

@@ -40,6 +40,7 @@ public class AppointmentController {
 //			return new ResponseEntity<>(result, HttpStatus.OK);
 //		}
 //
+<<<<<<< HEAD
 //		// 일반 회원 예약 상세 조회
 //		@GetMapping("/select_user_apt")
 //		@ResponseBody
@@ -65,6 +66,30 @@ public class AppointmentController {
 //	
 //
 //		//예약 삭제(마이페이지)
+=======
+		// 일반 회원 예약 상세 조회
+		@GetMapping("/select_user_apt")
+		@ResponseBody
+		public ResponseEntity<Map<String,Object>> select_user_apt(HttpSession session){
+			Map map = new HashMap();
+			String user_id = (String)session.getAttribute("user_id");
+			System.out.println(user_id);
+			Appointment db = service.selectUserApt(user_id); // 회원이 있는지 없는지 확인
+			map.put("cmp_no", db.getCmp_no());
+			map.put("apt_no", db.getApt_no());
+			map.put("user_id", db.getUser_id());
+			map.put("apt_date", db.getApt_date());
+			map.put("apt_pp", db.getApt_pp());
+			map.put("apt_req", db.getApt_req());
+			map.put("apt_staydate", db.getApt_staydate());
+			map.put("apt_price", db.getApt_price());
+			map.put("apt_at", db.getApt_at());
+			
+			return new ResponseEntity<>(map,HttpStatus.OK);
+		}
+		
+	
+>>>>>>> branch 'master' of https://github.com/jjoonyna/campick.git
 
 //		//예약 취소
 //	
@@ -153,11 +178,7 @@ public class AppointmentController {
 	    	return "camp/cmp_apt_list"; 
 	    }
 	    
-	    // 마이페이지 내 예약 내역 목록 페이지
-	    @GetMapping("/user_mypage_apt_list")
-	    public String user_mypage_apt_list() {
-	    	return "user/user_mypage_apt_list"; 
-	    }
+
 	    
 		//예약 페이지
 	    @PostMapping("/camp_appointment/{contentId}")
