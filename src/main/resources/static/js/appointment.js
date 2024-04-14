@@ -127,15 +127,18 @@ $(function(){
 	
 		$.ajax({
          type : "GET",
-         url : encodeURI("http://localhost:80/camp_result"),
+         url : encodeURI("http://localhost:80/camp_results"+user_id),
          contentType: "application/json",
          success : function(result){
             if(result!=null){
                //성공
                $("#facltNm").val(result.facltNm);
-               $("#cmp_price").val(result.cmp_price);
-               $("#cmp_staydate").val(result.cmp_startdate);
-               $("#cmp_maxpp").val(result.cmp_maxpp);
+               $("#addr1").val(result.addr1);
+               $("#apt_startdate").val(result.apt_startdate);
+               $("#apt_staydate").val(result.apt_staydate);
+               $("#apt_pp").val(result.apt_pp);
+               $("#apt_req").val(result.apt_req);
+               $("#apt_price").val(result.apt_price);
 			}else if(result==null){
 				//정보 불러오기 실패
 				alert("정보 불러오기 실패");
@@ -186,7 +189,7 @@ $(function(){
 			};
 		$.ajax({
 			type : "POST",
-			url : "http://localhost:80/camp_appointment",
+			url : "http://localhost:80/camp_appointment"+contentId,
 			contentType: "application/json",
 			data : JSON.stringify(formdata),
 			success : function(result){

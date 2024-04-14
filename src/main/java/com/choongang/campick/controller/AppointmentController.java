@@ -7,14 +7,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.choongang.campick.model.Appointment;
+import com.choongang.campick.model.Camp;
 import com.choongang.campick.service.AppointmentService;
 
-import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 
 
@@ -158,14 +159,57 @@ public class AppointmentController {
 	    	return "user/user_mypage_apt_list"; 
 	    }
 	    
+		//예약 페이지
+	    @PostMapping("/camp_appointment/{contentId}")
+	    @ResponseBody
+	    public ResponseEntity<Map<String, Object>> camp_appointment(@PathVariable("contentId") int contentId) {
+	    	Map map = new HashMap();
+	    	
+	    	Camp db = service.selectapoint(contentId);
+	    	map.put("firstImageUrl", db.getFirstImageUrl());
+	    	map.put("facltNm", db.getFacltNm());
+	    	map.put("intro", db.getIntro());
+	    	map.put("faclNm", db.getFacltNm());
+	    	map.put("price", db.getCmp_price());
+	    	map.put("cmp_maxpp", db.getCmp_maxpp());
+	    	
+	    	
+	    	return new ResponseEntity<>(map,HttpStatus.OK); // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
+	    }
+
+		 // 일반 회원 예약 하기
+	      @PostMapping("/apt_user_cmp")
+	      @ResponseBody
+	      public ResponseEntity<Integer> apt_user_cmp(@RequestBody Appointment apt){
+	         
+	         System.out.println("예약을 할거예요!");
+	         int result = service.aptUserCamp(apt);
+	         System.out.println("result : " + result);
+	         
+	         return new ResponseEntity<>(result, HttpStatus.OK);
+	      }
+	      
+	      @PostMapping("/camp_results/{user_id}")
+		    @ResponseBody
+		    public ResponseEntity<Map<String, Object>> camp_results(@PathVariable("user_id") String user_id) {
+		    	Map map = new HashMap();
+		    	
+		    	Camp db = service.selectresult(user_id);
+		    	Appointment ap = service.selectap(user_id);
+		    	map.put("facltNm", db.getFacltNm());
+		    	map.put("addr1", db.getAddr1());
+		    	map.put("apt_startdate", ap.getApt_startdate());
+		    	map.put("apt_staydate", ap.getApt_staydate());
+		    	map.put("apt_pp", ap.getApt_pp());
+		    	map.put("apt_req", ap.getApt_req());
+		    	map.put("apt_price", ap.getApt_price());
+		    	
+		    	
+		    	return new ResponseEntity<>(map,HttpStatus.OK); // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
+		    }
+
 	    
-		
-		
-		
-		
-		
-		
-		
+	 
 }
 
 	

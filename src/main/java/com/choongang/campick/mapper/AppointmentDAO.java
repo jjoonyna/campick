@@ -3,6 +3,7 @@ package com.choongang.campick.mapper;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.choongang.campick.model.Appointment;
+import com.choongang.campick.model.Camp;
 
 
 @Mapper
@@ -25,6 +26,10 @@ public interface AppointmentDAO {
 	
 	// 사업자 회원 예약 삭제
 	
+	Camp selectapoint(int contentId);
 	
+	Camp selectresult(String user_id);
+	
+	Appointment selectap(String user_id);
 	
 }
