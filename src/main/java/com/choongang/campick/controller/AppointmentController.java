@@ -16,6 +16,7 @@ import com.choongang.campick.model.Appointment;
 import com.choongang.campick.model.Camp;
 import com.choongang.campick.service.AppointmentService;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 
 
@@ -40,7 +41,6 @@ public class AppointmentController {
 //			return new ResponseEntity<>(result, HttpStatus.OK);
 //		}
 //
-<<<<<<< HEAD
 //		// 일반 회원 예약 상세 조회
 //		@GetMapping("/select_user_apt")
 //		@ResponseBody
@@ -65,8 +65,6 @@ public class AppointmentController {
 //		
 //	
 //
-//		//예약 삭제(마이페이지)
-=======
 		// 일반 회원 예약 상세 조회
 		@GetMapping("/select_user_apt")
 		@ResponseBody
@@ -89,7 +87,6 @@ public class AppointmentController {
 		}
 		
 	
->>>>>>> branch 'master' of https://github.com/jjoonyna/campick.git
 
 //		//예약 취소
 //	

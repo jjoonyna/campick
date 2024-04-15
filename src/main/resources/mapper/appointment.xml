@@ -38,10 +38,7 @@
 		* 
 		from
 		appointment
-<<<<<<< HEAD
-=======
 		where user_id=#{user_id}
->>>>>>> branch 'master' of https://github.com/jjoonyna/campick.git
 		
 	</select>
 	
