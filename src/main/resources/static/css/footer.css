@@ -1,9 +1,15 @@
 @charset "utf-8";/* ========== */
 
+
+
+footer{
+    margin: 100% 0 0 auto;
+    padding-bottom: 50px;
+}
 /* footer */
-footer {bottom: 0px; font-family: 'GmarketSansMedium'; font-size: 12px !important; color: #fffdf5; background-color: #1F18F0 !important; height: 100px; text-align: center; width: 100%;}
+footer {bottom: 0px; font-family: 'GmarketSansMedium'; font-size: 12px !important; color: #fffdf5; background-color: #1F18F0 !important; text-align: center; width: 100%;}
 footer ul{display: flex; margin-left: 50px; place-content: center;}
 footer ul .ftli {margin-left: 50px;}
-footer ul .ftli > a {display: inline-block; color: #FFFDF5;     margin: 0px 32px 0px 63px; font-size: 15px; text-decoration: none;}
+footer ul .ftli > a {display: inline-block; color: #FFFDF5; margin: auto; font-size: 15px; text-decoration: none;}
 footer ul .ftli > a:hover {color: #F57804;}
 p {line-height: 20px;}

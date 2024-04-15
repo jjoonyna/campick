@@ -8,6 +8,7 @@
 <jsp:include page="/resources/commons/header.jsp" />
 <jsp:include page="/resources/commons/gnb.jsp" />
 <title>예약 페이지</title>
+<link rel="stylesheet" href="./css/footer.css">
 <link rel="stylesheet" href="./css/appointment.css">
 <script type="text/javascript" src="./js/appointment.js"></script>
 </head>
@@ -20,8 +21,11 @@
 	
 	
 			<!-- 예약 하기 -->
+<div class="campland-N19" data-bid="MXLu84reVj" id="">
+	<div class="contents-inner">
+		<div class="contents-container container-md">
 			<div style="text-align: center; font-size: 42px; color: #000000;">
-				<p style="font-family: 'Ycomputer-Regular', Times, serif;">예약 하기</p>
+				<h1 style="font-family: 'Ycomputer-Regular', Times, serif;">예약 하기</h1>
 			</div><br><br>
 	
 	
@@ -35,26 +39,19 @@
 								alt="카드 이미지">
 						</figure>
 						<div class="cardset-body">
-							<h2 class="cardset-tit">마천도 서울 카라반</h2>
-							<h6 class="cardset-desc">귀요운 현정언니 출몰 지역!</h6>
-							<p class="cardset-desc" style="padding-top: 5px;">경기도 서울시 마천에 위치한 현정 캠핑장으로 인근 20km 내에 마트와 편의시설, <br>
+							<h2 class="cardset-tit ">마천도 서울 카라반</h2>
+							<h6 class="card-maintext">귀요운 현정언니 출몰 지역!</h6>
+							<p class="card-maintext" style="padding-top: 5px;">경기도 서울시 마천에 위치한 현정 캠핑장으로 인근 20km 내에 마트와 편의시설, <br>
 													그리고 현정 언니와 놀 수 있는 기회가 있습니다. ^^ 놀러 오세요잉~!!!</p>
 							<div class="badgeset-wrap">
 									<div class="badgeset-group" style="padding-top: 10px;">
-										<div class="badgeset badgeset-fill badgeset-border badgeset-round badgeset-primary">최대4명</div>
+										<div class="badgeset badgeset-border badgeset-round badgeset-primary">최대4명</div>
 										<div class="badgeset badgeset-fill badgeset-border badgeset-round">캠PICK!</div>
 										<div class="badgeset badgeset-fill badgeset-border badgeset-round">키즈 캠핑</div>
 										<div class="badgeset badgeset-fill badgeset-border badgeset-round">개별 화장실</div>
 										<div class="badgeset badgeset-fill badgeset-border badgeset-round">매점</div><br>
 										<div style="padding-top: 10px;">
-										<label for="text">체크인 날짜 : </label> &nbsp <span id="startdate"></span> <label for="select">
-										숙박 일자 : </label>
-										<select id="stay" name="stay" onchange="calculatePrice()" style="width: 50px;">
-											<option value="default">선택</option>
-											<option value="1">1박</option>
-											<option value="2">2박</option>
-											<option value="3">3박</option>
-										</select></div> 
+										<label for="text">체크인 날짜 : </label> &nbsp <span id="startdate"></span> 
 										<div> 
 											<table>
 												<tr>
@@ -86,19 +83,29 @@
 							<figure class="cardset-figure">
 								<div class="cardset-body">
 									<h2 class="cardset-tit">예약자 정보</h2>
-										<div class="formline">
-											<input type="date"
-											id="datepicker" onchange="displaySelectedDate()">
-										</div>
+									
 										<div class = "formline">
 											<table>
 												<tr>
+													<td class="tabletext">날짜</td>
+													<td class="tableline"><input type="date" id="datepicker" onchange="displaySelectedDate()"></td>
+												</tr>
+												<tr>
+													<td class="tabletext">숙박 일자</td>
+													<td class="tableline"><select id="stay" name="stay" onchange="calculatePrice()" style="width: 50px;">
+														<option value="default">선택</option>
+														<option value="1">1박</option>
+														<option value="2">2박</option>
+														<option value="3">3박</option>
+													</select> * 선택 시, 가격이 나타납니다.</td>
+												</tr>
+												<tr>
 													<td class="tabletext">성함</td>
-													<td class="tableline"><input type="text" id="user_nm" name="user_nm" value="${user_id}"></td>
+													<td class="tableline"><input type="text" id="user_nm" name="user_nm" value="${user_nm}"></td>
 												</tr>
 												<tr>
 													<td class="tabletext">인원</td>
-													<td class="tableline"><select id="cmp_maxpp" name="participants" required></select></td>
+													<td class="tableline"><select id="cmp_pp" name="cmp_pp" value="${cmp_maxpp}" required></select></td>
 												</tr>
 												<tr>
 													<td class="tabletext">요청 사항</td>
@@ -131,7 +138,13 @@
 							
 					
 
-				
+				</div>
+			</div>
+		</div>	
 	</main>
+	
+	<div>
+		<jsp:include page="/resources/commons/footer.jsp" />
+	</div>
 </body>
 </html>

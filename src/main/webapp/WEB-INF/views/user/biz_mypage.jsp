@@ -8,6 +8,7 @@
 <jsp:include page="/resources/commons/header.jsp" />
 <link rel="stylesheet" href="./css/biz_mypage.css">
 <link rel="stylesheet" href="./css/join.css">
+<link rel="stylesheet" href="./css/footer.css">
 <script type="text/javascript" src="./js/biz_mypage.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <jsp:include page="/resources/commons/gnb.jsp" />
@@ -236,8 +237,8 @@
 
 	</main>
 
-
-	<footer> </footer>
-
+	<div>
+		<jsp:include page="/resources/commons/footer.jsp" />
+	</div>
 </body>
 </html>
