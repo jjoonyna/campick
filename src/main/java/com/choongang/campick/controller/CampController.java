@@ -53,6 +53,17 @@ public class CampController {
 		map.put("cmp_staydate", db.getCmp_staydate());
 		return new ResponseEntity<>(map,HttpStatus.OK);
 	}
+//			@GetMapping("select_user_camp/{contentId}")
+//			@ResponseBody
+//			public ResponseEntity<Map<String,Object>> select_user_camp(@PathVariable("contentId") String contentId){
+//				Map map = new HashMap();
+//				Camp db = service.selectUserCamp(contentId); // 회원이 있는지 없는지 확인
+//				map.put("facltNm", db.getFacltNm());
+//				map.put("addr1", db.getAddr1());
+//				map.put("cmp_staydate", db.getCmp_staydate());
+//				return new ResponseEntity<>(map,HttpStatus.OK);
+//			}
+	
 	//캠핑장 목록 불러오기 기본(페이징 형식으로) 스크롤 방식으로 바뀔시 변경예정
 	@PostMapping("camplist/{page}")
 	@ResponseBody
@@ -118,7 +129,7 @@ public class CampController {
 	
 	
 	//캠핑장 상세페이지
-	@GetMapping(value = "campcontent/{contentId}", produces = "application/json")
+	 @GetMapping(value = "campcontent/{contentId}", produces = "application/json")
 	 @ResponseBody
      public ResponseEntity<Map<String, Object>> campcontent(@PathVariable("contentId") String contentId ) {
 		 
@@ -154,12 +165,11 @@ public class CampController {
          map.put("cmp_price", db.getCmp_price());
          map.put("mapX", db.getMapX());
          map.put("mapY", db.getMapY());
-         System.out.println("여기까지는 왔음1111");
 
          return new ResponseEntity<>(map, HttpStatus.OK);
      }
 	//캠핑장 상세페이지
-	@GetMapping("campcontent2/{contentId}")
+	 @GetMapping("campcontent2/{contentId}")
 	 @ResponseBody
      public ResponseEntity<Map<String, Object>> campcontent2(@PathVariable("contentId") String contentId ) {
 		 
@@ -170,7 +180,6 @@ public class CampController {
          map.put("contentId", db.getContentId());
          map.put("mapX", db.getMapX());
          map.put("mapY", db.getMapY());
-         System.out.println("여기까지는 왔음222");
 
          return new ResponseEntity<>(map, HttpStatus.OK);
      }

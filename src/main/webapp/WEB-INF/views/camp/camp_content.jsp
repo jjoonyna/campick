@@ -11,7 +11,6 @@
 <title>예약 페이지</title>
 <link rel="stylesheet" href="./css/footer.css">
 
-
 <link rel="icon" href="../images/logo2.png">
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../js/details.js"></script>
@@ -21,8 +20,14 @@
     <main>
     <div id="results">
         <h1 id="facltNm"></h1>
+        <c:if test="${result.user_id == null}">
+           <div class="imageset-img1">
+                	<img id="firstImageUrl" src="" alt="캠프 이미지">
+            </div>
+         </c:if>   
+            <c:if test="${result.user_id != null}">
         <div class="main-conteiner">
-            <div class="imageset-img">
+             <div class="imageset-img">
                 	<img id="firstImageUrl" src="" alt="캠프 이미지">
             </div>
             <div class="contents-right">
@@ -38,6 +43,7 @@
         </div>
         </div>
        </div>
+        </c:if>
         <h1>${result.facltNm }</h1>
         <div class="introduction">
             <div class="intro">
@@ -49,6 +55,7 @@
 	                	<div id="intro"></div>	
             </div>
         </div>
+        
         <div class="products">
             <h2>물품list</h2>
             <div class="products2">
@@ -59,9 +66,16 @@
 				<div>소화기 개수 : <span id="extshrCo"></span></div><br/>
             </div>
         </div>
+        
         <div class="products">
             <h2>주의사항</h2>
-            <div class="products2">주의주의</div>
+            <div class="products2">
+				<ul>
+					<li>주의하세요</li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
         </div>
         <div class="products">
             <h2>주변환경 및 이용시설</h2>
@@ -82,7 +96,7 @@
             	<div>대표번호 : <span id="tel"></span></div><br/>
             	<div>우편번호 : <span id="zipcode"></span></div><br/>
             	<div>도로명주소 : <span id="addr1"></span></div><br/>
-            	<div>홈페이지 : <a href="#" id="homepage">홈페이지들어가기</a></div><br/>
+            	<div><a href="#" id="homepage">홈페이지들어가기</a></div><br/>
             </div>
         </div>
         </div>
