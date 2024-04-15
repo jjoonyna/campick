@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 main h1 { margin: 1.5% 0 4% 0; text-align: center; font-size: 35px; font-family: 'Ycomputer-Regular'; }
 main .main-conteiner{ display: flex; }
 main .main-conteiner .imageset-img > img{ width: 50%; justify-content: left; margin: 0 5% 0 35%; }
@@ -7,22 +6,24 @@ main .main-conteiner .contents-right{ justify-content: right; margin: 0 20% 0 0;
 main .main-conteiner .contents-right > div{font-size: 17px; padding: 5px 0;}
 
 
-main .contents-button{ display: flex; flex-flow: row-reverse; margin: 3% 15% 0 0;}
+main .contents-button{ display: flex; flex-flow: row-reverse; margin: 7% 5% 0 0;}
 main .contents-button > div { margin: 20px 20px; }
 main .contents-button div a > img { width: 30px;}
 main .contents-button div .inqry{ display: inline-block; text-align: center; text-decoration: none; color: #fff; font-weight: bold; width: 110px; border-radius: 22px; background-color: #F57804; line-height: 44px; }
 
-main .introduction{ display: flex; margin: 5% 5%;  align-items: center; }
+main .introduction{ display: flex; margin: 5% 15%;  align-items: center; }
 main .introduction img{ width: 150px; height: 150;}
 main .introduction .intro{padding: 0 5%;}
 
-main .products{padding: 2% 10%; font-size: 25px; font-family: 'GmarketSansMedium';}
+main .products{padding: 2% 18%; font-size: 25px; font-family: 'GmarketSansMedium';}
 main .products .products2{ font-size: 17px; padding: 2% 0;}
 main .products .products2 > div{padding: 5px 0;}
 
-main .maps { font-size: 35px; padding: 0 10%;}
-main .mapresult {display:flex; align-items: center; padding: 0 10%; font-family: 'GmarketSansMedium';}
+main .maps { font-size: 35px; padding: 0 18%;}
+main .mapresult {display:flex; align-items: center; padding: 0 18%; font-family: 'GmarketSansMedium';}
 main .mapresult .mapresult2 { font-size: 17px; padding: 2% 5%;}
 main .mapresult .mapresult2 > div {padding: 5px 0;}
+main .mapresult .mapresult2 > div #homepage{text-decoration: none; color: #000;}
+main .mapresult .mapresult2 > div #homepage:hover{color: #1F18F0;}
 
 main #map{margin: 5% 0; width:50%;height:350px;}

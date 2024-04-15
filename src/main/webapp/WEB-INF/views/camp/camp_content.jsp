@@ -81,7 +81,7 @@
             	<div>대표번호 : <span id="tel"></span></div><br/>
             	<div>우편번호 : <span id="zipcode"></span></div><br/>
             	<div>도로명주소 : <span id="addr1"></span></div><br/>
-            	<div>홈페이지 : <span id="homepage"></span></div><br/>
+            	<div>홈페이지 : <a href="#" id="homepage">홈페이지들어가기</a></div><br/>
             </div>
         </div>
         </div>
@@ -93,7 +93,7 @@
     
     </main>
     
-    <c:import url="./resources/commons/footer.jsp" />
+<%--     <jsp:include page="webapp/resources/commons/footer.jsp" /> --%>
 </body>
 
 </html>

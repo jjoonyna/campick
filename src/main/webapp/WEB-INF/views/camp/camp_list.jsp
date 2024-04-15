@@ -37,9 +37,6 @@
 					<br> <br>
 
 
-
-
-
 					<!-- 검색 항목 -->
 						<form method="GET">
 					<div style="display: flex; justify-content: center; flex-wrap: wrap;">
