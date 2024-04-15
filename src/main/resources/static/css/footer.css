@@ -1,5 +1,16 @@
 @charset "utf-8";/* ========== */
 
+
+#wrapper{
+  height: auto;
+  min-height: 100%;
+  padding-bottom: 100%;
+}
+footer{
+    width: 1280px;
+    margin: auto 0 0 auto;
+    padding-bottom: 50px;
+}
 /* footer */
 footer {bottom: 0px; font-family: 'GmarketSansMedium'; font-size: 12px !important; color: #fffdf5; background-color: #1F18F0 !important; height: 100px; text-align: center; width: 100%;}
 footer ul{display: flex; margin-left: 50px; place-content: center;}
