@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>예약 페이지</title>
 <jsp:include page="/resources/commons/header.jsp" />
+<link rel="stylesheet" href="./css/footer.css">
 <jsp:include page="/resources/commons/gnb.jsp" />
 
 
@@ -93,7 +94,8 @@
     
     </main>
     
-<%--     <jsp:include page="webapp/resources/commons/footer.jsp" /> --%>
+    <jsp:include page="/resources/commons/footer.jsp" />
+    
 </body>
 
 </html>

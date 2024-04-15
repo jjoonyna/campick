@@ -95,3 +95,24 @@ button{
 #review_check #review_table tr{
 	border-bottom: 2px solid;
 }
+
+.boxbox{
+	margin: 20px auto;
+}
+	
+.boxbox .boxboxbox{
+	border: 2px solid;
+}
+.boxbox .boxboxbox .card_body{
+	padding:10px;
+}
+.boxbox .boxboxbox .card_body .onlybottomline{
+	border-bottom: 2px solid;
+}
+.boxbox .boxboxbox .card_body .readdatas{
+	width: 200px;
+	height: 30px;
+	border: none;
+	outline: none;
+	background-color: #fffdf5;
+}

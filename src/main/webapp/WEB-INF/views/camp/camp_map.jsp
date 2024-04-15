@@ -12,8 +12,6 @@
 
 <title>캠픽 지도</title>
 <jsp:include page="/resources/commons/gnb.jsp" />
-
-
 </head>
 
 <body>
@@ -45,9 +43,7 @@
 		</div>
 	</main>
 	
-	
-	
-	<script  type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5930273cc5e86ccd83defe576222026c"></script>
+		<script  type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5930273cc5e86ccd83defe576222026c"></script>
 	<script>
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		    mapOption = {
@@ -60,5 +56,6 @@
 		var map = new kakao.maps.Map(mapContainer, mapOption); 
 
 	</script>
+	
 </body>
 </html>

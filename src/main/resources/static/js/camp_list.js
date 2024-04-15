@@ -150,8 +150,16 @@ function camplist(page){
 	});	
 };
 
-function campDetail(campNo){
-   location="camp_content/"+campNo;
+
+//상세보기 이동
+function campDetail(contentId){
+   location="camp_content/"+contentId;
 }
 
+//검색버튼 눌렀을때
+$(function(){
+	$("#searchBtn").click(function(){
+		camplist(1);
+	});
+});
 

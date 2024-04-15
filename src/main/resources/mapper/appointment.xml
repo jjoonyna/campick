@@ -97,7 +97,12 @@
 	<select id="selectap" parameterType="String" resultType="apt">
 		select * from camp where user_id = #{user_id}
 	</select>
-
+	
+	
+	<!-- 마이페이지 예약정보 가져오기 -->
+	<select id="UserAptList" parameterType="String" resultType="apt">
+	select * from camp where user_id = #{user_id} and apt_staydate >= now();
+	</select>
 </mapper>
 
 

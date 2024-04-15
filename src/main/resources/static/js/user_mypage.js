@@ -117,7 +117,7 @@ $(function(){
 		var contentId="";
 		$.ajax({
          type : "GET",
-         url : encodeURI("http://localhost:80/select_user_apt"),
+         url : encodeURI("http://localhost:80/user_aptlist"),
          contentType: "application/json",
          success : function(result){
             if(result!=null){
@@ -141,29 +141,7 @@ $(function(){
           }
          
       });
-		$.ajax({
-         type : "GET",
-         url : encodeURI("http://localhost:80/select_user_camp/"+contentId),
-         contentType: "application/json",
-         success : function(result){
-            if(result!=null){
-               //성공
-               $("#cmp_nm").val(result.facltNm);
-               $("#cmp_addr").val(result.addr1);
-               $("#cmp_stay").val(result.cmp_staydate);
-			}else if(result==null){
-				//정보 불러오기 실패
-				alert("정보 불러오기 실패");
-				history.back();
-			}
-            
-         },
-         error: function(xhr, status, error) {
-           console.error("AJAX 요청 실패:", status, error); 
-           alert("서버에서 데이터를 가져오는 중 오류가 발생했습니다.");
-          }
-         
-      });
+
 	});
 });
 

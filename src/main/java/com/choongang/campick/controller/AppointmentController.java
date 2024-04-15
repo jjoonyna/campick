@@ -1,6 +1,7 @@
 package com.choongang.campick.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.choongang.campick.model.Appointment;
 import com.choongang.campick.model.Camp;
 import com.choongang.campick.service.AppointmentService;
+import com.choongang.campick.service.CampService;
 
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +28,7 @@ public class AppointmentController {
 
 	// 서비스
 		private final AppointmentService service;
+		private final CampService campservice;
 //
 //		//예약 조회(마이페이지)
 //		@GetMapping("/insert_userappointment")
@@ -85,7 +88,21 @@ public class AppointmentController {
 			
 			return new ResponseEntity<>(map,HttpStatus.OK);
 		}
-		
+		@GetMapping("user_aptlist")
+		@ResponseBody
+		public ResponseEntity<Map<String,Object>> user_aptlist(HttpSession session){
+			Map map = new HashMap();
+			String user_id = (String)session.getAttribute("user_id");
+			List<Appointment> apt = service.userAptList(user_id); // 회원이 있는지 없는지 확인
+			for(int i=0;i<apt.size();i++) {
+			String contentId = apt.get(i).getCmp_no();	
+			Camp camp = campservice.selectUserCamp(contentId);
+			
+			}
+			
+			map.put("", apt);
+			return new ResponseEntity<>(map,HttpStatus.OK);
+		}
 	
 
 //		//예약 취소

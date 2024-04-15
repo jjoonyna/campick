@@ -1,5 +1,7 @@
 package com.choongang.campick.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.choongang.campick.model.Appointment;
@@ -31,5 +33,7 @@ public interface AppointmentDAO {
 	Camp selectresult(String user_id);
 	
 	Appointment selectap(String user_id);
+
+	public List<Appointment> userAptList(String user_id);
 	
 }
