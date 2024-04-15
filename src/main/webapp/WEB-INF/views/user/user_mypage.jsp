@@ -279,12 +279,12 @@
 									</table>
 								</div>
 								<br><br>
-								<div class="bbuttons">
-  											<button type="submit"
-											class="aptbutton">예약 목록</button>
-  											<button type="reset" class="apt_cancle"
-  												">예약 취소</button>
-										</div>
+<!-- 								<div class="bbuttons"> -->
+<!--   											<button type="submit" -->
+<!-- 											class="aptbutton">예약 목록</button> -->
+<!--   											<button type="reset" class="apt_cancle" -->
+<!--   												">예약 취소</button> -->
+<!-- 										</div> -->
 						</div>
 				</div>
 			</div>

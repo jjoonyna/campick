@@ -12,9 +12,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./css/camp_list.css">
 <script src="./js/camp_list.js"></script>
-<jsp:include page="/resources/commons/gnb.jsp" />
 <link rel="icon" href="./images/logo2.png">
 <title>CAMPICK</title>
+<jsp:include page="/resources/commons/gnb.jsp" />
 </head>
 <body>
 
@@ -41,6 +41,7 @@
 
 
 					<!-- 검색 항목 -->
+						<form method="GET">
 					<div style="display: flex; justify-content: center; flex-wrap: wrap;">
 						<div style="margin-right: 20px; margin-bottom: 20px;">
 							<label for="induty" style="font-size: 18px; margin-right: 8px;">테마</label>
@@ -79,13 +80,10 @@
 
 					<!-- 검색창 -->
 					<div style="display: flex; justify-content: center;">
-						<form action="/search" method="GET"
-							style="display: flex; align-items: center;">
 							<label for="search" style="font-size: 18px; margin-right: 15px;">검색</label>
 							<input type="text" id="search" name="search"
 								placeholder="캠핑장명을 검색해주세요"
 								style="width: 430px; height: 40px; border: 2px solid #ccc; border-radius: 8px; padding: 0 16px;">
-						</form>
 					</div>
 
 
@@ -96,11 +94,12 @@
 						style="display: flex; justify-content: center; margin-top: 20px;">
 						<button id="searchBtn">검색</button>
 					</div>
+						</form>
 					<br> <br> <br> <br>
 					<div>
 						<span>
 							<h2 class="textset-tit" style="margin-bottom: 18px; font-size: 30px;">
-								총&nbsp;<c:out value="${result.listcount}"/>개의 Pick!<img src="../icons/flag1.gif" style="width: 40px; height: 40px; margin-left: 0px;">
+								총&nbsp;3700개의 Pick!<img src="../icons/flag1.gif" style="width: 40px; height: 40px; margin-left: 0px;">
 								
 							</h2>
 						</span>

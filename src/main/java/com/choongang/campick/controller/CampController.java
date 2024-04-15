@@ -53,9 +53,14 @@ public class CampController {
 				return new ResponseEntity<>(map,HttpStatus.OK);
 			}
 	//캠핑장 목록 불러오기 기본(페이징 형식으로) 스크롤 방식으로 바뀔시 변경예정
-	@GetMapping("camplist/{page}")
+	@PostMapping("camplist/{page}")
 	@ResponseBody
-	public ResponseEntity<Map<String,Object>> camplist(@PathVariable("page") String page, Camp camp){
+	public ResponseEntity<Map<String,Object>> camplist(@PathVariable("page") String page,@RequestBody Camp camp){
+		System.out.println(camp.getSearch());
+		System.out.println(camp.getInduty());
+		System.out.println(camp.getDoNm());
+		System.out.println(camp.getSigunguNm());
+		
 		Map map = new HashMap();
 		if (page == null || page.equals("")) {
 			page = "1";
@@ -86,10 +91,6 @@ public class CampController {
 		map.put("listcount", listcount);
 		map.put("search", camp.getSearch());
 		map.put("page",pageno );
-		System.out.println(page);
-		System.out.println(map.get("listcount"));
-		System.out.println(map.get("camplist"));
-		System.out.println(map.get("search"));
 		return new ResponseEntity<>(map,HttpStatus.OK);
 	}
 	

@@ -3,9 +3,17 @@ $(function(){
 })
 
 function camplist(page){
+	var formdata={
+		search: $("#search").val(),
+		induty: $("#induty").val(),
+		doNm: $("#doNm").val(),
+		sigunguNm: $("#sigunguNm").val()
+	}
    $.ajax({
-      type : "GET",
+      type : "Post",
       url : "http://localhost:80/camplist/"+page,
+      contentType: "application/json",
+      data : JSON.stringify(formdata),
       success : function(result){      
          var no = result.listcount - (result.page - 1) * 10;    // 화면출력 번호
          var content = ""
@@ -52,14 +60,13 @@ function camplist(page){
           });         
          $("#cardlist").html(content);
          
-
-
+			if(result.camplist.search== null && result.camplist.induty==null && result.camplist.doNm==null && result.camplist.sigunguNm==null){
 			// 페이징 처리 추가
             var pagination = "<br><br>";
              pagination += "<nav id='pagiset pagiset-circ'>";
              pagination += "<div class='pagiset-ctrl'>";
 			 
-             pagination += "<a class='pagiset-link pagiset-first' href='javascript:camplist(" + (result.startPage-10) + ")'";
+             pagination += "<a class='pagiset-link pagiset-first' href='javascript:camplist(" + (1) + ")'";
              pagination += "class='pagiset-link pagiset-first'";
              pagination += ">";
              pagination += "처음";
@@ -95,6 +102,51 @@ function camplist(page){
             $("#pagein").html(pagination);
 			
 		}			
+         
+			if(result.camplist.search!= null && result.camplist.induty==null && result.camplist.doNm==null && result.camplist.sigunguNm==null){
+			// 페이징 처리 추가
+            var pagination = "<br><br>";
+             pagination += "<nav id='pagiset pagiset-circ'>";
+             pagination += "<div class='pagiset-ctrl'>";
+			 
+             pagination += "<a class='pagiset-link pagiset-first' href='javascript:camplist(" + (1) + ")'";
+             pagination += "class='pagiset-link pagiset-first'";
+             pagination += ">";
+             pagination += "처음";
+             pagination += "</a>";
+             pagination += "</div>";
+             if(result.page>1){
+             pagination += "<div class='pagiset-ctrl'>";
+             pagination += "<a class='pagiset-link pagiset-first' href='javascript:camplist(" + (result.startPage-10) + ")'>";
+             pagination += "이전";
+             pagination += "</a>";
+             pagination += "</div>";
+			 }
+			 
+             pagination += "<div class='pagiset-list'>";
+            for (var i = result.startPage; i <= result.endPage; i++) {
+                pagination += "<span class='page-item " + (i === result.page ? "active" : "") + "'>";
+                pagination += "<a id=subject href='javascript:camplist(" + i + ")'>" + i + "</a></span>";
+            }
+            if(result.endPage<result.pageCount){
+            pagination += "<div class='pagiset-ctrl'>";
+            pagination += "<a class='pagiset-link pagiset-next' href='javascript:camplist(" + (result.startPage+10) + ")'>";
+            pagination += "다음";
+            pagination += "</a>";
+            pagination += "</div>";
+			}
+            pagination += "<div class='pagiset-ctrl'>";
+            pagination += "<a class='pagiset-link pagiset-last'";
+            pagination += "href='javascript:camplist(" + (result.pageCount) + ")'>";
+            pagination += "마지막";
+            pagination += "</a>";
+            pagination += "</div>";
+            pagination += "</nav>";
+            $("#pagein").html(pagination);
+			
+		}			
+			}
+
 	});	
 };
 
