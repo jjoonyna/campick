@@ -1,5 +1,6 @@
 package com.choongang.campick.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -88,19 +89,25 @@ public class AppointmentController {
 			
 			return new ResponseEntity<>(map,HttpStatus.OK);
 		}
+		
+		
+		//유저 마이페이지 예약목록 조회
 		@GetMapping("user_aptlist")
 		@ResponseBody
 		public ResponseEntity<Map<String,Object>> user_aptlist(HttpSession session){
 			Map map = new HashMap();
 			String user_id = (String)session.getAttribute("user_id");
 			List<Appointment> apt = service.userAptList(user_id); // 회원이 있는지 없는지 확인
+			List<Camp> camplist = new ArrayList<Camp>();
+			
 			for(int i=0;i<apt.size();i++) {
 			String contentId = apt.get(i).getCmp_no();	
 			Camp camp = campservice.selectUserCamp(contentId);
+			camplist.add(camp);
 			
 			}
-			
-			map.put("", apt);
+			map.put("camplist", camplist);
+			map.put("apt", apt);
 			return new ResponseEntity<>(map,HttpStatus.OK);
 		}
 	

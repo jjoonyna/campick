@@ -26,6 +26,7 @@ public interface CampDAO {
 	Camp selectBizCmp(String contentId);
 
 	Camp selectUserCamp(String contentId);
+
 	
 
 }

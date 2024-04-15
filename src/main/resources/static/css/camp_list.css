@@ -7,6 +7,7 @@ header > body > search button > search bar > select button > footer > font type 
 */
 
 
+
 /* header */
 header {background-color: #FFFDF5; height: 100%;}
 header .wrap {width: 94%; max-width: 1280px; margin: 0 auto; display: flex; flex-wrap: nowrap; height: 100%; align-items: center; justify-content: space-between;}
@@ -17,28 +18,54 @@ header .wrap .gnb-wrap .gnb .depth1 a{font-family: 'GmarketSansMedium'; font-wei
 header .wrap .gnb-wrap .gnb .depth1 a:hover{color: #F57804;}
 
 
+
 /* body */
-#flag { width: 40px; height: 40px; margin-bottom: -10px;}
+.searchArea {display: flex; justify-content: center; flex-wrap: wrap; font-size: 17px;}
+.searchArea .searchTheme {margin-right: 20px; margin-bottom: 10px;}
+.searchArea .searchTheme #induty {height: 25px; width: 87px; font-size: 14px;}
+.searchArea .searchLoc {width: 130px; margin-right: 8px; height: 20px;}
+.searchArea .searchLoc #doNm {height: 25px; width: 87px; font-size: 14px;}
+.searchArea .searchSigungu {margin-bottom: 10px; width: 65px; height: 20px;}
+.searchArea .searchSigungu #sigunguNm {height: 25px; width: 87px; font-size: 14px;}
+.searchBox {display: flex; justify-content: center;}
+.searchBox #searchBar {font-size: 17px;}
+#search {font-family: 'GmarketSansMedium'; font-size: 15px; width: 297px; height: 22px; border: 2px solid #ccc; border-radius: 6px; padding: 0 16px; text-align: center; margin-bottom: 1px;}
+#searchBar {font-size: 13px; margin-left: 24px; margin-right: 8px; margin-top: 6px;}
+#searchBtn {font-family: 'GmarketSansMedium'; width: 80px; height: 27px; border-radius: 6px; color: #FFFDF5; font-size: 13px; background-color: #F57804; border: none; cursor: pointer; display: flex; justify-content: center; margin-top: 16px; align-items: center; margin: 11px auto;}
+#searchBtn:hover {color: #FFFDF5; background-color: #1F18F0;}
+#flag {width: 40px; height: 40px; margin-bottom: -10px;}
 body {font-family: 'GmarketSansMedium'; background-color: #FFFDF5;}
 .content {min-height: calc(100vh - 100px); padding-bottom: 150px;} /* 바디에 메인영역 확보 */
-.cardset-figure, .cardset-body {display: inline-block; margin-left: 2qrfc w0px;   margin-bottom: 20px; text-align: left; vertical-align: middle;}
-.cardset-img {width: 300px;   height: 200px; float: center; margin-top: 10px;   margin-left: 450px;}
+.cardset-figure {text-align: center;}
+.cardset {display: flex; justify-content: center; margin-left: 50px;}
+.cardset-img {width: 350px;height: 200px; margin-top: 6px; border-radius: 15px;}
+.cardset-body {margin-left: 20px; margin-bottom: 20px; text-align: left; vertical-align: middle; width: 500px;}
+.cardset-tit {font-size: 20px; margin-top: 35px; margin-bottom: 20px;   margin-left: 27px;} /*캠핑장이름*/
+.cardset-desc {font-size: 11px;   margin-bottom: 20px; margin-left: 27px;} /*한줄소개*/
+.cardset-lpc {margin-left: 10px;}
+.cardset-icon {margin-left: 11px; margin-top: -9px;}
 .cardset .icon-sm {width: 20px;   margin-bottom: -5px; margin-left: 23px;}
 .cardset .icon-big {width: 32px; margin-left: 14px;}
-.cardset-tit {font-size: 18px; margin-bottom: 15px;   margin-left: 28px;} /*캠핑장이름*/
-.cardset-desc {font-size: 9px;   margin-bottom: 16px; margin-left: 24px;} /*한줄소개*/
-.textset-tit {text-align: center;}
-/* search button */
-#searchBtn {font-family: 'GmarketSansMedium'; width: 80px; height: 23px; border-radius: 6px; color: #FFFDF5; font-size: 13px; background-color: #F57804; border: none; cursor: pointer;}
-#searchBtn:hover {color: #FFFDF5; background-color: #1F18F0;}
+.textset-tit {text-align: center; margin-bottom: 18px; font-size: 25px;}
 
-/* search bar */
-#search {font-family: 'GmarketSansMedium'; font-size: 12px; width: 188px; height: 18px; border: 2px solid #ccc; border-radius: 6px; padding: 0 16px; text-align: center;}
-#searchBar {font-size: 13px; margin-right: 8px; margin-top: 4px;}
 
 /* select button */
 select {font-family: 'GmarketSansMedium'; font-size: 10px; border: 2px solid #ccc; border-radius: 6px;}
 
+/* pagination */
+.pagiset_pagiset-circ {text-align: center;}
+.pagiset_pagiset-circ a:hover {color: #F57804;}
+.pagiset_pagiset-circ .pagiset-ctrl > a {text-decoration: none;}
+.pagiset-link {display: inline-block; width: 100px; text-align: center; margin-bottom: 100px;} /* 각 항목 사이의 간격 조절 */
+.pagiset-ctrl,.pagiset-list {display: inline-block;}
+
+
+
+/* footer */
+footer {position: relative; display: none; bottom: 0px; font-family: 'GmarketSansMedium'; font-size: 12px !important; color: #fffdf5; background-color: #1F18F0 !important; height: 100px; text-align: center; width: 100%;}
+footer ul li {margin-left: 50px;}
+footer ul li a {color: #FFFDF5; text-align: center; display: inline-block; font-size: 15px; text-decoration: none;}
+footer ul li a:hover {color: #F57804;}
 
 
 

@@ -114,7 +114,6 @@ $(function(){
 		$("#delete_display").hide(); 
 		$(".boxbox").show();
 		
-		var contentId="";
 		$.ajax({
          type : "GET",
          url : encodeURI("http://localhost:80/user_aptlist"),
@@ -122,12 +121,11 @@ $(function(){
          success : function(result){
             if(result!=null){
                //성공
-               contentId=result.cmp_no;
-               $(".boldtit").text(result.user_id);
-               $("#participants").val(result.apt_pp);
-               $("#cmp_startdate").val(result.apt_date);
-               $("#content").val(result.apt_req);
-               $("#apt_price").val(result.apt_price);
+               $(".boldtit").text(result.apt.user_id);
+               $("#participants").val(result.apt.apt_pp);
+               $("#cmp_startdate").val(result.apt.apt_date);
+               $("#content").val(result.apt.apt_req);
+               $("#apt_price").val(result.apt.apt_price);
 			}else if(result==null){
 				//정보 불러오기 실패
 				alert("정보 불러오기 실패");
