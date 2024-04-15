@@ -23,7 +23,7 @@ $(document).ready(function campcontent(contentId){
                $("#zipcode").text(result.zipcode);//우편번호(찾아오는길)
                $("#addr1").text(result.addr1);//도로명주소(찾아오는길)
                $("#tel").text(result.tel);//대표번호(찾아오는길)
-               $("#homepage").text(result.homepage);//홈페이지(찾아오는길)
+//               $("#homepage").text(result.homepage);//홈페이지(찾아오는길)
                $("#toietCo").text(result.toietCo);//화장실개수(물품)
                $("#swrmCo").text(result.swrmCo);//샤워실개수(물품)
                $("#wtrplCo").text(result.wtrplCo);//개수대개수(물품)
@@ -42,6 +42,10 @@ $(document).ready(function campcontent(contentId){
                
                var firstImageUrl = result.firstImageUrl;
                 $("#firstImageUrl").attr("src", firstImageUrl); // 이미지를 표시할 img 요소에 URL 설정
+                
+                var homepage = result.homepage;
+                $("#homepage").attr("href", homepage); 
+                
 
             // 이미지를 출력할 HTML 코드 생성
             var imageHtml = "<img src='<%= imageUrl %>' alt='Image'>";
