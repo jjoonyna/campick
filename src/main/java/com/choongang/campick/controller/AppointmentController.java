@@ -108,6 +108,8 @@ public class AppointmentController {
 			}
 			map.put("camplist", camplist);
 			map.put("apt", apt);
+			System.out.println(map.get("apt"));
+			System.out.println(map.get("camplist"));
 			return new ResponseEntity<>(map,HttpStatus.OK);
 		}
 	
