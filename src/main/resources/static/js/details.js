@@ -13,7 +13,7 @@ $(document).ready(function campcontent(contentId){
             if(result!=null){
 			 
                $("#contentId").text(result.contentId);//API번호
-               $("#user_id").text(result.user_id);//사업자번호
+               $("#user_id").text(result.user_id);//사업자아이디
                $("#facltNm").text(result.facltNm);//제목
                $("#facltNm1").text(result.facltNm);//제목
                $("#lctCl").text(result.lctCl);//주변환경(환경)
