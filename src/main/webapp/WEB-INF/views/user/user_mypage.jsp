@@ -7,7 +7,6 @@
 <title>mypage</title>
 <jsp:include page="/resources/commons/header.jsp" />
 <link rel="stylesheet" href="./css/user_mypage.css">
-<link rel="stylesheet" href="./css/camp_result.css">
 <link rel="stylesheet" href="./css/join.css">
 <script type="text/javascript" src="./js/user_mypage.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
@@ -246,7 +245,7 @@
 		<c:forEach items></c:forEach>
 		<div class="boxbox">
 			<div class="boxboxbox">
-				<div style="padding: 40px;">
+				<div>
 						<div class="card_body">
 							<h2 class="boldtit">님의 예약이 완료되었습니다!</h2><br><br>
 									<table class="formline">

@@ -1,5 +1,7 @@
 package com.choongang.campick.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.choongang.campick.mapper.AppointmentDAO;
@@ -47,6 +49,10 @@ public class AppointmentService {
 	
 	public Appointment selectap(String user_id) {
 		return dao.selectap(user_id);
+	}
+
+	public List<Appointment> userAptList(String user_id) {
+		return dao.userAptList(user_id);
 	}
 
 

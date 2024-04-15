@@ -93,7 +93,6 @@
     
     </main>
     
-    <c:import url="./resources/commons/footer.jsp" />
 </body>
 
 </html>
