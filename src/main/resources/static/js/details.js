@@ -2,7 +2,7 @@
 
 $(document).ready(function campcontent(contentId){
 	
-	 var url = window.location.href;
+	 	var url = window.location.href;
     	var contentId = url.substring(url.lastIndexOf('/') + 1);
 	$.ajax({
          type : "GET",
@@ -45,7 +45,8 @@ $(document).ready(function campcontent(contentId){
                 
                 var homepage = result.homepage;
                 $("#homepage").attr("href", homepage); 
-                
+                 // 조건에 따라 해당 부분을 보이거나 감춤
+
 
             // 이미지를 출력할 HTML 코드 생성
             var imageHtml = "<img src='<%= imageUrl %>' alt='Image'>";

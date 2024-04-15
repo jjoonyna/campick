@@ -129,7 +129,7 @@ public class CampController {
 	
 	
 	//캠핑장 상세페이지
-	@GetMapping(value = "campcontent/{contentId}", produces = "application/json")
+	 @GetMapping(value = "campcontent/{contentId}", produces = "application/json")
 	 @ResponseBody
      public ResponseEntity<Map<String, Object>> campcontent(@PathVariable("contentId") String contentId ) {
 		 
@@ -165,12 +165,11 @@ public class CampController {
          map.put("cmp_price", db.getCmp_price());
          map.put("mapX", db.getMapX());
          map.put("mapY", db.getMapY());
-         System.out.println("여기까지는 왔음1111");
 
          return new ResponseEntity<>(map, HttpStatus.OK);
      }
 	//캠핑장 상세페이지
-	@GetMapping("campcontent2/{contentId}")
+	 @GetMapping("campcontent2/{contentId}")
 	 @ResponseBody
      public ResponseEntity<Map<String, Object>> campcontent2(@PathVariable("contentId") String contentId ) {
 		 
@@ -181,7 +180,6 @@ public class CampController {
          map.put("contentId", db.getContentId());
          map.put("mapX", db.getMapX());
          map.put("mapY", db.getMapY());
-         System.out.println("여기까지는 왔음222");
 
          return new ResponseEntity<>(map, HttpStatus.OK);
      }

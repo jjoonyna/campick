@@ -4,6 +4,8 @@ main .main-conteiner{ display: flex; }
 main .main-conteiner .imageset-img > img{ width: 50%; justify-content: left; margin: 0 5% 0 35%; }
 main .main-conteiner .contents-right{ justify-content: right; margin: 0 20% 0 0; }
 main .main-conteiner .contents-right > div{font-size: 17px; padding: 5px 0;}
+main .imageset-img1{ text-align: center;}
+main .imageset-img1 > img{ width: 40%;}
 
 
 main .contents-button{ display: flex; flex-flow: row-reverse; margin: 7% 5% 0 0;}
