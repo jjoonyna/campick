@@ -4,12 +4,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<jsp:include page="/resources/commons/header.jsp" />
+<jsp:include page="/resources/commons/gnb.jsp" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>예약 페이지</title>
-<jsp:include page="/resources/commons/header.jsp" />
 <link rel="stylesheet" href="./css/footer.css">
-<jsp:include page="/resources/commons/gnb.jsp" />
 
 
 <link rel="icon" href="../images/logo2.png">
