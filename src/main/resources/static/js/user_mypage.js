@@ -67,8 +67,8 @@ $(document).ready(function(){
   //내정보 수정 클릭시
 $(function(){
    $("#myInfo_change").click(function(){      
-      $("#mypage").hide();
       $("#join_wrap").show();
+      $("#mypage").hide();
       $("#pw_change_display").hide(); 
       $("#delete_display").hide(); 
       $(".boxbox").hide();
@@ -108,11 +108,11 @@ $(function(){
 
 $(function(){
 	$("#appoint").click(function(){		
+		$(".boxbox").show();
 		$("#mypage").hide();
 		$("#join_wrap").hide();
 		$("#pw_change_display").hide(); 
 		$("#delete_display").hide(); 
-		$(".boxbox").show();
 		
 		$.ajax({
          type : "GET",
@@ -121,6 +121,7 @@ $(function(){
          success : function(result){
             if(result!=null){
                //성공
+               console.log(result.apt.user_id);
                $(".boldtit").text(result.apt.user_id);
                $("#participants").val(result.apt.apt_pp);
                $("#cmp_startdate").val(result.apt.apt_date);
@@ -146,9 +147,9 @@ $(function(){
 	//비번 변경 클릭시
 $(function(){
 	$("#pw_change").click(function(){		
+		$("#pw_change_display").show(); 
 		$("#mypage").hide();
 		$("#join_wrap").hide();
-		$("#pw_change_display").show(); 
 		$("#delete_display").hide(); 
 		$.ajax({
          type : "GET",

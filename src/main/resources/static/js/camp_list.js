@@ -15,7 +15,7 @@ function camplist(page){
       contentType: "application/json",
       data : JSON.stringify(formdata),
       success : function(result){      
-         var no = result.listcount - (result.page - 1) * 10;    // 화면출력 번호
+		  console.log(result.camplist.search)
          var content = ""
          $.each(result.camplist, function (index, item) {
               content += "<hr><a src='camp_content/'"+item.contentId+">";

@@ -53,6 +53,7 @@ body {font-family: 'GmarketSansMedium'; background-color: #FFFDF5;}
 select {font-family: 'GmarketSansMedium'; font-size: 10px; border: 2px solid #ccc; border-radius: 6px;}
 
 /* pagination */
+#pagein {text-align: center;}
 .pagiset_pagiset-circ {text-align: center;}
 .pagiset_pagiset-circ a:hover {color: #F57804;}
 .pagiset_pagiset-circ .pagiset-ctrl > a {text-decoration: none;}
