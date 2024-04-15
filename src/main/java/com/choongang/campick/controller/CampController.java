@@ -43,10 +43,6 @@ public class CampController {
 		return "camp/camp_list";
 	}
 	// 일반 회원 예약 상세 조회 캠핑정보 가져오기
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'master' of https://github.com/jjoonyna/campick.git
 	@GetMapping("select_user_camp/{contentId}")
 	@ResponseBody
 	public ResponseEntity<Map<String,Object>> select_user_camp(@PathVariable("contentId") String contentId){
@@ -57,7 +53,6 @@ public class CampController {
 		map.put("cmp_staydate", db.getCmp_staydate());
 		return new ResponseEntity<>(map,HttpStatus.OK);
 	}
-<<<<<<< HEAD
 //			@GetMapping("select_user_camp/{contentId}")
 //			@ResponseBody
 //			public ResponseEntity<Map<String,Object>> select_user_camp(@PathVariable("contentId") String contentId){
@@ -69,8 +64,6 @@ public class CampController {
 //				return new ResponseEntity<>(map,HttpStatus.OK);
 //			}
 	
-=======
->>>>>>> branch 'master' of https://github.com/jjoonyna/campick.git
 	//캠핑장 목록 불러오기 기본(페이징 형식으로) 스크롤 방식으로 바뀔시 변경예정
 	@PostMapping("camplist/{page}")
 	@ResponseBody
