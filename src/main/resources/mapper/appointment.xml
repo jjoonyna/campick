@@ -86,12 +86,17 @@
 		WHERE user_id=#{user_id}
 	</update>
 
-
-
-
-
-
-
+	<select id="selectapoint" parameterType="int" resultType="camp">
+		select * from camp where contentId = #{contentId}
+	</select>
+	
+	<select id="selectresult" parameterType="String" resultType="camp">
+		select * from camp where user_id = #{user_id}
+	</select>
+	
+	<select id="selectap" parameterType="String" resultType="apt">
+		select * from camp where user_id = #{user_id}
+	</select>
 
 </mapper>
 

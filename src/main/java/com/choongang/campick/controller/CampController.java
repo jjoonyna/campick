@@ -4,16 +4,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.choongang.campick.model.Appointment;
 import com.choongang.campick.model.Camp;
 import com.choongang.campick.service.CampService;
 
@@ -94,6 +95,7 @@ public class CampController {
 		return new ResponseEntity<>(map,HttpStatus.OK);
 	}
 	
+
 	
 	// 사업자 소유 캠핑장 등록하기
 	@PostMapping("/insert_biz_cmp")
@@ -105,13 +107,71 @@ public class CampController {
 	return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 	
-	
-	@GetMapping("camp_content/{campNo}")
-	public String camp_content(@PathVariable("campNo") String campNo){
+	@GetMapping("camp_content/{contentId}")
+	public String camp_content(@PathVariable("contentId") String contentId, Model model){
+		
+		model.getAttribute(contentId);
 		return "camp/camp_content";
-	
 	}
 	
+	
+	//캠핑장 상세페이지
+	@GetMapping(value = "campcontent/{contentId}", produces = "application/json")
+	 @ResponseBody
+     public ResponseEntity<Map<String, Object>> campcontent(@PathVariable("contentId") String contentId ) {
+		 
+         Camp db = service.selectUserCamp(contentId); // 상세정보 구하기
+         System.out.println(db);
+         
+         Map map = new HashMap<>();
+         map.put("contentId", db.getContentId());
+         map.put("user_id", db.getUser_id());
+         map.put("facltNm", db.getFacltNm());
+         map.put("lctCl", db.getLctCl());
+         map.put("intro", db.getIntro());
+         map.put("featureNm", db.getFeatureNm());
+         map.put("induty", db.getInduty());
+         map.put("zipcode", db.getZipcode());
+         map.put("addr1", db.getAddr1());
+         map.put("tel", db.getTel());
+         map.put("homepage", db.getHomepage());
+         map.put("toietCo", db.getToiletCo());
+         map.put("swrmCo", db.getSwrmCo());
+         map.put("wtrplCo", db.getWtrplCo());
+         map.put("brazierCl", db.getBrazierCl());
+         map.put("sbrsCl", db.getSbrsCl());
+         map.put("sbrsEtc", db.getSbrsEtc());
+         map.put("posblFcltyCl", db.getPosblFcltyCl());
+         map.put("extshrCo", db.getExtshrCo());
+         map.put("themaEnvrnCl", db.getThemaEnvrnCl());
+         map.put("animalCmgCl", db.getAnimalCmgCl());
+         map.put("firstImageUrl", db.getFirstImageUrl());
+         map.put("cmp_pic", db.getCmp_pic());
+         map.put("cmp_maxpp", db.getCmp_maxpp());
+         map.put("cmp_staydate", db.getCmp_staydate());
+         map.put("cmp_price", db.getCmp_price());
+         map.put("mapX", db.getMapX());
+         map.put("mapY", db.getMapY());
+         System.out.println("여기까지는 왔음1111");
+
+         return new ResponseEntity<>(map, HttpStatus.OK);
+     }
+	//캠핑장 상세페이지
+	@GetMapping("campcontent2/{contentId}")
+	 @ResponseBody
+     public ResponseEntity<Map<String, Object>> campcontent2(@PathVariable("contentId") String contentId ) {
+		 
+         Camp db = service.selectUserCamp(contentId); // 상세정보 구하기
+         System.out.println(db);
+         
+         Map map = new HashMap<>();
+         map.put("contentId", db.getContentId());
+         map.put("mapX", db.getMapX());
+         map.put("mapY", db.getMapY());
+         System.out.println("여기까지는 왔음222");
+
+         return new ResponseEntity<>(map, HttpStatus.OK);
+     }
 	
 	/*
 	 * 사업자 소유 캠핑장 삭제하기

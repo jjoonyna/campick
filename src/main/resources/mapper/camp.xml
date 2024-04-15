@@ -221,6 +221,7 @@
 		where
 				contentId = #{contentId}
 	</select>
+	
  
 	<!-- 캠핑장 등록 삭제 -->
 	<update id="deleteBizCmp" parameterType="String">

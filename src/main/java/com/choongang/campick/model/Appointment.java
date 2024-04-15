@@ -20,7 +20,7 @@ public class Appointment {
 	private String apt_staydate;	//숙박 일자
 	private String apt_price;		//금액
 	private String apt_at;			//결제 상태
-	
+	private String apt_startdate;   //시작 일자    
 	
 
 }

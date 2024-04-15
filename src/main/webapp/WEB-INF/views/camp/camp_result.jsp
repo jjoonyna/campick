@@ -31,29 +31,29 @@
 											<table class="formline">
 												<tr class="onlybottomline">
 													<td class="tabletdtext">숙소 정보 : </td>
-													<td class="tabletdtext"><div class="readdatas" id="cmp_nm" name="cmp_nm" value="마천도 서울 카라반"></div></td>
+													<td class="tabletdtext"><div class="readdatas" id="cmp_nm" >${result.facltNm }</div></td>
 												</tr>
 												<tr class="onlybottomline">
 													<td class="tabletdtext">위치 : </td>
-													<td class="tabletdtext"><div class="readdatas" id="cmp_addr" name="cmp_addr" value=""></div></td>
+													<td class="tabletdtext"><div class="readdatas" id="cmp_addr" >${result.addr1 }</div></td>
 												</tr>
 												<tr class="onlybottomline">
 													<td class="tabletdtext">날짜 : </td>
-													<td class="tabletdtext"><input type="text" id="cmp_startdate" name="cmp_startdate" value="${cmp_startdate}"  class="readdatas">
-													<td class="tabletdtext"><input type="text"  class="readdatas" id="cmp_stay" name="cmp_stay" value="${cmp_stay}"/></td>
+													<td class="tabletdtext"><input type="text" id="cmp_startdate" name="cmp_startdate" value="${result.cmp_startdate}"  class="readdatas">
+													<td class="tabletdtext"><input type="text"  class="readdatas" id="cmp_stay" name="cmp_stay" value="${result.cmp_stay}"/></td>
 													
 												</tr>
 												<tr class="onlybottomline">
 													<td class="tabletdtext">인원 : </td>
-													<td class="tabletdtext"><input type="text"  class="readdatas" id="participants" name="participants" required/></td>
+													<td class="tabletdtext"><input type="text"  class="readdatas" id="participants" name="participants" value="${result.apt_pp }" required/></td>
 												</tr>
 												<tr class="onlybottomline">
 													<td class="tabletdtext">요청 사항 : </td>
-													<td class="tabletdtext"><input type="text"  class="readdatas" id="content" name="content" required/></td>
+													<td class="tabletdtext"><input type="text"  class="readdatas" id="content" name="content" value="${apt_req }" required/></td>
 												</tr>
 												<tr class="onlybottomline">
 													<td class="tabletdtext">결제 내역 : </td>
-													<td class="tabletdtext"><input type="text" class="readdatas" onchange="payment()" id="bankSelect" name="user_price" required/></td>
+													<td class="tabletdtext"><input type="text" class="readdatas" onchange="payment()" id="bankSelect" name="user_price" value="${apt_price }" required/></td>
 												</tr>
 											</table>
 										</div>

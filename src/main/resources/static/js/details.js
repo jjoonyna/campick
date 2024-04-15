@@ -1,38 +1,53 @@
-$(function(){
+
+
+$(document).ready(function campcontent(contentId){
+	
+	 var url = window.location.href;
+    	var contentId = url.substring(url.lastIndexOf('/') + 1);
 	$.ajax({
          type : "GET",
-         url : "http://localhost:80/cmp_content/"+contentId,
-         contentType: "application/json",
+         url : "http://localhost:80/campcontent/"+contentId,
+         dataType: "json",
          success : function(result){
+			 
             if(result!=null){
-               //성공
-               alert("성공");
-               $("#contentId").val(result.contentId);//API번호
-               $("#user_id").val(result.user_id);//사업자번호
-               //$("#facltNm").val(result.facltNm);//제목
-               //$("#lctCl").val(result.lctCl);//주변환경(환경)
-               //$("#intro").val(result.intro);//짧은설명(설명)
-               //$("#featureNm").val(result.featureNm);//자세한 설명(설명)
-               //$("#induty").val(result.induty);//캠핑장종류(설명)
-               //$("#zipcode").val(result.zipcode);//우편번호(찾아오는길)
-               //$("#addr1").val(result.addr1);//도로명주소(찾아오는길)
-               //$("#tel").val(result.tel);//대표번호(찾아오는길)
-               //$("#homepage").val(result.homepage);//홈페이지(찾아오는길)
-               // $("#toietCo").val(result.toietCo);//화장실개수(물품)
-               //$("#swrmCo").val(result.swrmCo);//샤워실개수(물품)
-               //$("#wtrplCo").val(result.wtrplCo);//개수대개수(물품)
-               //$("#brazierCl").val(result.brazierCl);//화로대개수(물품)
-               //$("#sbrsCl").val(result.sbrsCl);//부대시설(환경)
-               // $("#sbrsEtc").val(result.sbrsEtc);//부대시설기타(환경)
-               //$("#posblFcltyCl").val(result.posblFcltyCl);//주변이용시설(환경)
-               //$("#extshrCo").val(result.extshrCo);//소화기개수(물품)
-               //$("#themaEnvrnCl").val(result.themaEnvrnCl);//테마환경(환경)
-               //$("#animalCmgCl").val(result.animalCmgCl);//애완동물출입(환경)
-               //$("#firstImageUrl").val(result.firstImageUrl);//대표이미지
-               //$("#cmp_pic").val(result.cmp_pic);//캠핑장이미지
-               //$("#cmp_maxpp").val(result.cmp_maxpp);//최대 예약 인원
-               //$("#cmp_staydate ").val(result.cmp_staydate);//최대 숙박 일자
-               //$("#cmp_price").val(result.cmp_price);//최대 이용 금액
+			 
+               $("#contentId").text(result.contentId);//API번호
+               $("#user_id").text(result.user_id);//사업자번호
+               $("#facltNm").text(result.facltNm);//제목
+               $("#facltNm1").text(result.facltNm);//제목
+               $("#lctCl").text(result.lctCl);//주변환경(환경)
+               $("#intro").text(result.intro);//짧은설명(설명)
+               $("#featureNm").text(result.featureNm);//자세한 설명(설명)
+               $("#induty").text(result.induty);//캠핑장종류(설명)
+               $("#zipcode").text(result.zipcode);//우편번호(찾아오는길)
+               $("#addr1").text(result.addr1);//도로명주소(찾아오는길)
+               $("#tel").text(result.tel);//대표번호(찾아오는길)
+               $("#homepage").text(result.homepage);//홈페이지(찾아오는길)
+               $("#toietCo").text(result.toietCo);//화장실개수(물품)
+               $("#swrmCo").text(result.swrmCo);//샤워실개수(물품)
+               $("#wtrplCo").text(result.wtrplCo);//개수대개수(물품)
+               $("#brazierCl").text(result.brazierCl);//화로대개수(물품)
+               $("#sbrsCl").text(result.sbrsCl);//부대시설(환경)
+               $("#sbrsEtc").text(result.sbrsEtc);//부대시설기타(환경)
+               $("#posblFcltyCl").text(result.posblFcltyCl);//주변이용시설(환경)
+               $("#extshrCo").text(result.extshrCo);//소화기개수(물품)
+               $("#themaEnvrnCl").text(result.themaEnvrnCl);//테마환경(환경)
+               $("#animalCmgCl").text(result.animalCmgCl);//애완동물출입(환경)
+//               $("#firstImageUrl").attr("src",result.firstImageUrl);//대표이미지
+               $("#cmp_pic").text(result.cmp_pic);//캠핑장이미지
+               $("#cmp_maxpp").text(result.cmp_maxpp);//최대 예약 인원
+               $("#cmp_staydate ").text(result.cmp_staydate);//최대 숙박 일자
+               $("#cmp_price").text(result.cmp_price);//최대 이용 금액
+               
+               var firstImageUrl = result.firstImageUrl;
+                $("#firstImageUrl").attr("src", firstImageUrl); // 이미지를 표시할 img 요소에 URL 설정
+
+            // 이미지를 출력할 HTML 코드 생성
+            var imageHtml = "<img src='<%= imageUrl %>' alt='Image'>";
+
+            // HTML 코드를 원하는 위치에 추가
+            $("#image-container").html(imageHtml);
 			}else if(result==null){
 				//정보 불러오기 실패
 				alert("정보 불러오기 실패");
@@ -47,6 +62,6 @@ $(function(){
          
       });
 		
+
 		
 	});
-	
