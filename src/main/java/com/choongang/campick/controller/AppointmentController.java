@@ -226,6 +226,7 @@ public class AppointmentController {
 		    	map.put("cmp_maxpp", db.getCmp_maxpp());
 		    	map.put("stay", db.getCmp_staydate());
 		    	
+		    	//예약 insert때문에 session사용
 		    	session.setAttribute("cmp_price", db.getCmp_price());
 
 	         return new ResponseEntity<>(map, HttpStatus.OK);
@@ -255,10 +256,12 @@ public class AppointmentController {
 	      public ResponseEntity<Integer> apt_user_cmp(@RequestBody Appointment apt, 
 	    		  										@PathVariable("contentId") String contentId, HttpSession session){
 	    	 
+	    	  //다른 테이블 컬럼을 가져옴
 	    	 String cmp_no = contentId;
 	    	 String user_id = (String)session.getAttribute("user_id");
 	    	 Integer cmp_price = (Integer) session.getAttribute("cmp_price");
 	    	 
+	    	 //해당 model에 값을 넣음
 	    	 apt.setApt_price(String.valueOf(cmp_price));
 	    	 apt.setUser_id(user_id);
 	    	 apt.setCmp_no(cmp_no);
@@ -267,6 +270,8 @@ public class AppointmentController {
 	         System.out.println("예약을 할거예요!");
 	         int result = service.aptUserCamp(apt);
 	         System.out.println("result : " + result);
+	         
+	         session.setAttribute("apt_no", apt.getApt_no());
 	         
 	         return new ResponseEntity<>(result, HttpStatus.OK);
 	      }

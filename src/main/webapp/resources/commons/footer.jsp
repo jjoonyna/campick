@@ -4,13 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="./css/footer.css">
+<link rel="stylesheet" href="../css/footer.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <footer>
       <br/>
+      <div>
       <ul>
          <li class="ftli">
             <a href="/Board/Static.aspx?BCNO=1050">팀원소개</a>

@@ -134,13 +134,13 @@ function payment() {
   // 선택한 은행 이름 가져오기
   var user_price = document.getElementById("user_price").value;
   
-  if (apt_price == "default") {
+  if (user_price == "default") {
     document.getElementById("paymentResult").textContent = "";
     return;
   }
   
   // 선택한 은행의 계좌 정보 가져오기
-  var selectedBankInfo = bankinfo[apt_price];
+  var selectedBankInfo = bankinfo[user_price];
   
   // 결과를 <div> 태그에 표시
   var paymentResult = document.getElementById("paymentResult");
