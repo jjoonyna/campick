@@ -47,6 +47,7 @@ public class Camp {
 	 String cmp_pic;
 	 String cmp_fav;
 	 String cmp_like;
+	 String cmp_kind;
 	 int cmp_maxpp;
 	 int cmp_staydate; 
 	 int cmp_price; 

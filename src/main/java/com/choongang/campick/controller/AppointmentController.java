@@ -8,6 +8,7 @@ import java.util.Map;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -184,10 +185,11 @@ public class AppointmentController {
 		
 		
 		// 예약 페이지
-	    @GetMapping("/camp_appointment")
-	    public String cmp_apt() {
-	        return "camp/camp_appointment"; 
-	    }
+		@GetMapping("camp_appointment/{contentId}")
+		public String camp_content(@PathVariable("contentId") String contentId){
+			
+			return "camp/camp_appointment";
+		}
 	    
 	    // 예약 내역 페이지
 	    @GetMapping("/camp_result")
@@ -201,25 +203,43 @@ public class AppointmentController {
 	    	return "camp/cmp_apt_list"; 
 	    }
 	    
+	  //캠핑장 상세페이지 ajax요청
+		 @GetMapping(value = "campappointment/{contentId}", produces = "application/json")
+		 @ResponseBody
+	     public ResponseEntity<Map<String, Object>> campcontent(@PathVariable("contentId") String contentId ) {
+			 
+		    	Map map = new HashMap();
+		    	
+		    	Camp db = service.selectapoint(contentId);
+		    	map.put("firstImageUrl", db.getFirstImageUrl());
+		    	map.put("facltNm", db.getFacltNm());
+		    	map.put("lineintro", db.getLineIntro());
+		    	map.put("intro", db.getIntro());
+		    	map.put("featureNm", db.getFeatureNm());
+		    	map.put("price", db.getCmp_price());
+		    	map.put("cmp_maxpp", db.getCmp_maxpp());
+		    	map.put("stay", db.getCmp_staydate());
 
+	         return new ResponseEntity<>(map, HttpStatus.OK);
+	     }
 	    
 		//예약 페이지
-	    @PostMapping("/camp_appointment/{contentId}")
-	    @ResponseBody
-	    public ResponseEntity<Map<String, Object>> camp_appointment(@PathVariable("contentId") int contentId) {
-	    	Map map = new HashMap();
-	    	
-	    	Camp db = service.selectapoint(contentId);
-	    	map.put("firstImageUrl", db.getFirstImageUrl());
-	    	map.put("facltNm", db.getFacltNm());
-	    	map.put("intro", db.getIntro());
-	    	map.put("faclNm", db.getFacltNm());
-	    	map.put("price", db.getCmp_price());
-	    	map.put("cmp_maxpp", db.getCmp_maxpp());
-	    	
-	    	
-	    	return new ResponseEntity<>(map,HttpStatus.OK); // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
-	    }
+//	    @PostMapping("/camp_appointment/{contentId}")
+//	    @ResponseBody
+//	    public ResponseEntity<Map<String, Object>> camp_appointment(@PathVariable("contentId") int contentId) {
+//	    	Map map = new HashMap();
+//	    	
+//	    	Camp db = service.selectapoint(contentId);
+//	    	map.put("firstImageUrl", db.getFirstImageUrl());
+//	    	map.put("facltNm", db.getFacltNm());
+//	    	map.put("intro", db.getIntro());
+//	    	map.put("faclNm", db.getFacltNm());
+//	    	map.put("price", db.getCmp_price());
+//	    	map.put("cmp_maxpp", db.getCmp_maxpp());
+//	    	
+//	    	
+//	    	return new ResponseEntity<>(map,HttpStatus.OK); // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
+//	    }
 
 		 // 일반 회원 예약 하기
 	      @PostMapping("/apt_user_cmp")
@@ -233,7 +253,7 @@ public class AppointmentController {
 	         return new ResponseEntity<>(result, HttpStatus.OK);
 	      }
 	      
-	      @PostMapping("/camp_results/{user_id}")
+	      	@PostMapping("/camp_results/{user_id}")
 		    @ResponseBody
 		    public ResponseEntity<Map<String, Object>> camp_results(@PathVariable("user_id") String user_id) {
 		    	Map map = new HashMap();

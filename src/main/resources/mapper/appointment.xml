@@ -9,7 +9,6 @@
 	<!-- 일반 회원 예약 하기 -->
 	<insert id="aptUserCamp" parameterType="apt">
 		INSERT INTO appointment(
-			apt_no,
 			cmp_no,
 			user_id,
 			user_nm,
@@ -20,7 +19,6 @@
 			apt_price,
 			apt_at
 		)VALUES(
-			#{apt_no},
 			#{cmp_no},
 			#{user_id},
 			#{user_nm},
@@ -86,7 +84,7 @@
 		WHERE user_id=#{user_id}
 	</update>
 
-	<select id="selectapoint" parameterType="int" resultType="camp">
+	<select id="selectapoint" parameterType="String" resultType="camp">
 		select * from camp where contentId = #{contentId}
 	</select>
 	

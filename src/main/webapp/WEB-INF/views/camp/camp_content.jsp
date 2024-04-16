@@ -20,30 +20,7 @@
     <main>
     <div id="results">
         <h1 id="facltNm"></h1>
-        <c:if test="${result.user_id == null}">
-           <div class="imageset-img1">
-                	<img id="firstImageUrl" src="" alt="캠프 이미지">
-            </div>
-         </c:if>   
-            <c:if test="${result.user_id != null}">
-        <div class="main-conteiner">
-             <div class="imageset-img">
-                	<img id="firstImageUrl" src="" alt="캠프 이미지">
-            </div>
-            <div class="contents-right">
-            	<div>최대예약인원 : <span id="cmp_maxpp"></span></div><br/>
-            	<div>최대숙박일자 : <span id="cmp_staydate"></span></div><br/>
-            	<div>최대이용금액 : <span id="cmp_price"></span></div><br/>
-            
-        <div class="contents-button">
-        	<div><a href="#" class="inqry">예약하기</a></div>
-        	<div><a href="#"><img src="../icons/ico_bell_black.svg"></a></div>
-        	<div><a href="#"><img src="../icons/ico_star_black.svg"></a></div>
-        	<div><a href="#"><img src="../icons/ico_heart_black.svg"></a></div>
-        </div>
-        </div>
-       </div>
-        </c:if>
+           <div id="dynamicContent"></div>
         <h1>${result.facltNm }</h1>
         <div class="introduction">
             <div class="intro">

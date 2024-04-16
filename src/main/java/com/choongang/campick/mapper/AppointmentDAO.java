@@ -28,7 +28,7 @@ public interface AppointmentDAO {
 	
 	// 사업자 회원 예약 삭제
 	
-	Camp selectapoint(int contentId);
+	Camp selectapoint(String contentId);
 	
 	Camp selectresult(String user_id);
 	

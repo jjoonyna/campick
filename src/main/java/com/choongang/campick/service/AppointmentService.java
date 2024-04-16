@@ -39,7 +39,7 @@ public class AppointmentService {
 	// 사업자 회원 예약 삭제
 
 
-	public Camp selectapoint(int contentId) {
+	public Camp selectapoint(String contentId) {
 		return dao.selectapoint(contentId);
 	}
 	
