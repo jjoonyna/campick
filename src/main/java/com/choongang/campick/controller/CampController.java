@@ -43,16 +43,16 @@ public class CampController {
 		return "camp/camp_list";
 	}
 	// 일반 회원 예약 상세 조회 캠핑정보 가져오기
-	@GetMapping("select_user_camp/{contentId}")
-	@ResponseBody
-	public ResponseEntity<Map<String,Object>> select_user_camp(@PathVariable("contentId") String contentId){
-		Map map = new HashMap();
-		Camp db = service.selectUserCamp(contentId); // 회원이 있는지 없는지 확인
-		map.put("facltNm", db.getFacltNm());
-		map.put("addr1", db.getAddr1());
-		map.put("cmp_staydate", db.getCmp_staydate());
-		return new ResponseEntity<>(map,HttpStatus.OK);
-	}
+//	@GetMapping("select_user_camp/{contentId}")
+//	@ResponseBody
+//	public ResponseEntity<Map<String,Object>> select_user_camp(@PathVariable("contentId") String contentId){
+//		Map map = new HashMap();
+//		Camp db = service.selectUserCamp(contentId); // 회원이 있는지 없는지 확인
+//		map.put("facltNm", db.getFacltNm());
+//		map.put("addr1", db.getAddr1());
+//		map.put("cmp_staydate", db.getCmp_staydate());
+//		return new ResponseEntity<>(map,HttpStatus.OK);
+//	}
 //			@GetMapping("select_user_camp/{contentId}")
 //			@ResponseBody
 //			public ResponseEntity<Map<String,Object>> select_user_camp(@PathVariable("contentId") String contentId){
@@ -76,8 +76,8 @@ public class CampController {
 		}
 		int pageno = Integer.parseInt(page);
 		int limit = 10;
-		int listcount = (int)service.count();
-		
+		int listcount = (int)service.count(camp);
+		System.out.println(listcount);
 		int start = (pageno-1) * limit;    // 각 page별 추출할 시작번호 : 0, 10, 20...
 		camp.setStart(start);
 
@@ -112,7 +112,6 @@ public class CampController {
 	}
 	
 
-	
 	// 사업자 소유 캠핑장 등록하기
 	@PostMapping("/insert_biz_cmp")
 	@ResponseBody
@@ -123,15 +122,15 @@ public class CampController {
 	return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 	
+	//캠핑장 상세페이지로 이동
 	@GetMapping("camp_content/{contentId}")
-	public String camp_content(@PathVariable("contentId") String contentId, Model model){
+	public String camp_content(@PathVariable("contentId") String contentId){
 		
-		model.getAttribute(contentId);
 		return "camp/camp_content";
 	}
 	
 	
-	//캠핑장 상세페이지
+	//캠핑장 상세페이지 ajax요청
 	 @GetMapping(value = "campcontent/{contentId}", produces = "application/json")
 	 @ResponseBody
      public ResponseEntity<Map<String, Object>> campcontent(@PathVariable("contentId") String contentId ) {
@@ -168,10 +167,11 @@ public class CampController {
          map.put("cmp_price", db.getCmp_price());
          map.put("mapX", db.getMapX());
          map.put("mapY", db.getMapY());
+         map.put("cmp_kind", db.getCmp_kind());
 
          return new ResponseEntity<>(map, HttpStatus.OK);
      }
-	//캠핑장 상세페이지
+	//캠핑장 상세페이지(지도)
 	 @GetMapping("campcontent2/{contentId}")
 	 @ResponseBody
      public ResponseEntity<Map<String, Object>> campcontent2(@PathVariable("contentId") String contentId ) {

@@ -1,7 +1,7 @@
 
 
 $(document).ready(function campcontent(contentId){
-	
+		//contentId를 url에 숫자값 그대로 가져오는 용도
 	 	var url = window.location.href;
     	var contentId = url.substring(url.lastIndexOf('/') + 1);
 	$.ajax({
@@ -11,9 +11,9 @@ $(document).ready(function campcontent(contentId){
          success : function(result){
 			 
             if(result!=null){
-			 
+			 	//값을 jsp에 넣기 위해 text사용함
                $("#contentId").text(result.contentId);//API번호
-               $("#user_id").text(result.user_id);//사업자번호
+               $("#user_id").text(result.user_id);//사업자아이디
                $("#facltNm").text(result.facltNm);//제목
                $("#facltNm1").text(result.facltNm);//제목
                $("#lctCl").text(result.lctCl);//주변환경(환경)
@@ -34,25 +34,47 @@ $(document).ready(function campcontent(contentId){
                $("#extshrCo").text(result.extshrCo);//소화기개수(물품)
                $("#themaEnvrnCl").text(result.themaEnvrnCl);//테마환경(환경)
                $("#animalCmgCl").text(result.animalCmgCl);//애완동물출입(환경)
-//               $("#firstImageUrl").attr("src",result.firstImageUrl);//대표이미지
+               $("#firstImageUrl").attr("src",result.firstImageUrl);//대표이미지
                $("#cmp_pic").text(result.cmp_pic);//캠핑장이미지
                $("#cmp_maxpp").text(result.cmp_maxpp);//최대 예약 인원
                $("#cmp_staydate ").text(result.cmp_staydate);//최대 숙박 일자
                $("#cmp_price").text(result.cmp_price);//최대 이용 금액
+               $("#cmp_kind").text(result.cmp_kind);//최대 이용 금액
                
-               var firstImageUrl = result.firstImageUrl;
-                $("#firstImageUrl").attr("src", firstImageUrl); // 이미지를 표시할 img 요소에 URL 설정
-                
+               
+                //homepage 주소값 넣기
                 var homepage = result.homepage;
                 $("#homepage").attr("href", homepage); 
-                 // 조건에 따라 해당 부분을 보이거나 감춤
+               
+               //if문 사용해서 이미지 바꾸기
+                 var dynamicHtml = '';
+                 //상태가 u인경우
+            if (result.cmp_kind === 'u') {
+                dynamicHtml += '<div class="main-conteiner">';
+                dynamicHtml += '    <div class="imageset-img">';
+                dynamicHtml += '        <img src='+result.firstImageUrl+' alt="캠프 이미지">';
+                dynamicHtml += '    </div>';
+                dynamicHtml += '    <div class="contents-right">';
+                dynamicHtml += '        <div>최대예약인원 : <span>'+result.cmp_maxpp+'</span></div><br/>';
+                dynamicHtml += '        <div>최대숙박일자 : <span>'+result.cmp_staydate+'</span></div><br/>';
+                dynamicHtml += '        <div>최대이용금액 : <span>'+result.cmp_price+'</span></div><br/>';
+                dynamicHtml += '        <div class="contents-button">';
+                dynamicHtml += '            <div><a href="../camp_appointment/' + contentId + '" class="inqry">예약하기</a></div>';
+                dynamicHtml += '            <div><a href="#"><img src="../icons/ico_bell_black.svg"></a></div>';
+                dynamicHtml += '            <div><a href="#"><img src="../icons/ico_star_black.svg"></a></div>';
+                dynamicHtml += '            <div><a href="#"><img src="../icons/ico_heart_black.svg"></a></div>';
+                dynamicHtml += '        </div>';
+                dynamicHtml += '    </div>';
+                dynamicHtml += '</div>';
+            } else {	//u가 아닌경우
+                dynamicHtml += '<div class="imageset-img1">';
+                dynamicHtml += '    <img src='+result.firstImageUrl+' alt="캠프 이미지">';
+                dynamicHtml += '</div>';
+            }
 
+            // 동적으로 생성한 HTML을 페이지에 추가
+            $('#dynamicContent').html(dynamicHtml);
 
-            // 이미지를 출력할 HTML 코드 생성
-            var imageHtml = "<img src='<%= imageUrl %>' alt='Image'>";
-
-            // HTML 코드를 원하는 위치에 추가
-            $("#image-container").html(imageHtml);
 			}else if(result==null){
 				//정보 불러오기 실패
 				alert("정보 불러오기 실패");
@@ -70,3 +92,6 @@ $(document).ready(function campcontent(contentId){
 
 		
 	});
+	
+
+

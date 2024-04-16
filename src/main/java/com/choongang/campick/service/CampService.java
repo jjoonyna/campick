@@ -25,8 +25,8 @@ public class CampService {
 	private final CampDAO dao;
 	
 	
-	public int count() {
-		return dao.count();
+	public int count(Camp camp) {
+		return dao.count(camp);
 	}
 
 	public List<Camp> campList(Camp camp) {

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.choongang.campick.mapper.AppointmentDAO;
 import com.choongang.campick.model.Appointment;
 import com.choongang.campick.model.Camp;
+import com.choongang.campick.model.User;
 
 import lombok.RequiredArgsConstructor;
 
@@ -25,6 +26,10 @@ public class AppointmentService {
 	public int aptUserCamp(Appointment apt) {
 		return dao.aptUserCamp(apt);
 	}
+	
+	public User selectUser(String user_id) {
+		return dao.selectUser(user_id);
+	}
 
 
 	// 일반 회원 예약 삭제
@@ -39,7 +44,7 @@ public class AppointmentService {
 	// 사업자 회원 예약 삭제
 
 
-	public Camp selectapoint(int contentId) {
+	public Camp selectapoint(String contentId) {
 		return dao.selectapoint(contentId);
 	}
 	
