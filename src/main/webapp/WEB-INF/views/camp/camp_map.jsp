@@ -38,6 +38,8 @@
 			<button id="search">검색</button>
 		</div>
 		<div id="weather">오늘의 날씨</div>
+		
+		
 		<div id="map" style="width:700px;height:530px;">
 			<div id="camp_list"></div>
 		</div>
