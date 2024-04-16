@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.choongang.campick.mapper.AppointmentDAO;
 import com.choongang.campick.model.Appointment;
 import com.choongang.campick.model.Camp;
+import com.choongang.campick.model.User;
 
 import lombok.RequiredArgsConstructor;
 
@@ -24,6 +25,10 @@ public class AppointmentService {
 	// 일반 회원 캠핑장 예약하기
 	public int aptUserCamp(Appointment apt) {
 		return dao.aptUserCamp(apt);
+	}
+	
+	public User selectUser(String user_id) {
+		return dao.selectUser(user_id);
 	}
 
 

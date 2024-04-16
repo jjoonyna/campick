@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.choongang.campick.model.Appointment;
 import com.choongang.campick.model.Camp;
+import com.choongang.campick.model.User;
 import com.choongang.campick.service.AppointmentService;
 import com.choongang.campick.service.CampService;
 
@@ -206,19 +208,25 @@ public class AppointmentController {
 	  //캠핑장 상세페이지 ajax요청
 		 @GetMapping(value = "campappointment/{contentId}", produces = "application/json")
 		 @ResponseBody
-	     public ResponseEntity<Map<String, Object>> campcontent(@PathVariable("contentId") String contentId ) {
+	     public ResponseEntity<Map<String, Object>> campcontent(@PathVariable("contentId") String contentId, HttpSession session ) {
 			 
 		    	Map map = new HashMap();
 		    	
+		    	String user_id = (String)session.getAttribute("user_id");
 		    	Camp db = service.selectapoint(contentId);
+		    	User us = service.selectUser(user_id);
+		    	map.put("contentId", db.getContentId());
+		    	map.put("user_id", us.getUser_id());
 		    	map.put("firstImageUrl", db.getFirstImageUrl());
 		    	map.put("facltNm", db.getFacltNm());
 		    	map.put("lineintro", db.getLineIntro());
 		    	map.put("intro", db.getIntro());
 		    	map.put("featureNm", db.getFeatureNm());
-		    	map.put("price", db.getCmp_price());
+		    	map.put("cmp_price", db.getCmp_price());
 		    	map.put("cmp_maxpp", db.getCmp_maxpp());
 		    	map.put("stay", db.getCmp_staydate());
+		    	
+		    	session.setAttribute("cmp_price", db.getCmp_price());
 
 	         return new ResponseEntity<>(map, HttpStatus.OK);
 	     }
@@ -242,10 +250,20 @@ public class AppointmentController {
 //	    }
 
 		 // 일반 회원 예약 하기
-	      @PostMapping("/apt_user_cmp")
+	      @PostMapping("/apt_user_cmp/{contentId}")
 	      @ResponseBody
-	      public ResponseEntity<Integer> apt_user_cmp(@RequestBody Appointment apt){
-	         
+	      public ResponseEntity<Integer> apt_user_cmp(@RequestBody Appointment apt, 
+	    		  										@PathVariable("contentId") String contentId, HttpSession session){
+	    	 
+	    	 String cmp_no = contentId;
+	    	 String user_id = (String)session.getAttribute("user_id");
+	    	 Integer cmp_price = (Integer) session.getAttribute("cmp_price");
+	    	 
+	    	 apt.setApt_price(String.valueOf(cmp_price));
+	    	 apt.setUser_id(user_id);
+	    	 apt.setCmp_no(cmp_no);
+	    	 System.out.println(contentId);
+	    	 System.out.println(cmp_price);
 	         System.out.println("예약을 할거예요!");
 	         int result = service.aptUserCamp(apt);
 	         System.out.println("result : " + result);
