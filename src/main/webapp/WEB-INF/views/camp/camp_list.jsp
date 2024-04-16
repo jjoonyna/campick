@@ -39,7 +39,7 @@
 
 
 					<!-- 검색 항목 -->
-						<form method="GET">
+						<form>
 					<div style="display: flex; justify-content: center; flex-wrap: wrap;">
 						<div style="margin-right: 20px; margin-bottom: 20px;">
 							<label for="induty" style="font-size: 18px; margin-right: 8px;">테마</label>
@@ -90,9 +90,12 @@
 					<!-- 검색 버튼 -->
 					<div
 						style="display: flex; justify-content: center; margin-top: 20px;">
-						<button id="searchBtn">검색</button>
+						<button id="searchBtn" type="button">검색</button>
 					</div>
 						</form>
+						
+						
+						
 					<br> <br> <br> <br>
 					<div>
 						<span>

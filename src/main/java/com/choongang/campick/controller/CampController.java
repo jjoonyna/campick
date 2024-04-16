@@ -87,13 +87,13 @@ public class CampController {
 		int startPage = ((pageno - 1) / 10) * limit + 1;  // 1, 11, 21...
 		int endPage = startPage + 10 - 1; 				// 10, 20, 30...
 		
-		System.out.println(camp.getSearch());
-		System.out.println(camp.getInduty());
-		System.out.println(camp.getDoNm());
-		System.out.println(camp.getSigunguNm());
+		System.out.println("search: "+camp.getSearch());
+		System.out.println("induty: "+camp.getInduty());
+		System.out.println("doNm: "+camp.getDoNm());
+		System.out.println("sigun: "+camp.getSigunguNm());
 		
 		List<Camp> camplist = service.campList(camp);
-
+		System.out.println("리스트: "+camplist);
 		if (endPage > pageCount) {
 			endPage = pageCount;
 		}
@@ -104,6 +104,9 @@ public class CampController {
 		map.put("pageCount", pageCount);
 		map.put("listcount", listcount);
 		map.put("search", camp.getSearch());
+		map.put("induty", camp.getInduty());
+		map.put("sigunguNm", camp.getSigunguNm());
+		map.put("doNm", camp.getDoNm());
 		map.put("page",pageno );
 		return new ResponseEntity<>(map,HttpStatus.OK);
 	}

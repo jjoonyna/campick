@@ -1,6 +1,11 @@
+//검색버튼 눌렀을때
 $(function(){
-	camplist(1);
-})
+	$("#searchBtn").click(function(){
+		camplist(1);
+	});
+});
+
+camplist(1);
 
 function camplist(page){
 	var formdata={
@@ -15,7 +20,10 @@ function camplist(page){
       contentType: "application/json",
       data : JSON.stringify(formdata),
       success : function(result){      
-		  console.log(result.camplist.search)
+		  console.log(result.search);
+		  console.log(result.induty);
+		  console.log(result.doNm);
+		  console.log(result.sigunguNm);
          var content = ""
          $.each(result.camplist, function (index, item) {
               content += "<hr><a src='camp_content/'"+item.contentId+">";
@@ -60,7 +68,7 @@ function camplist(page){
           });         
          $("#cardlist").html(content);
          
-			if(result.camplist.search== null && result.camplist.induty==null && result.camplist.doNm==null && result.camplist.sigunguNm==null){
+			if(result.search== null && result.induty==null && result.doNm==null && result.sigunguNm==null){
 			// 페이징 처리 추가
             var pagination = "<br><br>";
              pagination += "<nav id='pagiset pagiset-circ'>";
@@ -103,7 +111,7 @@ function camplist(page){
 			
 		}			
          
-			if(result.camplist.search!= null && result.camplist.induty==null && result.camplist.doNm==null && result.camplist.sigunguNm==null){
+			if(result.search!= null || result.induty!=null || result.doNm!=null || result.sigunguNm!=null){
 			// 페이징 처리 추가
             var pagination = "<br><br>";
              pagination += "<nav id='pagiset pagiset-circ'>";
@@ -156,10 +164,5 @@ function campDetail(contentId){
    location="camp_content/"+contentId;
 }
 
-//검색버튼 눌렀을때
-$(function(){
-	$("#searchBtn").click(function(){
-		camplist(1);
-	});
-});
+
 

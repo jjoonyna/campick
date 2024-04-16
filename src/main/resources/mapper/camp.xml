@@ -7,125 +7,125 @@
 
 
 	<!-- 캠핑장 기본목록 및 검색목록 개수 -->
-	<select id="count" parameterType="camp" resultType="int">
-		select count(*) from camp where cmp_kind = 'u'
-
-	</select>
-
-	<!-- 캠핑장 기본 목록 및 검색목록 -->
-	<select id="campList" parameterType="camp" resultType="camp">
-		select * from camp
-
-		where cmp_kind = 'u'
-		order by firstImageUrl desc limit #{start},10
-
-	</select>
 <!-- 	<select id="count" parameterType="camp" resultType="int"> -->
-<!-- 		select count(*) from camp -->
-<!-- 		<where> -->
-<!-- 			<if -->
-<!-- 				test="search != null and induty == null and doNm == null and sigunguNm ==null"> -->
-<!-- 				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%' -->
-<!-- 			</if> -->
-<!-- 			<if -->
-<!-- 				test="search != null and induty == null and doNm != null and sigunguNm ==null"> -->
-<!-- 				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%' and doNm = #{doNm} -->
-<!-- 			</if> -->
-<!-- 			<if -->
-<!-- 				test="search != null and induty == null and doNm != null and sigunguNm !=null"> -->
-<!-- 				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%' and doNm = #{doNm} and sigunguNm =#{sigunguNm} -->
-<!-- 			</if> -->
-<!-- 			<if -->
-<!-- 				test="search != null and induty != null and doNm == null and sigunguNm ==null"> -->
-<!-- 				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%' and induty = #{induty} -->
-<!-- 			</if> -->
-<!-- 			<if -->
-<!-- 				test="search != null and induty != null and doNm != null and sigunguNm ==null"> -->
-<!-- 				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%' and induty = #{induty} and doNm = #{doNm} -->
-<!-- 			</if> -->
-<!-- 			<if -->
-<!-- 				test="search != null and induty != null and doNm != null and sigunguNm !=null"> -->
-<!-- 				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%' and induty = #{induty} and doNm = #{doNm} and sigunguNm = #{sigunguNm} -->
-<!-- 			</if> -->
-<!-- 			<if -->
-<!-- 				test="search == null and induty != null and doNm == null and sigunguNm ==null"> -->
-<!-- 				induty = #{induty} -->
-<!-- 			</if> -->
-<!-- 			<if -->
-<!-- 				test="search == null and induty != null and doNm != null and sigunguNm ==null"> -->
-<!-- 				induty = #{induty} and doNm = #{doNm} -->
-<!-- 			</if> -->
-<!-- 			<if -->
-<!-- 				test="search == null and induty != null and doNm != null and sigunguNm !=null"> -->
-<!-- 				induty = #{induty} and doNm = #{doNm} and sigunguNm = #{sigunguNm} -->
-<!-- 			</if> -->
-<!-- 			<if -->
-<!-- 				test="search == null and induty = null and doNm != null and sigunguNm ==null"> -->
-<!-- 				doNm = #{doNm} -->
-<!-- 			</if> -->
-<!-- 			<if -->
-<!-- 				test="search == null and induty == null and doNm != null and sigunguNm !=null"> -->
-<!-- 				doNm = #{doNm} and sigunguNm = #{sigunguNm} -->
-<!-- 			</if> -->
-
-<!-- 		</where> -->
+<!-- 		select count(*) from camp where cmp_kind = 'u' -->
 
 <!-- 	</select> -->
 
- 	<!-- 캠핑장 기본 목록 및 검색목록 --> 
+	<!-- 캠핑장 기본 목록 및 검색목록 -->
 <!-- 	<select id="campList" parameterType="camp" resultType="camp"> -->
 <!-- 		select * from camp -->
-<!-- 		<where> -->
-<!-- 			<if -->
-<!-- 				test="search != null and induty == null and doNm == null and sigunguNm ==null"> -->
-<!-- 				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%' -->
-<!-- 			</if> -->
-<!-- 			<if -->
-<!-- 				test="search != null and induty == null and doNm != null and sigunguNm ==null"> -->
-<!-- 				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%' and doNm = #{doNm} -->
-<!-- 			</if> -->
-<!-- 			<if -->
-<!-- 				test="search != null and induty == null and doNm != null and sigunguNm !=null"> -->
-<!-- 				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%' and doNm = #{doNm} and sigunguNm =#{sigunguNm} -->
-<!-- 			</if> -->
-<!-- 			<if -->
-<!-- 				test="search != null and induty != null and doNm == null and sigunguNm ==null"> -->
-<!-- 				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%' and induty = #{induty} -->
-<!-- 			</if> -->
-<!-- 			<if -->
-<!-- 				test="search != null and induty != null and doNm != null and sigunguNm ==null"> -->
-<!-- 				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%' and induty = #{induty} and doNm = #{doNm} -->
-<!-- 			</if> -->
-<!-- 			<if -->
-<!-- 				test="search != null and induty != null and doNm != null and sigunguNm !=null"> -->
-<!-- 				lineIntro like '%'||#{search}||'%' or facltNm like '%'||#{search}||'%' and induty = #{induty} and doNm = #{doNm} and sigunguNm = #{sigunguNm} -->
-<!-- 			</if> -->
-<!-- 			<if -->
-<!-- 				test="search == null and induty != null and doNm == null and sigunguNm ==null"> -->
-<!-- 				induty = #{induty} -->
-<!-- 			</if> -->
-<!-- 			<if -->
-<!-- 				test="search == null and induty != null and doNm != null and sigunguNm ==null"> -->
-<!-- 				induty = #{induty} and doNm = #{doNm} -->
-<!-- 			</if> -->
-<!-- 			<if -->
-<!-- 				test="search == null and induty != null and doNm != null and sigunguNm !=null"> -->
-<!-- 				induty = #{induty} and doNm = #{doNm} and sigunguNm = #{sigunguNm} -->
-<!-- 			</if> -->
-<!-- 			<if -->
-<!-- 				test="search == null and induty = null and doNm != null and sigunguNm ==null"> -->
-<!-- 				doNm = #{doNm} -->
-<!-- 			</if> -->
-<!-- 			<if -->
-<!-- 				test="search == null and induty == null and doNm != null and sigunguNm !=null"> -->
-<!-- 				doNm = #{doNm} and sigunguNm = #{sigunguNm} -->
-<!-- 			</if> -->
 
-<!-- 		</where> -->
-
+<!-- 		where cmp_kind = 'u' -->
 <!-- 		order by firstImageUrl desc limit #{start},10 -->
 
 <!-- 	</select> -->
+	<select id="count" parameterType="camp" resultType="int">
+		select count(*) from camp
+		<where>
+			<if
+				test="search != null and induty == null and doNm == null and sigunguNm ==null">
+				lineIntro like concat('%',#{search},'%') or facltNm like concat('%',#{search},'%')
+			</if>
+			<if
+				test="search != null and induty == null and doNm != null and sigunguNm ==null">
+				lineIntro like concat('%',#{search},'%') or facltNm like concat('%',#{search},'%') and doNm = #{doNm}
+			</if>
+			<if
+				test="search != null and induty == null and doNm != null and sigunguNm !=null">
+				lineIntro like concat('%',#{search},'%') or facltNm like concat('%',#{search},'%') and doNm = #{doNm} and sigunguNm =#{sigunguNm}
+			</if>
+			<if
+				test="search != null and induty != null and doNm == null and sigunguNm ==null">
+				lineIntro like concat('%',#{search},'%') or facltNm like concat('%',#{search},'%') and induty = #{induty}
+			</if>
+			<if
+				test="search != null and induty != null and doNm != null and sigunguNm ==null">
+				lineIntro like concat('%',#{search},'%') or facltNm like concat('%',#{search},'%') and induty = #{induty} and doNm = #{doNm}
+			</if>
+			<if
+				test="search != null and induty != null and doNm != null and sigunguNm !=null">
+				lineIntro like concat('%',#{search},'%') or facltNm like concat('%',#{search},'%') and induty = #{induty} and doNm = #{doNm} and sigunguNm = #{sigunguNm}
+			</if>
+			<if
+				test="search == null and induty != null and doNm == null and sigunguNm ==null">
+				induty = #{induty}
+			</if>
+			<if
+				test="search == null and induty != null and doNm != null and sigunguNm ==null">
+				induty = #{induty} and doNm = #{doNm}
+			</if>
+			<if
+				test="search == null and induty != null and doNm != null and sigunguNm !=null">
+				induty = #{induty} and doNm = #{doNm} and sigunguNm = #{sigunguNm}
+			</if>
+			<if
+				test="search == null and induty = null and doNm != null and sigunguNm ==null">
+				doNm = #{doNm}
+			</if>
+			<if
+				test="search == null and induty == null and doNm != null and sigunguNm !=null">
+				doNm = #{doNm} and sigunguNm = #{sigunguNm}
+			</if>
+
+		</where>
+
+	</select>
+
+ 	<!-- 캠핑장 기본 목록 및 검색목록 --> 
+	<select id="campList" parameterType="camp" resultType="camp">
+		select * from camp
+		<where>
+			<if
+				test="search != null and induty == null and doNm == null and sigunguNm ==null">
+				lineIntro like concat('%',#{search},'%') or facltNm like concat('%',#{search},'%')
+			</if>
+			<if
+				test="search != null and induty == null and doNm != null and sigunguNm ==null">
+				lineIntro like concat('%',#{search},'%') or facltNm like concat('%',#{search},'%') and doNm = #{doNm}
+			</if>
+			<if
+				test="search != null and induty == null and doNm != null and sigunguNm !=null">
+				lineIntro like concat('%',#{search},'%') or facltNm like concat('%',#{search},'%') and doNm = #{doNm} and sigunguNm =#{sigunguNm}
+			</if>
+			<if
+				test="search != null and induty != null and doNm == null and sigunguNm ==null">
+				lineIntro like concat('%',#{search},'%') or facltNm like concat('%',#{search},'%') and induty = #{induty}
+			</if>
+			<if
+				test="search != null and induty != null and doNm != null and sigunguNm ==null">
+				lineIntro like concat('%',#{search},'%') or facltNm like concat('%',#{search},'%') and induty = #{induty} and doNm = #{doNm}
+			</if>
+			<if
+				test="search != null and induty != null and doNm != null and sigunguNm !=null">
+				lineIntro like concat('%',#{search},'%') or facltNm like concat('%',#{search},'%') and induty = #{induty} and doNm = #{doNm} and sigunguNm = #{sigunguNm}
+			</if>
+			<if
+				test="search == null and induty != null and doNm == null and sigunguNm ==null">
+				induty = #{induty}
+			</if>
+			<if
+				test="search == null and induty != null and doNm != null and sigunguNm ==null">
+				induty = #{induty} and doNm = #{doNm}
+			</if>
+			<if
+				test="search == null and induty != null and doNm != null and sigunguNm !=null">
+				induty = #{induty} and doNm = #{doNm} and sigunguNm = #{sigunguNm}
+			</if>
+			<if
+				test="search == null and induty = null and doNm != null and sigunguNm ==null">
+				doNm = #{doNm}
+			</if>
+			<if
+				test="search == null and induty == null and doNm != null and sigunguNm !=null">
+				doNm = #{doNm} and sigunguNm = #{sigunguNm}
+			</if>
+
+		</where>
+
+		order by firstImageUrl desc limit #{start},10
+
+	</select>
 
 	<!-- 캠핑장 등록하기 -->
 	<insert id="insertBizCmp" parameterType="camp">
