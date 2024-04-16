@@ -9,7 +9,7 @@
 <jsp:include page="/resources/commons/gnb.jsp" />
 <title>예약 내역</title>
 <link rel="stylesheet" href="./css/camp_result.css">
-<script type="text/javascript" src="./js/camp_result.js"></script>
+<script type="text/javascript" src="../js/check.js"></script>
 </head>
 <body>
 <main>
@@ -31,29 +31,29 @@
 											<table class="formline">
 												<tr class="onlybottomline">
 													<td class="tabletdtext">숙소 정보 : </td>
-													<td class="tabletdtext"><div class="readdatas" id="cmp_nm" >${result.facltNm }</div></td>
+													<td class="tabletdtext"><span class="readdatas" id="facltNm" ></span></td>
 												</tr>
 												<tr class="onlybottomline">
 													<td class="tabletdtext">위치 : </td>
-													<td class="tabletdtext"><div class="readdatas" id="cmp_addr" >${result.addr1 }</div></td>
+													<td class="tabletdtext"><span class="readdatas" id="addr1" ></span></td>
 												</tr>
 												<tr class="onlybottomline">
 													<td class="tabletdtext">날짜 : </td>
-													<td class="tabletdtext"><input type="text" id="cmp_startdate" name="cmp_startdate" value="${result.cmp_startdate}"  class="readdatas">
-													<td class="tabletdtext"><input type="text"  class="readdatas" id="cmp_stay" name="cmp_stay" value="${result.cmp_stay}"/></td>
+													<td class="tabletdtext"><span id="apt_startdate" name="cmp_startdate" class="readdatas" ></span>,
+													<td class="tabletdtext"><span class="readdatas" id="apt_staydate" name="cmp_stay"></span>박</td>
 													
 												</tr>
 												<tr class="onlybottomline">
 													<td class="tabletdtext">인원 : </td>
-													<td class="tabletdtext"><input type="text"  class="readdatas" id="participants" name="participants" value="${result.apt_pp }" required/></td>
+													<td class="tabletdtext"><span class="readdatas" id="apt_pp" name="participants"></span>명</td>
 												</tr>
 												<tr class="onlybottomline">
 													<td class="tabletdtext">요청 사항 : </td>
-													<td class="tabletdtext"><input type="text"  class="readdatas" id="content" name="content" value="${apt_req }" required/></td>
+													<td class="tabletdtext"><span class="readdatas" id="apt_req" name="content" ></span></td>
 												</tr>
 												<tr class="onlybottomline">
 													<td class="tabletdtext">결제 내역 : </td>
-													<td class="tabletdtext"><input type="text" class="readdatas" onchange="payment()" id="bankSelect" name="user_price" value="${apt_price }" required/></td>
+													<td class="tabletdtext"><span class="readdatas" onchange="payment()" id="user_price" name="user_price"></span></td>
 												</tr>
 											</table>
 										</div>

@@ -192,8 +192,8 @@ public class AppointmentController {
 		}
 	    
 	    // 예약 내역 페이지
-	    @GetMapping("/camp_result")
-	    public String camp_result() {
+	    @GetMapping("/camp_result/{apt_no}")
+	    public String camp_result(@PathVariable("apt_no") String apt_no) {
 	    	return "camp/camp_result"; 
 	    }
 	    
@@ -225,6 +225,7 @@ public class AppointmentController {
 		    	map.put("stay", db.getCmp_staydate());
 		    	
 		    	session.setAttribute("cmp_price", db.getCmp_price());
+		    	session.setAttribute("contentId", db.getContentId());
 
 	         return new ResponseEntity<>(map, HttpStatus.OK);
 	     }
@@ -250,7 +251,7 @@ public class AppointmentController {
 		 // 일반 회원 예약 하기
 	      @PostMapping("/apt_user_cmp/{contentId}")
 	      @ResponseBody
-	      public ResponseEntity<Integer> apt_user_cmp(@RequestBody Appointment apt, 
+	      public ResponseEntity<String> apt_user_cmp(@RequestBody Appointment apt, 
 	    		  										@PathVariable("contentId") String contentId, HttpSession session){
 	    	 
 	    	 String cmp_no = contentId;
@@ -263,10 +264,12 @@ public class AppointmentController {
 	    	 System.out.println(contentId);
 	    	 System.out.println(cmp_price);
 	         System.out.println("예약을 할거예요!");
-	         int result = service.aptUserCamp(apt);
-	         System.out.println("result : " + result);
+	         int result = service.aptUserCamp("insertAndGetGeneratedKey",apt);
 	         
-	         return new ResponseEntity<>(result, HttpStatus.OK);
+	         String apt_no = apt.getApt_no();
+	         System.out.println("apt_no : " + apt_no);
+	         
+	         return new ResponseEntity<>(apt_no, HttpStatus.OK);
 	      }
 	      
 	      	@PostMapping("/camp_results/{user_id}")
@@ -288,9 +291,29 @@ public class AppointmentController {
 		    	return new ResponseEntity<>(map,HttpStatus.OK); // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
 		    }
 
-	    
-	 
-}
+	    //예약 확인하기
+	      @GetMapping("/campcheck/{apt_no}")
+		  @ResponseBody
+		  public ResponseEntity<Map<String, Object>> campcheck(@PathVariable("apt_no")String apt_no, HttpSession session){
+	    	  
+	    	  String contentId = (String)session.getAttribute("contentId");
+	    	  System.out.println("여기까지는 왔음");
+	    	  Camp db = service.selectapoint(contentId);
+	    	  Appointment us = service.selectCamp(apt_no);
+	    	  System.out.println(us);
+	    	  Map map = new HashMap<>();
+	    	  map.put("facltNm", db.getFacltNm());
+	    	  map.put("addr1", db.getAddr1());
+	    	  map.put("apt_startdate", us.getApt_startdate());
+	    	  map.put("apt_staydate", us.getApt_staydate());
+	    	  map.put("apt_pp", us.getApt_pp());
+	    	  map.put("apt_req", us.getApt_req());
+		    	map.put("apt_price", us.getApt_price());
+	    	  
+	    	  return new ResponseEntity<>(map, HttpStatus.OK); 
+	      }
+	 }
+
 
 	
 

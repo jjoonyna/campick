@@ -24,6 +24,9 @@ public interface AppointmentDAO {
 	
 	// 회원 예약 삭제 
 
+	//회원 예약 확인 
+	public Appointment selectCamp(String camp_check);
+	
 	
 	// 사업자 회원 예약 조회
 	
