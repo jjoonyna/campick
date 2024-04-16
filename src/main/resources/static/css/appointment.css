@@ -15,6 +15,7 @@ main h1 {
 .container {
     display: flex;
 	margin-top: 40px;
+	padding: 0 50px;
     justify-content: center; /* 수평 가운데 정렬 */
     height: fit-content; /* 뷰포트 높이의 100% */
 }

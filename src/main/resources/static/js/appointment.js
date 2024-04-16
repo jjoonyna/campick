@@ -1,7 +1,46 @@
 
+$(document).ready(function campappointment(contentId){
+		//contentId를 url에 숫자값 그대로 가져오는 용도
+	 	var url = window.location.href;
+    	var contentId = url.substring(url.lastIndexOf('/') + 1);
+	$.ajax({
+         type : "GET",
+         url : "http://localhost:80/campappointment/"+contentId,
+         dataType: "json",
+         success : function(result){
+			 console.log(result);
+            if(result!=null){
+			 	//값을 jsp에 넣기 위해 text사용함
+               $("#facltNm").text(result.facltNm);//제목
+               $("#intro").text(result.intro);//짧은설명(설명)
+               $("#featureNm").text(result.featureNm);//자세한 설명(설명)
+               $("#firstImageUrl").attr("src",result.firstImageUrl);//대표이미지
+               $("#cmp_maxpp").text(result.cmp_maxpp);//최대 예약 인원
+               $("#price").text(result.price);//최대 이용 금액
+               $("#stay").text(result.stay);//최대 이용 금액
+               
+              
+			}else if(result==null){
+				//정보 불러오기 실패
+				alert("정보 불러오기 실패");
+				history.back();
+			}
+            
+         },
+         error: function(xhr, status, error) {
+           console.error("AJAX 요청 실패:", status, error); 
+           alert("서버에서 데이터를 가져오는 중 오류가 발생했습니다.");
+          }
+         
+      });
+		
+
+		
+	});
+	
 function calculatePrice() {
-	var stayElement = document.getElementById("stay");
-	var priceElement = document.getElementById("price");
+	var stayElement = document.getElementById(stay);
+	var priceElement = document.getElementById(price);
 
 	// 선택된 구역에 따라 가격을 가져오기
 	var areaPrice = 100000;
@@ -32,49 +71,49 @@ var campgrounds = [
 ];
 
 // 캠핑장 선택 옵션 생성
-var campgroundSelect = document.getElementById("campground");
-campgrounds.forEach(function(campground) {
-  var option = document.createElement("option");
-  option.value = campground.maxCapacity; // 선택된 캠핑장의 최대 수용 인원 수를 저장
-  option.text = `${campground.name} (${campground.maxCapacity}명까지) - ${campground.price}원`;
-  campgroundSelect.add(option);
-});
+//var campgroundSelect = document.getElementById("campground");
+//campgrounds.forEach(function(campground) {
+//  var option = document.createElement("option");
+//  option.value = campground.maxCapacity; // 선택된 캠핑장의 최대 수용 인원 수를 저장
+//  option.text = `${campground.name} (${campground.maxCapacity}명까지) - ${campground.price}원`;
+//  campgroundSelect.add(option);
+//});
 
 // 캠핑장 선택 변경 시 해당 캠핑장의 최대 수용 인원 수에 맞게 예약할 인원 수 옵션을 변경
-campgroundSelect.addEventListener("change", function() {
-  var selectedMaxCapacity = parseInt(campgroundSelect.value);
-  var numberOfPeopleSelect = document.getElementById("numberOfPeople");
-  numberOfPeopleSelect.innerHTML = ''; // 기존 옵션 제거
-
-  // 최대 수용 인원 수에 맞게 옵션 추가
-  for (var i = 1; i <= selectedMaxCapacity; i++) {
-    var option = document.createElement("option");
-    option.value = i;
-    option.text = i;
-    numberOfPeopleSelect.add(option);
-  }
-});
+//campgroundSelect.addEventListener("change", function() {
+//  var selectedMaxCapacity = parseInt(campgroundSelect.value);
+//  var numberOfPeopleSelect = document.getElementById("numberOfPeople");
+//  numberOfPeopleSelect.innerHTML = ''; // 기존 옵션 제거
+//
+//  // 최대 수용 인원 수에 맞게 옵션 추가
+//  for (var i = 1; i <= selectedMaxCapacity; i++) {
+//    var option = document.createElement("option");
+//    option.value = i;
+//    option.text = i;
+//    numberOfPeopleSelect.add(option); //여기가 문제
+//  }
+//});
 
 // 폼 제출 이벤트 핸들러
-document.getElementById("reservationForm").addEventListener("submit", function(event) {
-  event.preventDefault(); // 폼 제출 이벤트 기본 동작 방지
+//document.getElementById("reservationForm").addEventListener("submit", function(event) {
+//  event.preventDefault(); // 폼 제출 이벤트 기본 동작 방지
 
   // 폼 입력값 가져오기
-  var numberOfPeople = parseInt(document.getElementById("numberOfPeople").value);
-  var selectedCampgroundIndex = document.getElementById("campground").selectedIndex;
-  var selectedCampgroundPrice = campgrounds[selectedCampgroundIndex].price;
-
-  // 총 예약 금액 계산
-  var totalPrice = numberOfPeople * selectedCampgroundPrice;
-
-  // 예약 정보 출력
-  console.log("예약한 캠핑장:", campgrounds[selectedCampgroundIndex].name);
-  console.log("예약한 인원 수:", numberOfPeople);
-  console.log("총 예약 금액:", totalPrice);
-
-  // 예약 후 폼 초기화
-  document.getElementById("reservationForm").reset();
-});
+//  var numberOfPeople = parseInt(document.getElementById("numberOfPeople").value);
+//  var selectedCampgroundIndex = document.getElementById("campground").selectedIndex;
+//  var selectedCampgroundPrice = campgrounds[selectedCampgroundIndex].price;
+//
+//  // 총 예약 금액 계산
+//  var totalPrice = numberOfPeople * selectedCampgroundPrice;
+//
+//  // 예약 정보 출력
+//  console.log("예약한 캠핑장:", campgrounds[selectedCampgroundIndex].name);
+//  console.log("예약한 인원 수:", numberOfPeople);
+//  console.log("총 예약 금액:", totalPrice);
+//
+//  // 예약 후 폼 초기화
+//  document.getElementById("reservationForm").reset();
+//});
 
 
 
@@ -91,19 +130,19 @@ function payment() {
   };
   
   // 선택한 은행 이름 가져오기
-  var selectedBank = document.getElementById("bankSelect").value;
+  var apt_price = document.getElementById("apt_price").value;
   
-  if (selectedBank === "default") {
+  if (apt_price == "default") {
     document.getElementById("paymentResult").textContent = "";
     return;
   }
   
   // 선택한 은행의 계좌 정보 가져오기
-  var selectedBankInfo = bankinfo[selectedBank];
+  var selectedBankInfo = bankinfo[apt_price];
   
   // 결과를 <div> 태그에 표시
   var paymentResult = document.getElementById("paymentResult");
-  paymentResult.textContent = `은행 : ${selectedBank}, 계좌번호 : ${selectedBankInfo}`;
+  paymentResult.textContent = `은행 : ${apt_price}, 계좌번호 : ${selectedBankInfo}`;
 }
 
 
@@ -121,39 +160,39 @@ function displaySelectedDate() {
 
 
 // 캠핑장 예약하기 클릭시
-$(function(){
-	$("#camp_appointment").click(function(){		
-		$("#user").show();
-	
-		$.ajax({
-         type : "GET",
-         url : encodeURI("http://localhost:80/camp_results"+user_id),
-         contentType: "application/json",
-         success : function(result){
-            if(result!=null){
-               //성공
-               $("#facltNm").val(result.facltNm);
-               $("#addr1").val(result.addr1);
-               $("#apt_startdate").val(result.apt_startdate);
-               $("#apt_staydate").val(result.apt_staydate);
-               $("#apt_pp").val(result.apt_pp);
-               $("#apt_req").val(result.apt_req);
-               $("#apt_price").val(result.apt_price);
-			}else if(result==null){
-				//정보 불러오기 실패
-				alert("정보 불러오기 실패");
-				history.back();
-			}
-            
-         },
-         error: function(xhr, status, error) {
-           console.error("AJAX 요청 실패:", status, error); 
-           alert("서버에서 데이터를 가져오는 중 오류가 발생했습니다.");
-          }
-         
-      });
-	});
-});
+//$(function(){
+//	$("#camp_appointment").click(function(){		
+//		$("#user").show();
+//	
+//		$.ajax({
+//         type : "GET",
+//         url : encodeURI("http://localhost:80/camp_results"+user_id),
+//         contentType: "application/json",
+//         success : function(result){
+//            if(result!=null){
+//               //성공
+//               $("#facltNm").val(result.facltNm);
+//               $("#addr1").val(result.addr1);
+//               $("#apt_startdate").val(result.apt_startdate);
+//               $("#apt_staydate").val(result.apt_staydate);
+//               $("#apt_pp").val(result.apt_pp);
+//               $("#apt_req").val(result.apt_req);
+//               $("#apt_price").val(result.apt_price);
+//			}else if(result==null){
+//				//정보 불러오기 실패
+//				alert("정보 불러오기 실패");
+//				history.back();
+//			}
+//            
+//         },
+//         error: function(xhr, status, error) {
+//           console.error("AJAX 요청 실패:", status, error); 
+//           alert("서버에서 데이터를 가져오는 중 오류가 발생했습니다.");
+//          }
+//         
+//      });
+//	});
+//});
 
 
 
@@ -165,38 +204,38 @@ $(function(){
 		 $("#user_nm").val("").focus();
 		 return false;
 	 }
-	 if($.trim($("#cmp_maxpp").val())==""){
+	 if($.trim($("#apt_pp").val())==""){
 		 alert("인원을 선택해주세요.");
-		 $("#cmp_maxpp").val("").focus();
+		 $("#apt_pp").val("").focus();
 		 return false;
 	 }
-	 if($.trim($("#user_request").val())==""){
+	 if($.trim($("#apt_req").val())==""){
 		 alert("요청사항을 입력해주세요.");
-		 $("#user_request").val("").focus();
+		 $("#apt_req").val("").focus();
 		 return false;
 	 }
-	 if($.trim($("#user_price").val())==""){
+	 if($.trim($("#apt_price").val())==""){
 		 alert("결제 방식을 선택해주세요.");
-		 $("#user_price").val("").focus();
+		 $("#apt_price").val("").focus();
 		 return false;
 	 }
 		var formdata = {
 			user_nm: $('#user_nm').val(),
-			user_pp: $('#user_pp').val(),
-			user_request: $('#user_request').val(),
-			user_price: $('#user_price').val()
+			user_pp: $('#apt_pp').val(),
+			user_request: $('#apt_req').val(),
+			user_price: $('#apt_price').val()
 			
 			};
 		$.ajax({
 			type : "POST",
-			url : "http://localhost:80/camp_appointment"+contentId,
+			url : "http://localhost:80/apt_user_cmp",
 			contentType: "application/json",
 			data : JSON.stringify(formdata),
 			success : function(result){
 				if(result==1){
 					//성공
 					alert("예약이 완료되었습니다.");
-					location.href="./camp_result.jsp";
+					location.href="../camp_result.jsp";
 				}else if(result==-1){
 					//정보 불러오기 실패
 					alert("예약이 실패되었습니다.");
@@ -214,9 +253,13 @@ $(function(){
     		}
 			
 		});
+
+
 	});
 	
 });
+
+
 
 
 
