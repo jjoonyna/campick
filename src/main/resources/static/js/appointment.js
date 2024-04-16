@@ -240,19 +240,24 @@ $(function (){
 			contentType: "application/json",
 			data : JSON.stringify(formdata),
 			success : function(result){
-				if(result==1){
-					//성공
+				
+				if(result != null){
 					alert("예약이 완료되었습니다.");
-					location.href="../camp_result";
-				}else if(result==-1){
-					//정보 불러오기 실패
-					alert("예약이 실패되었습니다.");
-					history.back();
-				}else if(result==2){
-					//예약이 실패할 경우?
-					alert("예약이 실패되었습니다.");
-					history.back();
+					location.href="../camp_result/"+result;
 				}
+//				if(result==1){
+//					//성공
+//					alert("예약이 완료되었습니다.");
+//					location.href="../camp_result";
+//				}else if(result==-1){
+//					//정보 불러오기 실패
+//					alert("예약이 실패되었습니다.");
+//					history.back();
+//				}else if(result==2){
+//					//예약이 실패할 경우?
+//					alert("예약이 실패되었습니다.");
+//					history.back();
+//				}
 				
 			},
 			error: function(xhr, status, error) {
