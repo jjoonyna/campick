@@ -8,3 +8,4 @@
 <link rel="stylesheet" href="../css/camp.css">
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="./js/gnb.js"></script>

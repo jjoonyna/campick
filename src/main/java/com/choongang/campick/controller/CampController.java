@@ -97,7 +97,7 @@ public class CampController {
 		if (endPage > pageCount) {
 			endPage = pageCount;
 		}
-			
+		
 		map.put("camplist", camplist);
 		map.put("startPage", startPage);
 		map.put("endPage", endPage);
@@ -105,6 +105,7 @@ public class CampController {
 		map.put("listcount", listcount);
 		map.put("search", camp.getSearch());
 		map.put("page",pageno );
+		
 		return new ResponseEntity<>(map,HttpStatus.OK);
 	}
 	

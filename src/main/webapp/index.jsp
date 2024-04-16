@@ -8,7 +8,7 @@
 </head>
 <body>
 <script>
-	location.href="login";
+	location.href="camp_list";
 </script>
 </body>
 </html>

@@ -51,7 +51,7 @@ $(function(){
 				if(result==1){
 					//성공
 					alert("로그인 완료");
-					location="user_mypage";
+					location="camp_list";
 				}else if(result==0){
 					//정보 불러오기 실패
 					alert("로그인 실패");
@@ -98,7 +98,7 @@ $(function(){
 				if(result==1){
 					//성공
 					alert("로그인 완료");
-					location="biz_mypage";
+					location="camp_list";
 				}else if(result==0){
 					//정보 불러오기 실패
 					alert("로그인 실패");
@@ -118,6 +118,27 @@ $(function(){
 	});
 	
 });
+
+$(document).ready(function() {
+    $("#logoutBtn").click(function() {
+        $.ajax({
+            url: "/logout_user",
+            type: "POST",
+            success: function(response) {
+                // 로그아웃이 성공적으로 처리되었을 때 실행되는 코드
+                alert("로그아웃 되었습니다.");
+                // 여기에 추가적으로 로그아웃 후 수행할 작업을 작성할 수 있습니다.
+            },
+            error: function(xhr, status, error) {
+                // 로그아웃 요청에 실패했을 때 실행되는 코드
+                alert("로그아웃 요청을 처리하는 중 오류가 발생했습니다.");
+                console.error(error);
+            }
+        });
+    });
+});
+
+
 //카카오 로그인 요청
 $(function(){
 	$("#kakao_login_ok").click(function(){

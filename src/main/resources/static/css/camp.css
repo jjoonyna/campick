@@ -1,4 +1,6 @@
 @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
 @font-face {
     font-family: 'Ycomputer-Regular';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/Ycomputer-Regular.woff2') format('woff2');
@@ -53,3 +55,55 @@ header .wrap .gnb-wrap .gnb .depth1 a:hover{
     color: #F57804;
 }
 
+/* 드롭다운 버튼 스타일 */
+.dropbtn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* 드롭다운 아이콘 스타일 */
+.dropbtn_icon {
+  font-size: 24px;
+}
+
+/* 드롭다운 콘텐츠 스타일 */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* 드롭다운 콘텐츠 링크 스타일 */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* 드롭다운 콘텐츠 링크 마우스 호버 시 스타일 */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* 드롭다운 버튼에 마우스 호버 시 드롭다운 콘텐츠 표시 */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* 프로필 사진 스타일 */
+.profile-pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%; /* 원형 모양으로 만듦 */
+}
+
+.textlinenone{
+	text-decoration: none;
+	font-size: 20px;
+}
