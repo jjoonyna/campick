@@ -1,6 +1,11 @@
+//검색버튼 눌렀을때
 $(function(){
-	camplist(1);
-})
+	$("#searchBtn").click(function(){
+		camplist(1);
+	});
+});
+
+camplist(1);
 
 function camplist(page){
 	var formdata={
@@ -15,8 +20,15 @@ function camplist(page){
       contentType: "application/json",
       data : JSON.stringify(formdata),
       success : function(result){      
-		  console.log(result.camplist.search)
+		  console.log(result.search);
+		  console.log(result.induty);
+		  console.log(result.doNm);
+		  console.log(result.sigunguNm);
          var content = ""
+         	content +="<span>"
+         	content +="<h2 class='textset-tit' style='margin-bottom: 18px; font-size: 30px;'>총&nbsp;"+result.listcount+"개의 Pick!<img src='../icons/flag1.gif' style='width: 40px; height: 40px; margin-left: 0px;'>"
+         	content +="</2>"
+         	content +="</span>"
          $.each(result.camplist, function (index, item) {
               content += "<hr><a src='camp_content/'"+item.contentId+">";
                 content += "<div class='cardset cardset-hor cardset-xl' id='cardInto'>";
@@ -37,21 +49,21 @@ function camplist(page){
                 content += "</div>";
                 content += "<br> <br>";
                 content += "<div>";
-                content += "<c:if test='"+item.toiletCo+" gt "+0+"'>";
+                if(item.toiletCo>0){
                 content += "<img class='icon-big' src='../images/wc1.png'>";
-                content += "</c:if>";
-                content += "<c:if test='not emty "+item.brazierCl+"'>";
+				}
+				if(item.brazierCl!=null){
                 content += "<img class='icon-big' src='./images/barbeque1.png'>";
-                content += "</c:if>";
-                content += "<c:if test='"+item.swrmCo+" gt "+0+"'>";
+				}
+				if(item.swrmCo>0){
                 content += "<img class='icon-big' src='../images/shower2.png'>";
-                content += "</c:if>";
-                content += "<c:if test='"+item.caravSiteCo+" gt "+0+"'>";
+				}
+				if(item.caravSiteCo>0){
                 content += "<img class='icon-big' src='../images/caravan.png'>";
-                content += "</c:if>";
-                content += "<c:if test='"+item.animalCmgCl+" eq Y'>";
+				}
+				if(item.animalCmgCl=='Y'){
                 content += "<img class='icon-big' src='../images/pet1.png'>";
-                content += "</c:if>";
+				}
                 content += "</div>";
                 content += "</div>";
                 content += "</div>";
@@ -60,7 +72,7 @@ function camplist(page){
           });         
          $("#cardlist").html(content);
          
-			if(result.camplist.search== null && result.camplist.induty==null && result.camplist.doNm==null && result.camplist.sigunguNm==null){
+			if(result.search== null && result.induty==null && result.doNm==null && result.sigunguNm==null){
 			// 페이징 처리 추가
             var pagination = "<br><br>";
              pagination += "<nav id='pagiset pagiset-circ'>";
@@ -103,7 +115,7 @@ function camplist(page){
 			
 		}			
          
-			if(result.camplist.search!= null && result.camplist.induty==null && result.camplist.doNm==null && result.camplist.sigunguNm==null){
+			if(result.search!= null || result.induty!=null || result.doNm!=null || result.sigunguNm!=null){
 			// 페이징 처리 추가
             var pagination = "<br><br>";
              pagination += "<nav id='pagiset pagiset-circ'>";
@@ -143,6 +155,8 @@ function camplist(page){
             pagination += "</div>";
             pagination += "</nav>";
             $("#pagein").html(pagination);
+            
+            window.scrollTo(0, 0); 
 			
 		}			
 			}
@@ -156,10 +170,5 @@ function campDetail(contentId){
    location="camp_content/"+contentId;
 }
 
-//검색버튼 눌렀을때
-$(function(){
-	$("#searchBtn").click(function(){
-		camplist(1);
-	});
-});
+
 

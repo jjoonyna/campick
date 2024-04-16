@@ -52,8 +52,8 @@ public class Camp {
 	 int cmp_staydate; 
 	 int cmp_price; 
 
-	 Date cmp_regDate;
-	 
-	 int start;
-	 String search;
+	private Date cmp_regDate;
+
+	private int start;
+	private String search;
 }
