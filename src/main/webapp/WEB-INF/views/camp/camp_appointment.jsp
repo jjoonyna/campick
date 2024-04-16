@@ -55,7 +55,7 @@
 												<tr>
 													<td style="padding-top: 15px;">가격 :</td>
 													<td> </td>
-													<td style="padding-left: 10px;"> <span style="font-size: 15px;" id="price"></span>원 </td>
+													<td style="padding-left: 10px;"> <span style="font-size: 15px;" id="cmp_price"></span>원 </td>
 												</tr>
 											</table> 
 										</div> 
@@ -85,6 +85,18 @@
 										<div class = "formline">
 											<table>
 												<tr>
+													<td class="tabletext">번호</td>
+													<td class="tableline">
+													<div id="contentId"></div>
+													</td>
+												</tr>
+												<tr>
+													<td class="tabletext">유저ID</td>
+													<td class="tableline">
+													<div id="user_id" ></div>
+													</td>
+												</tr>
+												<tr>
 													<td class="tabletext">날짜</td>
 													<td class="tableline">
 													<input type="date" id="apt_startdate" onchange="displaySelectedDate()">
@@ -101,7 +113,7 @@
 												</tr>
 												<tr>
 													<td class="tabletext">인원</td>
-													<td class="tableline"><input type="text" id="apt_pp" name="apt_pp" ></td>
+													<td class="tableline"><input type="text" id="apt_pp" name="apt_pp" value="${apt_pp}"></td>
 												</tr>
 												<tr>
 													<td class="tabletext">요청 사항</td>
@@ -109,7 +121,7 @@
 												</tr>
 												<tr>
 													<td class="tabletext">결제 방식</td>
-													<td style="padding-left: 10px;"><select onchange="payment()" id="apt_price" name="apt_price" required>
+													<td style="padding-left: 10px;"><select onchange="payment()" id="user_price" name="user_price" required>
 																		  	<option value="default">선택</option>
 																		  	<option value="신한">신한</option>
 																		  	<option value="국민">국민</option>

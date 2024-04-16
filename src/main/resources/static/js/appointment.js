@@ -11,12 +11,14 @@ $(document).ready(function campappointment(contentId){
 			 console.log(result);
             if(result!=null){
 			 	//값을 jsp에 넣기 위해 text사용함
+               $("#contentId").text(result.contentId);//제목
+               $("#user_id").text(result.user_id);//제목
                $("#facltNm").text(result.facltNm);//제목
                $("#intro").text(result.intro);//짧은설명(설명)
                $("#featureNm").text(result.featureNm);//자세한 설명(설명)
                $("#firstImageUrl").attr("src",result.firstImageUrl);//대표이미지
                $("#cmp_maxpp").text(result.cmp_maxpp);//최대 예약 인원
-               $("#price").text(result.price);//최대 이용 금액
+               $("#cmp_price").text(result.cmp_price);//최대 이용 금액
                $("#stay").text(result.stay);//최대 이용 금액
                
               
@@ -130,7 +132,7 @@ function payment() {
   };
   
   // 선택한 은행 이름 가져오기
-  var apt_price = document.getElementById("apt_price").value;
+  var user_price = document.getElementById("user_price").value;
   
   if (apt_price == "default") {
     document.getElementById("paymentResult").textContent = "";
@@ -142,7 +144,7 @@ function payment() {
   
   // 결과를 <div> 태그에 표시
   var paymentResult = document.getElementById("paymentResult");
-  paymentResult.textContent = `은행 : ${apt_price}, 계좌번호 : ${selectedBankInfo}`;
+  paymentResult.textContent = `은행 : ${user_price}, 계좌번호 : ${selectedBankInfo}`;
 }
 
 
@@ -197,8 +199,8 @@ function displaySelectedDate() {
 
 
 // 캠핑장 예약하기 요청
-$(function(){
-	$("#camp_appointment_ok").click(function(){
+$(function (){
+	$("#camp_appointment_ok").click(function campappointment(contentId){
 	if($.trim($("#user_nm").val())==""){
 		 alert("예약자 성함을 입력해주세요.");
 		 $("#user_nm").val("").focus();
@@ -214,28 +216,34 @@ $(function(){
 		 $("#apt_req").val("").focus();
 		 return false;
 	 }
-	 if($.trim($("#apt_price").val())==""){
+	 if($.trim($("#user_price").val())==""){
 		 alert("결제 방식을 선택해주세요.");
-		 $("#apt_price").val("").focus();
+		 $("#user_price").val("").focus();
 		 return false;
 	 }
 		var formdata = {
+			contentId: $('#contentId').val(),
+			user_id: $('#user_id').val(),
+			apt_startdate: $('#apt_startdate').val(),
+			apt_staydate: $('#apt_staydate').val(),
 			user_nm: $('#user_nm').val(),
-			user_pp: $('#apt_pp').val(),
-			user_request: $('#apt_req').val(),
-			user_price: $('#apt_price').val()
+			apt_pp: $('#apt_pp').val(),
+			apt_req: $('#apt_req').val(),
+			price: $('#cmp_price').val()
 			
 			};
+		var url = window.location.href;
+    	var contentId = url.substring(url.lastIndexOf('/') + 1);
 		$.ajax({
 			type : "POST",
-			url : "http://localhost:80/apt_user_cmp",
+			url : "http://localhost:80/apt_user_cmp/"+contentId,
 			contentType: "application/json",
 			data : JSON.stringify(formdata),
 			success : function(result){
 				if(result==1){
 					//성공
 					alert("예약이 완료되었습니다.");
-					location.href="../camp_result.jsp";
+					location.href="../camp_result";
 				}else if(result==-1){
 					//정보 불러오기 실패
 					alert("예약이 실패되었습니다.");
