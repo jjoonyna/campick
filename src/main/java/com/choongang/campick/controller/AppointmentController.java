@@ -106,13 +106,11 @@ public class AppointmentController {
 			for(int i=0;i<apt.size();i++) {
 			String contentId = apt.get(i).getCmp_no();	
 			Camp camp = campservice.selectUserCamp(contentId);
-			camplist.add(camp);
-			
+			apt.get(i).setFacltNm(camp.getFacltNm());
+			apt.get(i).setAddr1(camp.getAddr1());
 			}
-			map.put("camplist", camplist);
 			map.put("apt", apt);
 			System.out.println(map.get("apt"));
-			System.out.println(map.get("camplist"));
 			return new ResponseEntity<>(map,HttpStatus.OK);
 		}
 	

@@ -51,7 +51,6 @@ public class Camp {
 	 int cmp_maxpp;
 	 int cmp_staydate; 
 	 int cmp_price; 
-	 String cmp_kind;
 
 	private Date cmp_regDate;
 
