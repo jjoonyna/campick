@@ -14,7 +14,7 @@ public interface CampDAO {
 
 	List<Camp> campList(Camp camp);
 
-	int count();
+	int count(Camp camp);
 
 	// 사업자가 캠핑장 등록하기
 	int insertBizCmp(Camp camp);

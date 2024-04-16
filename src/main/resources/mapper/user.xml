@@ -94,7 +94,7 @@
 		user_code=#{user_code},
 		user_addr1=#{user_addr1},
 		user_addr2=#{user_addr2},
-		user_email=#{user_email},
+		user_email=#{user_email}
 		WHERE
 		user_id=#{user_id}
 	</update>
