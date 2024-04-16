@@ -190,6 +190,10 @@ public class UserController {
     public String biz_mypage() {
     	return "user/biz_mypage"; // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
     }
+    @GetMapping("/logout_user")
+    public String logout_user() {
+    	return "camp/camp_list"; // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
+    }
 	
 	
 	/*
@@ -756,6 +760,21 @@ public class UserController {
 			result = -1;								
 		}
 			return new ResponseEntity<>(result, HttpStatus.OK);
+	}
+	
+	/*
+	 * 로그아웃
+	 */
+	@PostMapping("/logout_user")
+	@ResponseBody
+	public ResponseEntity<Integer> logout_user(HttpSession session) {
+		
+		int result = 1;
+		
+		session.invalidate();
+
+		
+		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 
 
