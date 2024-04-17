@@ -15,12 +15,8 @@
 	<header>
 		<div class="wrap">
 			<h1 class="logo">
-<<<<<<< HEAD
-				<a href="../camp_list"><img src="../images/logo2.png"></a> <span
-=======
-				<a href="camp_list"><img src="../images/logo2.png"></a> <span
->>>>>>> branch 'master' of https://github.com/jjoonyna/campick.git
-					class="sound-only">사이트로고</span>
+				<a href="../camp_list"><img src="../images/logo2.png"></a>
+				 <span class="sound-only">사이트로고</span>
 			</h1>
 			<nav class="gnb-wrap">
 				<ul class="gnb">
@@ -34,7 +30,7 @@
 				
 <!-- 				<div id="dynamicContent"></div> -->
 					<c:if test="${sessionScope.user_kind == null }">
-		              	<a class="textlinenone" href="login">Login</a>
+		              	<a class="textlinenone" href="../login">Login</a>
 					</c:if>
 					<c:if test="${sessionScope.user_kind == 'u' }">
 		               <div class="dropdown">

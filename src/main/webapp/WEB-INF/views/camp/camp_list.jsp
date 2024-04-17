@@ -33,14 +33,11 @@
                <br> <br>
 
 
-<<<<<<< HEAD
    <!-- 검색 항목 -->
-=======
 
 
 
                <!-- 검색 항목 -->
->>>>>>> branch 'master' of https://github.com/jjoonyna/campick.git
                <div class="searchArea">
                   <div class="searchTheme">
                      <label for="induty">테마</label>

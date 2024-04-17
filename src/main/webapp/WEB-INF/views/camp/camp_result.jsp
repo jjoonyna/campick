@@ -8,7 +8,7 @@
 <jsp:include page="/resources/commons/header.jsp" />
 <jsp:include page="/resources/commons/gnb.jsp" />
 <title>예약 내역</title>
-<link rel="stylesheet" href="./css/camp_result.css">
+<link rel="stylesheet" href="../css/camp_result.css">
 <script type="text/javascript" src="../js/check.js"></script>
 </head>
 <body>
@@ -61,8 +61,6 @@
 										<div class="bbuttons">
     											<button type="submit"
 													class="aptbutton">예약 목록</button>
-    											<button type="reset" class="aptcancel"
-    												onclick="$('#board_name').focus();">예약 취소</button>
   										</div>
 								</div>
 						</div>

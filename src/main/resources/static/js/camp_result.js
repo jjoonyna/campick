@@ -122,7 +122,7 @@ function displaySelectedDate() {
 
 // 캠핑장 예약하기 클릭시
 $(function(){
-	$("#camp_appointment").click(function(){		
+	$("#aptbutton").click(function(){		
 		$("#user").show();
 	
 		$.ajax({

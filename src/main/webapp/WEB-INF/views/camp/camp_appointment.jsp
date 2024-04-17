@@ -149,10 +149,5 @@
 			</div>
 		</div>	
 	</main>
-<<<<<<< HEAD
-
-=======
-	
->>>>>>> branch 'master' of https://github.com/jjoonyna/campick.git
 </body>
 </html>

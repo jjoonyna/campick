@@ -29,3 +29,9 @@ $(document).ready(function campcheck(apt_no){
 		}	
 	});
 });
+
+$(function(){
+	$(".aptbutton").click(function(){		
+		location="../user_mypage";
+	});
+});
