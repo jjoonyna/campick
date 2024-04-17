@@ -1,11 +1,11 @@
 //검색버튼 눌렀을때
 $(function(){
+camplist(1);
 	$("#searchBtn").click(function(){
 		camplist(1);
 	});
 });
 
-camplist(1);
 
 function camplist(page){
 	var formdata={
