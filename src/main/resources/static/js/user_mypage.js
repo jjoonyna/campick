@@ -121,12 +121,43 @@ $(function(){
          success : function(result){
             if(result!=null){
                //성공
-               console.log(result.apt.user_id);
-               $(".boldtit").text(result.apt.user_id);
-               $("#participants").val(result.apt.apt_pp);
-               $("#cmp_startdate").val(result.apt.apt_date);
-               $("#content").val(result.apt.apt_req);
-               $("#apt_price").val(result.apt.apt_price);
+			var content ="";
+			
+			 $.each(result.apt, function (index, item) {
+				 
+				content += "<div class='card_body'>";
+				content += "<h2 class='boldtit'>"+item.user_id+"님의 예약이 완료되었습니다!</h2><br><br>";
+				content += "<table class='formline'>";
+				content += "<tr class='onlybottomline'>";
+				content += "<td class='tabletdtext'>숙소 정보 : </td>";
+				content += "<td class='tabletdtext'><div class='readdatas' id='cmp_nm' name='cmp_nm' >"+item.facltNm+"</div></td>";
+				content += "</tr>";
+				content += "<tr class='onlybottomline'>";
+				content += "<td class='tabletdtext'>위치 : </td>";
+				content += "<td class='tabletdtext'><div class='readdatas' id='cmp_addr' name='cmp_addr'>"+item.addr1+"</div></td>";
+				content += "</tr>";
+				content += "<tr class='onlybottomline'>";
+				content += "<td class='tabletdtext'>날짜 : </td>";
+				content += "<td class='tabletdtext'><div id='cmp_startdate' name='cmp_startdate'   class='readdatas'>"+item.apt_date+"</div></td>";
+				content += "<td class='tabletdtext'><div  class='readdatas' id='cmp_stay' name='cmp_stay'/>"+item.apt_staydate+"일</div></td>";
+				content += "</tr>";
+				content += "<tr class='onlybottomline'>";
+				content += "<td class='tabletdtext'>인원 : </td>";
+				content += "<td class='tabletdtext'><div  class='readdatas' id='participants' name='apt_pp' required/>"+item.apt_pp+"</div></td>";
+				content += "</tr>";
+				content += "<tr class='onlybottomline'>";
+				content += "<td class='tabletdtext'>요청 사항 : </td>";
+				content += "<td class='tabletdtext'><div  class='readdatas' id='content' name='apt_req' required/>"+item.apt_req+"</div</td>";
+				content += "</tr>";
+				content += "<tr class='onlybottomline'>";
+				content += "<td class='tabletdtext'>결제 내역 : </td>";
+				content += "<td class='tabletdtext'><div class='readdatas' onchange='payment()' id='apt_price' name='apt_price' required/>"+item.apt_price+"</div></td>";
+				content += "</tr>";
+				content += "</table>";
+				content += "</div>";
+				content += "<br><br>";
+				$(".boxboxbox").html(content);
+				 });
 			}else if(result==null){
 				//정보 불러오기 실패
 				alert("정보 불러오기 실패");

@@ -22,5 +22,7 @@ public class Appointment {
 	private String apt_at;			//결제 상태
 	private String apt_startdate;   //시작 일자    
 	
+	private String facltNm;
+	private String addr1;
 
 }

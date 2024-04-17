@@ -241,6 +241,7 @@ $(function (){
 			data : JSON.stringify(formdata),
 			success : function(result){
 				console.log(result);
+				
 				if(result != null){
 					alert("예약이 완료되었습니다.");
 					location.href="../camp_result/"+result;
@@ -249,6 +250,7 @@ $(function (){
 //					//성공
 //					alert("예약이 완료되었습니다.");
 //					location.href="../camp_result/"+result.apt_no;
+//					location.href="../camp_result";
 //				}else if(result==-1){
 //					//정보 불러오기 실패
 //					alert("예약이 실패되었습니다.");

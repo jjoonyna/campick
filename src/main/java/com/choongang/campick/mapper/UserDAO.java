@@ -1,5 +1,7 @@
 package com.choongang.campick.mapper;
 
+import java.sql.ResultSet;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.choongang.campick.model.User;
@@ -19,6 +21,9 @@ public interface UserDAO {
 	// 회원 로그인
 		public User selectUser(String user_id);
 	
+	//회원 아이디 중복 체크 
+		public int id_check(String user_id)throws Exception;
+		
 	// 회원 삭제 
 		public int deleteUser(String user_id);
 	

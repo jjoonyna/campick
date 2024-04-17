@@ -15,7 +15,11 @@
 	<header>
 		<div class="wrap">
 			<h1 class="logo">
+<<<<<<< HEAD
 				<a href="../camp_list"><img src="../images/logo2.png"></a> <span
+=======
+				<a href="camp_list"><img src="../images/logo2.png"></a> <span
+>>>>>>> branch 'master' of https://github.com/jjoonyna/campick.git
 					class="sound-only">사이트로고</span>
 			</h1>
 			<nav class="gnb-wrap">
@@ -58,7 +62,18 @@
 		                 </div>
 		               </div>
 					</c:if>
-				
+				<!-- 예진,현정누나 변경사항
+
+					<c:if test="${sessionScope.user_id == null }">
+						<a href="login"> <img src="../icons/ico_profile_black.svg" alt="로그인"></a>
+					</c:if>
+					<c:if test="${sessionScope.user_id != null && sessionScope.user_kind=='u' }">
+						<a href="user_mypage"> <img src="../icons/ico_profile_black.svg" alt="로그인"></a>
+					</c:if>
+					<c:if test="${sessionScope.user_id != null && sessionScope.user_kind=='b' }">
+						<a href="biz_mypage"> <img src="../icons/ico_profile_black.svg" alt="로그인"></a>
+					</c:if>
+				-->
 			</div>
 		</div>
 	</header>

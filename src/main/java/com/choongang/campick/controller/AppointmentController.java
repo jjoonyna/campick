@@ -106,13 +106,11 @@ public class AppointmentController {
 			for(int i=0;i<apt.size();i++) {
 			String contentId = apt.get(i).getCmp_no();	
 			Camp camp = campservice.selectUserCamp(contentId);
-			camplist.add(camp);
-			
+			apt.get(i).setFacltNm(camp.getFacltNm());
+			apt.get(i).setAddr1(camp.getAddr1());
 			}
-			map.put("camplist", camplist);
 			map.put("apt", apt);
 			System.out.println(map.get("apt"));
-			System.out.println(map.get("camplist"));
 			return new ResponseEntity<>(map,HttpStatus.OK);
 		}
 	
@@ -228,6 +226,7 @@ public class AppointmentController {
 		    	
 		    	//예약 insert때문에 session사용
 		    	session.setAttribute("cmp_price", db.getCmp_price());
+		    	session.setAttribute("contentId", db.getContentId());
 
 	         return new ResponseEntity<>(map, HttpStatus.OK);
 	     }
@@ -295,9 +294,29 @@ public class AppointmentController {
 		    	return new ResponseEntity<>(map,HttpStatus.OK); // 실제 JSP 파일의 경로에 맞게 수정해야 합니다.
 		    }
 
-	    
-	 
-}
+	    //예약 확인하기
+	      @GetMapping("/campcheck/{apt_no}")
+		  @ResponseBody
+		  public ResponseEntity<Map<String, Object>> campcheck(@PathVariable("apt_no")String apt_no, HttpSession session){
+	    	  
+	    	  String contentId = (String)session.getAttribute("contentId");
+	    	  System.out.println("여기까지는 왔음");
+	    	  Camp db = service.selectapoint(contentId);
+	    	  Appointment us = service.selectCamp(apt_no);
+	    	  System.out.println(us);
+	    	  Map map = new HashMap<>();
+	    	  map.put("facltNm", db.getFacltNm());
+	    	  map.put("addr1", db.getAddr1());
+	    	  map.put("apt_startdate", us.getApt_startdate());
+	    	  map.put("apt_staydate", us.getApt_staydate());
+	    	  map.put("apt_pp", us.getApt_pp());
+	    	  map.put("apt_req", us.getApt_req());
+		    	map.put("apt_price", us.getApt_price());
+	    	  
+	    	  return new ResponseEntity<>(map, HttpStatus.OK); 
+	      }
+	 }
+
 
 	
 

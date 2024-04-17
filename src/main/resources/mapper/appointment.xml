@@ -51,6 +51,10 @@
 		
 	</select>
 	
+	<!-- 예약 확인하기 -->
+	<select id="selectCamp" parameterType="String" resultType="apt">
+		select * from appointment where apt_no = #{apt_no} 
+	</select>
 	
 	<!-- 회원 예약 삭제 -->
 	<update id="deleteUser2" parameterType="String">
@@ -106,6 +110,7 @@
 	<select id="selectap" parameterType="String" resultType="apt">
 		select * from camp where user_id = #{user_id}
 	</select>
+	
 	
 	
 	<!-- 마이페이지 예약정보 가져오기 -->

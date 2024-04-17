@@ -33,7 +33,14 @@
                <br> <br>
 
 
+<<<<<<< HEAD
    <!-- 검색 항목 -->
+=======
+
+
+
+               <!-- 검색 항목 -->
+>>>>>>> branch 'master' of https://github.com/jjoonyna/campick.git
                <div class="searchArea">
                   <div class="searchTheme">
                      <label for="induty">테마</label>
@@ -46,24 +53,84 @@
                         <option value="glamping" <c:if test="${induty eq 'glamping'}">selected</c:if>>글램핑</option>
                      </select>
                   </div>
+                  
+                  
+                  
+                  <!-- 시/도 -->
                   <div class="searchLoc">
                      <label for="doNm">지역</label>
-                     <select id="doNm" name="doNm">
+                     <select id="doNm" name="doNm" onchange="getSigungu()">
                         <option value="" disabled selected>전체</option>
-                        <option value="서울시">서울</option>
-                        <option value="경기도">경기도</option>
-                        <option value="강원도">강원도</option>
+                        <!-- 시/도 총16개 -->
+                           <option value="강원도">강원도</option>
+                           <option value="경기도">경기도</option>
+                           <option value="경상남도">경상남도</option>
+                           <option value="경상북도">경상북도</option>
+                           <option value="광주시">광주시</option>
+                           <option value="대구시">대구시</option>
+                           <option value="대전시">대전시</option>
+                           <option value="부산시">부산시</option>
+                           <option value="서울시">서울시</option>
+                           <option value="인천시">인천시</option>
+                           <option value="울산시">울산시</option>
+                           <option value="전라남도">전라남도</option>
+                           <option value="전라북도">전라북도</option>
+                           <option value="제주도">제주도</option>
+                           <option value="충청남도">충청남도</option>
+                           <option value="충청북도">충청북도</option>
                      </select>
                   </div>
+                  
+                  
+                  <!-- 시/군/구 -->
                   <div class="searchSigungu">
                      <label for="sigunguNm"></label>
                      <select id="sigunguNm" name="sigunguNm">
                         <option value="" disabled selected>전체</option>
-                        <option value="chuncheon">춘천</option>
-                        <option value="gangneung">강릉</option>
                      </select>
                   </div>
                </div>
+               <script>
+             // 데이터
+             var data = {
+                 "강원도": ["강릉시", "고성군", "동해시", "삼척시", "속초시", "양구군", "양양군", "영월군", "원주시", "인제군", "정선군", "철원군", "춘천시", "태백시", "평창군", "홍천군", "화천군", "횡성군"],
+                 "경기도": ["가평군", "고양시", "과천시", "광명시", "광주시", "구리시", "군포시", "김포시", "남양주시", "동두천시", "부천시", "성남시", "수원시", "시흥시", "안산시", "안성시", "안양시", "양주시", "양평군", "여주시", "연천군", "오산시", "용인시", "의왕시", "의정부시", "이천시", "파주시", "평택시", "포천시", "하남시", "화성시"],
+                 "경상남도": ["창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "의령군", "함안군", "창녕군", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군"],
+                 "경상북도": ["포항시", "경주시", "김천시", "안동시", "구미시", "영주시", "영천시", "상주시", "문경시", "경산시", "군위군", "의성군", "청송군", "영양군", "영덕군", "청도군", "고령군", "성주군", "칠곡군", "예천군", "봉화군", "울진군","울릉군"],
+                 "광주시": ["동구", "서구", "남구", "북구", "광산구"],
+                 "대구시": ["중구", "동구", "서구", "남구", "북구", "수성구", "달서구", "달성군"],
+                 "대전시": ["동구", "중구", "서구", "유성구", "대덕구"],
+                 "부산시": ["중구", "서구", "동구", "영도구", "부산진구", "동래구", "남구", "북구", "해운대구", "사하구", "금정구", "강서구", "연제구", "수영구", "사상구", "기장군"],
+                 "서울시": ["강남구", "강동구", "강북구", "강서구", "관악구", "광진구", "구로구", "금천구", "노원구", "도봉구", "동대문구", "동작구", "마포구", "서대문구", "서초구", "성동구", "성북구", "송파구", "양천구", "영등포구", "용산구", "은평구", "종로구", "중구", "중랑구"],
+                 "인천시": ["강화군", "계양구", "남구", "남동구", "동구", "부평구", "서구", "연수구", "옹진군", "중구"],
+                 "울산시": ["남구", "동구", "북구", "울주군", "중구"],
+                 "전라남도": ["강진군", "고흥군", "곡성군", "광양시", "구례군", "나주시", "담양군", "목포시", "무안군", "보성군", "순천시", "신안군", "여수시", "영광군", "영암군", "완도군", "장성군", "장흥군", "진도군", "함평군", "해남군", "화순군"],
+                 "전라북도": ["고창군", "군산시", "김제시", "남원시", "무주군",   "부안군", "순창군", "완주군", "익산시", "임실군", "장수군", "전주시", "정읍시", "진안군"],
+                 "제주도": ["제주도", "서귀포시"],
+                 "충청남도": ["계룡시", "공주시", "논산시", "당진시", "보령시", "서산시", "아산시", "천안시", "금산군", "부여군", "서천군", "연기군", "예산군", "청양군", "태안군", "홍성군"],
+                 "충청북도": ["제천시", "청주시", "충주시", "괴산군", "단양군", "보은군", "영동군", "옥천군", "음성군", "진천군", "청원군"]
+             };
+         
+             // 시/도 변경 시 시/군/구를 업데이트하는 함수
+             function getSigungu() {
+                 var provinceSelect = document.getElementById("doNm");
+                 var sigunguSelect = document.getElementById("sigunguNm");
+                 var selectedProvince = provinceSelect.value;
+         
+                 // 기존 시/군/구 옵션 제거
+                 sigunguSelect.innerHTML = "<option value='' disabled selected>전체</option>";
+         
+                 // 선택된 시/도에 따라 시/군/구 추가
+                 if (selectedProvince !== "") {
+                     var cities = data[selectedProvince];
+                     cities.forEach(function(city) {
+                         var option = document.createElement("option");
+                         option.text = city;
+                         sigunguSelect.add(option);
+                     });
+                 }
+             }
+            </script>
 
 
                <!-- 검색창 -->

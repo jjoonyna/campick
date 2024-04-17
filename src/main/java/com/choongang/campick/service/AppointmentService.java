@@ -21,7 +21,7 @@ public class AppointmentService {
 	public Appointment selectUserApt(String user_id) {
 		return dao.selectUserApt(user_id);
 	}
-	
+
 	// 일반 회원 캠핑장 예약하기
 	public int aptUserCamp(String string, Appointment apt) {
 		return dao.aptUserCamp(apt);
@@ -35,8 +35,11 @@ public class AppointmentService {
 	// 일반 회원 예약 삭제
 	
 
+	// 일반 회원 예약 확인
+	public Appointment selectCamp(String camp_check) {
+		return dao.selectCamp(camp_check);
+	}
 	
-
 	
 	// 사업자 회원 예약 조회
 	
