@@ -124,6 +124,28 @@ function displaySelectedDate() {
 // 숙박 일자가 변경될 때마다 가격을 계산하고 표시하는 함수
 function calculatePrice() {
     	// 숙박일자를 가져옵니다.
+    	
+    	 if($.trim($("#user_nm").val())==""){
+		 alert("예약자 이름을 입력해주세요.");
+		 $("#user_nm").val("").focus();
+		 return false;
+	 }
+	 if($.trim($("#apt_pp").val())==""){
+		 alert("인원을 선택해주세요.");
+		 $("#apt_pp").val("").focus();
+		 return false;
+	 }
+	 if($.trim($("#apt_req").val())==""){
+		 alert("요청사항을 입력해주세요.");
+		 $("#apt_req").val("").focus();
+		 return false;
+	 }
+	 if($.trim($("#apt_at").val())==""){
+		 alert("무통장 입금 은행을 선택해주세요.");
+		 $("#user_price").val("").focus();
+		 return false;
+	 }
+    	
     	var price = $("#cmp_price").text();
     	
         var stayElement = document.getElementById("apt_staydate");
@@ -166,7 +188,7 @@ function calculatePrice() {
 				
 				if(result != null){
 					alert("예약이 완료되었습니다.");
-					location.href="camp_result/"+result;
+					location.href="/camp_result/"+result;
 				}
 				
 			},
@@ -228,7 +250,6 @@ function calculatePrice() {
 //});
 
 
-<<<<<<< HEAD
 
 // 결제 방식 : 은행 선택
 function payment() {
@@ -272,8 +293,6 @@ function displaySelectedDate() {
 
 
 
-=======
->>>>>>> branch 'master' of https://github.com/jjoonyna/campick.git
 // 캠핑장 예약하기 클릭시
 //$(function(){
 //	$("#camp_appointment").click(function(){		
@@ -352,9 +371,8 @@ $(function (){
 				
 				if(result != null){
 					alert("예약이 완료되었습니다.");
-					location.href="../camp_result/"+result;
+					location="/camp_result/"+result;
 				}
-<<<<<<< HEAD
 //				if(result==1){
 //					//성공
 //					alert("예약이 완료되었습니다.");
@@ -369,8 +387,6 @@ $(function (){
 //					alert("예약이 실패되었습니다.");
 //					history.back();
 //				}
-=======
->>>>>>> branch 'master' of https://github.com/jjoonyna/campick.git
 				
 			},
 			error: function(xhr, status, error) {

@@ -235,9 +235,5 @@
 
 
 	</main>
-
-	<div>
-		<jsp:include page="/resources/commons/footer.jsp" />
-	</div>
 </body>
 </html>

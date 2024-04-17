@@ -123,10 +123,9 @@
 												<tr>
 													<td class="tabletext">결제 방식</td>
 													<td style="padding-left: 10px;"><select id="apt_at" name="user_price" required>
-																		  	<option value="default">선택</option>
-																		  	<option value="신한">신한</option>
-																		  	<option value="국민">국민</option>
-																		  	<option value="카카오">카카오</option>
+																		  	<option value="신한 (주)캠픽 111-111-111111">신한</option>
+																		  	<option value="국민 (주)캠픽 222-222-222222">국민</option>
+																		  	<option value="카카오 (주)캠픽 333-333-333333">카카오</option>
 																		  </select> </td>
 												</tr>
 											</table>

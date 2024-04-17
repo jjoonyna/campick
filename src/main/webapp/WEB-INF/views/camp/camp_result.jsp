@@ -8,12 +8,9 @@
 <jsp:include page="/resources/commons/header.jsp" />
 <jsp:include page="/resources/commons/gnb.jsp" />
 <title>예약 내역</title>
-<<<<<<< HEAD
 <link rel="stylesheet" href="../css/camp_result.css">
 <script type="text/javascript" src="../js/check.js"></script>
-=======
 <link rel="stylesheet" href="./css/camp_result.css">
->>>>>>> branch 'master' of https://github.com/jjoonyna/campick.git
 </head>
 <body>
 <main>
@@ -39,7 +36,7 @@
 												</tr>
 												<tr class="onlybottomline">
 													<td class="tabletdtext">위치 : </td>
-													<td class="tabletdtext"><span class="readdatas" id="addr1" ></span></td>
+													<td class="tabletdtext" colspan="2"><span class="readdatas" id="addr1" ></span></td>
 												</tr>
 												<tr class="onlybottomline">
 													<td class="tabletdtext">날짜 : </td>
@@ -56,8 +53,12 @@
 													<td class="tabletdtext"><span class="readdatas" id="apt_req" name="content" ></span></td>
 												</tr>
 												<tr class="onlybottomline">
-													<td class="tabletdtext">결제 내역 : </td>
-													<td class="tabletdtext"><span class="readdatas" onchange="payment()" id="user_price" name="user_price"></span></td>
+													<td class="tabletdtext">결제 금액 : </td>
+													<td class="tabletdtext"><span class="readdatas" id="apt_price" name="user_price"></span>원</td>
+												</tr>
+												<tr class="onlybottomline">
+													<td class="tabletdtext">계좌 번호 : </td>
+													<td style="font-size: 20px;" colspan="2"><span class="readdatas" id="apt_at" name="apt_at"></span></td>
 												</tr>
 											</table>
 										</div>

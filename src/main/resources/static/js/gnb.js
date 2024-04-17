@@ -183,8 +183,6 @@ $(document).ready(function() {
 		        type: "POST",
 		        success: function(response) {
 					if(response==1){
-						
-					
 		            alert("로그아웃 되었습니다.");
 		            event.preventDefault(); // 링크의 기본 동작을 막음
 		            // 여기에 추가적으로 로그아웃 후 수행할 작업을 작성할 수 있습니다.

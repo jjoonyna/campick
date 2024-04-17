@@ -254,32 +254,14 @@ public class AppointmentController {
 	      @ResponseBody
 	      public ResponseEntity<String> apt_user_cmp(@RequestBody Appointment apt, @PathVariable("contentId") String contentId,
 	    		  									 HttpSession session){
-	    	 
-<<<<<<< HEAD
-	    	  //다른 테이블 컬럼을 가져옴
-=======
-	    	 System.out.println(apt); 
-	    	 System.out.println("cmp_no" + apt.getCmp_no()); 
-	    	 System.out.println("user_id" + apt.getUser_id()); 
-	    	 System.out.println("cmp_no" + apt.getApt_startdate()); 
-	    	 System.out.println("cmp_no" + apt.getUser_nm()); 
-	    	 System.out.println("cmp_no" + apt.getApt_pp()); 
-	    	 System.out.println("cmp_no" + apt.getApt_req()); 
-	    	 System.out.println("cmp_no" + apt.getApt_at()); 
-	    	 System.out.println("cmp_no" + apt.getApt_price()); 
 	    	
 	    	  
->>>>>>> branch 'master' of https://github.com/jjoonyna/campick.git
 	    	 String cmp_no = contentId;
 	    	 String user_id = (String)session.getAttribute("user_id");
 	    	 Integer cmp_price = (Integer) session.getAttribute("cmp_price");
 	    	 
-<<<<<<< HEAD
 	    	 //해당 model에 값을 넣음
-	    	 apt.setApt_price(String.valueOf(cmp_price));
-=======
 	    	 //apt.setApt_price(String.valueOf(cmp_price));
->>>>>>> branch 'master' of https://github.com/jjoonyna/campick.git
 	    	 apt.setUser_id(user_id);
 	    	 apt.setCmp_no(cmp_no);
 	    	 System.out.println(cmp_price);
@@ -329,6 +311,7 @@ public class AppointmentController {
 	    	  map.put("apt_pp", us.getApt_pp());
 	    	  map.put("apt_req", us.getApt_req());
 		      map.put("apt_price", us.getApt_price());
+		      map.put("apt_at", us.getApt_at());
 	    	  
 	    	  return new ResponseEntity<>(map, HttpStatus.OK); 
 	      }

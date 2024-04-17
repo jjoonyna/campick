@@ -63,7 +63,7 @@ main h1 {
     left: 50%; /* 부모 요소 중앙에서부터 좌측으로 이동 */
     transform: translate(-50%, -50%); /* 부모 요소의 중앙으로 이동 */
     width: 850px; /* 네모 박스의 너비 */
-    height: 800px; /* 네모 박스의 높이 */
+    height: 850px; /* 네모 박스의 높이 */
     background-color: #ffffff; /* 배경색 지정 */
     border: 0.5px solid #000; /* 테두리 스타일 지정 */
 }
@@ -118,7 +118,7 @@ main h1 {
 }
 .bbuttons {
 	text-align: center;
-	margin-top: 350px;
+	margin-top: 400px;
 }
 .aptbutton{
 	width: 110px; 

@@ -16,7 +16,8 @@ $(document).ready(function campcheck(apt_no){
 				$("#apt_staydate").text(result.apt_staydate); //숙박날짜
 				$("#apt_pp").text(result.apt_pp); //인원
 				$("#apt_req").text(result.apt_req); //요청 사항
-				$("#user_price").text(result.user_price); //결제 내역
+				$("#apt_price").text(result.apt_price); //결제 내역
+				$("#apt_at").text(result.apt_at); //계좌 번호
 			
 			}else if(result==null){
 				aldert("정보 불러오기 실패");

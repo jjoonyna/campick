@@ -27,11 +27,8 @@
 				</ul>
 			</nav>
 			<div class="gnb-right">
-<<<<<<< HEAD
 				
 <!-- 				<div id="dynamicContent"></div> -->
-=======
->>>>>>> branch 'master' of https://github.com/jjoonyna/campick.git
 					<c:if test="${sessionScope.user_kind == null }">
 		              	<a class="textlinenone" href="../login">Login</a>
 					</c:if>

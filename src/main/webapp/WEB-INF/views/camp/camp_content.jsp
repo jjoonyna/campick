@@ -9,12 +9,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>예약 페이지</title>
-<<<<<<< HEAD
-=======
 <link rel="stylesheet" href="../css/footer.css">
 
 <link rel="icon" href="../images/logo2.png">
->>>>>>> branch 'master' of https://github.com/jjoonyna/campick.git
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../js/details.js"></script>
 <link rel="stylesheet" href="../css/details.css">
@@ -51,9 +48,10 @@
             <h2>주의사항</h2>
             <div class="products2">
 				<ul>
-					<li>주의하세요</li>
-					<li></li>
-					<li></li>
+					<li>*주의하세요*</li>
+					<li>뱀 조심하세요</li>
+					<li>쓰레기는 쓰레기통에 정리해주세요</li>
+					<li>자세한 내용은 홈페이지 참고해주세요</li>
 				</ul>
 			</div>
         </div>
