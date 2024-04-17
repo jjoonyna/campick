@@ -7,7 +7,7 @@
 
 	
 	<!-- 일반 회원 예약 하기 -->
-	<insert id="aptUserCamp" parameterType="String">
+	<insert id="aptUserCamp" parameterType="String" useGeneratedKeys="true" keyProperty="apt_no">
 		INSERT INTO appointment(
 			cmp_no,
 			user_id,

@@ -8,7 +8,6 @@
 <jsp:include page="/resources/commons/header.jsp" />
 <jsp:include page="/resources/commons/gnb.jsp" />
 <title>예약 페이지</title>
-<link rel="stylesheet" href="../css/footer.css">
 <link rel="stylesheet" href="../css/appointment.css">
 <script type="text/javascript" src="../js/appointment.js"></script>
 </head>
@@ -150,7 +149,6 @@
 			</div>
 		</div>	
 	</main>
-	
-		<jsp:include page="/resources/commons/footer.jsp" />
+
 </body>
 </html>

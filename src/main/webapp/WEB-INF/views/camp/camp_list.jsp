@@ -11,7 +11,6 @@
 <jsp:include page="/resources/commons/header.jsp" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./css/camp_list.css">
-<link rel="stylesheet" href="./css/footer.css">
 <script src="./js/camp_list.js"></script>
 <link rel="icon" href="./images/logo2.png">
 <title>camplist</title>
@@ -19,9 +18,6 @@
 </head>
 <body>
    <main>
-
-
-
 
             <!-- 상단 검색 영역 -->
       <div class="campland-N19" data-bid="MXLu84reVj" id="">
@@ -35,9 +31,6 @@
                   </p>
                </div>
                <br> <br>
-
-
-
 
 
    <!-- 검색 항목 -->

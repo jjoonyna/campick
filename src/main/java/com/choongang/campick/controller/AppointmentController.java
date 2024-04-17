@@ -194,8 +194,8 @@ public class AppointmentController {
 		}
 	    
 	    // 예약 내역 페이지
-	    @GetMapping("/camp_result")
-	    public String camp_result() {
+	    @GetMapping("/camp_result/{apt_no}")
+	    public String camp_result(@PathVariable("apt_no") String apt_no) {
 	    	return "camp/camp_result"; 
 	    }
 	    
@@ -253,7 +253,7 @@ public class AppointmentController {
 		 // 일반 회원 예약 하기
 	      @PostMapping("/apt_user_cmp/{contentId}")
 	      @ResponseBody
-	      public ResponseEntity<Integer> apt_user_cmp(@RequestBody Appointment apt, 
+	      public ResponseEntity<String> apt_user_cmp(@RequestBody Appointment apt, 
 	    		  										@PathVariable("contentId") String contentId, HttpSession session){
 	    	 
 	    	  //다른 테이블 컬럼을 가져옴
@@ -268,12 +268,12 @@ public class AppointmentController {
 	    	 System.out.println(contentId);
 	    	 System.out.println(cmp_price);
 	         System.out.println("예약을 할거예요!");
-	         int result = service.aptUserCamp(apt);
-	         System.out.println("result : " + result);
+	         int result = service.aptUserCamp("insertAndGetGeneratedKey",apt);
 	         
-	         session.setAttribute("apt_no", apt.getApt_no());
+	         String apt_no = apt.getApt_no();
+	         System.out.println("apt_no : " + apt_no);
 	         
-	         return new ResponseEntity<>(result, HttpStatus.OK);
+	         return new ResponseEntity<>(apt_no, HttpStatus.OK);
 	      }
 	      
 	      	@PostMapping("/camp_results/{user_id}")

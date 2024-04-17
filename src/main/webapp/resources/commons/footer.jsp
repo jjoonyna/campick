@@ -12,7 +12,7 @@
 <footer>
       <br/>
       <div>
-      <ul>
+      <ul>  
          <li class="ftli">
             <a href="/Board/Static.aspx?BCNO=1050">팀원소개</a>
          </li>
