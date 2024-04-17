@@ -34,6 +34,7 @@ $(function(){
 $(document).ready(function(){
 	$("#mypage").show();	
 	$("#join_wrap").hide(); 
+	$("#regist_wrap").hide(); 
 	$("#pw_change_display").hide(); 
 	$("#delete_display").hide(); 
 	$.ajax({
@@ -68,6 +69,7 @@ $(function(){
 		$("#join_wrap").show();
 		$("#pw_change_display").hide(); 
 		$("#delete_display").hide(); 
+		$("#regist_wrap").hide(); 
 	
 	$.ajax({
          type : "GET",
@@ -111,6 +113,7 @@ $(function(){
 		$("#join_wrap").hide();
 		$("#pw_change_display").show(); 
 		$("#delete_display").hide(); 
+		$("#regist_wrap").hide(); 
 		
 		
 		$.ajax({
@@ -144,6 +147,7 @@ $(function(){
 		$("#join_wrap").hide();
 		$("#pw_change_display").hide(); 
 		$("#delete_display").show(); 
+		$("#regist_wrap").hide(); 
 		
 		
 		$.ajax({
@@ -169,7 +173,42 @@ $(function(){
       });
 	});
 });
-
+//캠핑장 등록 
+$(function(){
+	$("#regist_camp").click(function(){		
+		$("#mypage").hide();
+		$("#join_wrap").hide();
+		$("#pw_change_display").hide(); 
+		$("#delete_display").hide(); 
+		$("#regist_wrap").show(); 
+		
+		$.ajax({
+         type : "GET",
+         url : encodeURI("http://localhost:80/biz_info"),
+         contentType: "application/json",
+         success : function(result){
+            if(result!=null){
+               //성공
+               $("#regist_id").val(result.user_id);
+               $("#regist_biz").val(result.user_biz);
+               $("#regist_nm").val(result.user_nm);
+               
+			}else if(result==null){
+				//정보 불러오기 실패
+				alert("정보 불러오기 실패");
+				history.back();
+			}
+            
+         },
+         error: function(xhr, status, error) {
+           console.error("AJAX 요청 실패:", status, error); 
+           alert("서버에서 데이터를 가져오는 중 오류가 발생했습니다.");
+          }
+         
+      });
+		
+	});
+});
 //프로필 사진 출력
 	function setThumbnail(event) {
         const reader = new FileReader();

@@ -31,7 +31,7 @@
 <!-- 					<button>캠핑장관리</button> -->
 <!-- 				</li> -->
 				<li>
-					<button>예약목록</button>
+					<button id="regist_camp">캠핑장등록</button>
 				</li>
 <!-- 				<li> -->
 <!-- 					<button id="review">내후기</button> -->
@@ -232,6 +232,175 @@
 				</form>
 			</div>
 		</div>
+
+
+
+
+ <div id="regist_wrap">
+      <h2 class="regist_title">관리자 캠핑</h2>
+      <form name="f" method="post" action="insert_biz_cmp"
+         onsubmit="return check()" enctype="multipart/form-data">
+
+         <table id="regist_t">
+            <tr>
+               <th>ID</th>
+               <td><input type="text" id="regist_id" readonly="readonly"></td>
+            </tr>
+            
+            <tr>
+               <th>사업자 번호</th>
+               <td><input type="text" id="regist_biz" readonly="readonly"></td>
+            </tr>
+
+            <tr>
+               <th>대표자명</th>
+               <td><input type="text" id="regist_nm" readonly="readonly"></td>
+            </tr>
+            <tr>
+               <th>제목</th>
+               <td><input name="facltNm" id="regist_name" size="14"
+                  class="input_box" /></td>
+                  <div></div>
+            </tr>
+            <tr>
+               <th>대표 전화번호</th>
+               <td>
+                   
+               <input name="user_tel" id="regist_tel2"
+                  class="input_box" /></td>
+            </tr>
+            <tr>
+               <th>주변환경</th>
+               <td><input name="lctCl" id="lctCl" size="14"
+                  class="input_box" /></td>
+            </tr>
+            <tr>
+               <th>짧은설명</th>
+               <td><input name="lineIntro" id="lineIntro" size="14"
+                  class="input_box" /></td>
+            </tr>
+            <tr>
+               <th>자세한 설명</th>
+               <td><input type="text" id="intro" placeholder="입력하세요!"
+                  style="width: 350px; height: 50px; font-size: 14px;"></td>
+            </tr>
+            <tr>
+               <th>캠핑장 종류</th>
+               <td valgn="top"><select name="items1">
+                     <option value="motel">일반야영</option>
+                     <option value="autocamp">자동차</option>
+                     <option value="motel">트레일러</option>
+                     <option value="caravan">카라반</option>
+                     <option value="caravan">글램핑</option></td>
+            </tr>
+            <tr>
+               <th>우편번호</th>
+               <td><input name="zipcode" id="zipcode" size="5"
+                  class="input_box" readonly onclick="post_search()" /> <input
+                  type="button" value="우편번호검색" class="input_button"
+                  onclick="openDaumPostcode()" /></td>
+            </tr>
+
+            <tr>
+               <th>주소</th>
+               <td><input name="regist_addr1" id="regist_addr1" size="50"
+                  class="input_box" readonly onclick="post_search()" /></td>
+            </tr>
+
+
+            <tr>
+               <th>홈페이지</th>
+               <td><input name="regist_addr2" id="regist_addr2" size="37"
+                  class="input_box" /></td>
+            </tr>
+            <tr>
+               <th>화장실 개수</th>
+               <td valgn="top"><select name="items1">
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
+               </select></td>
+            </tr>
+
+            <tr>
+               <th>샤워실 개수</th>
+               <td valgn="top"><select name="items1">
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
+               </select></td>
+            </tr>
+            <tr>
+               <th>개수대 개수</th>
+               <td valgn="top"><select name="items1">
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
+               </select></td>
+            </tr>
+            <tr>
+               <th>화로대 개수</th>
+               <td valgn="top"><select name="items1">
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
+               </select></td>
+            </tr>
+            <tr>
+               <th>부대시설</th>
+               <td><input name="regist_addr2" id="regist_addr2" size="37"
+                  class="input_box" /></td>
+            </tr>
+            <tr>
+               <th>부대시설 기타</th>
+               <td><input name="regist_addr2" id="regist_addr2" size="37"
+                  class="input_box" /></td>
+            </tr>
+            <tr>
+               <th>주변이용시설</th>
+               <td><input name="regist_addr2" id="regist_addr2" size="37"
+                  class="input_box" /></td>
+            </tr>
+            <tr>
+               <th>소화기 개수</th>
+               <td valgn="top"><select name="items1">
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
+               </select></td>
+            </tr>
+            <tr>
+               <th>테마 환경</th>
+               <td><input name="regist_addr2" id="regist_addr2" size="37"
+                  class="input_box" /></td>
+            </tr>
+            <tr>
+               <th>애완동물출입</th>
+               <td><input name="regist_addr2" id="regist_addr2" size="37"
+                  class="input_box" /></td>
+            </tr>
+
+
+
+         </table>
+
+         <div id="regist_menu">
+            <input type="submit" value="등록" class="input_button" /> <input
+               type="reset" value="취소" class="input_button"
+               onclick="$('#regist_id').focus();" />
+         </div>
+      </form>
+   </div>
 
 
 	</main>

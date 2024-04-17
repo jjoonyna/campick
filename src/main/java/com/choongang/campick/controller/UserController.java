@@ -253,6 +253,7 @@ public class UserController {
 		User db = service.selectUser(user_id); // 회원이 있는지 없는지 확인
 		map.put("user_id", db.getUser_id());
 		map.put("user_nm", db.getUser_nm());
+		map.put("user_biz", db.getUser_biz());
 		map.put("user_nick", db.getUser_nick());
 		map.put("user_birth", db.getUser_birth());
 		map.put("user_tel", db.getUser_tel());

@@ -33,6 +33,7 @@ public class CampController {
 		System.out.println("성공");
 	}
 	
+	
 	@GetMapping("camp_map")
 	public String camp_map(){
 		return "camp/camp_map";
