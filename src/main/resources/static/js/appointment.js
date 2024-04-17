@@ -20,8 +20,41 @@ $(document).ready(function campappointment(contentId){
                $("#cmp_maxpp").text(result.cmp_maxpp);//최대 예약 인원
                $("#cmp_price").text(result.cmp_price);//최대 이용 금액
                $("#stay").text(result.stay);//최대 이용 금액
-               
-              
+
+
+
+               var maxStay = result.stay;
+
+				// select 태그를 가져옵니다.
+				const staySelect = document.getElementById("apt_staydate");
+				
+				// 최대 숙박 일수만큼 옵션을 생성합니다.
+				for (let i = 1; i <= maxStay; i++) {
+				    const option = document.createElement("option");
+				    option.value = i;
+				    option.text = i + "일";
+				    staySelect.appendChild(option);
+				}
+
+				var maxpp = result.cmp_maxpp;
+
+				// select 태그를 가져옵니다.
+				const ppSelect = document.getElementById("apt_pp");
+				
+				// 최대 인원 만큼 옵션을 생성합니다.
+				for (let i = 1; i <= maxpp; i++) {
+				    const option = document.createElement("option");
+				    option.value = i;
+				    option.text = i + "명";
+				    ppSelect.appendChild(option);
+				}
+				
+				
+
+              	//calculatePrice(result.cmp_price);
+              	
+              	
+              	
 			}else if(result==null){
 				//정보 불러오기 실패
 				alert("정보 불러오기 실패");
@@ -40,37 +73,114 @@ $(document).ready(function campappointment(contentId){
 		
 	});
 	
-function calculatePrice() {
-	var stayElement = document.getElementById(stay);
-	var priceElement = document.getElementById(price);
 
-	// 선택된 구역에 따라 가격을 가져오기
-	var areaPrice = 100000;
-	
-	  // 선택한 은행 이름 가져오기
- 	var selectedStay = document.getElementById("stay").value;
 
-	if (selectedStay === "default") {
-    document.getElementById("price").textContent = "";
+
+
+// 결제 방식 : 은행 선택
+function payment() {
+  // 선택할 은행 선언
+  var bankName = ["신한", "국민", "카카오"];
+  
+  // 각 은행에 해당하는 계좌 정보
+  var bankinfo = {
+    "신한": "(주)캠픽 111-111-111111",
+    "국민": "(주)캠픽 222-222-222222",
+    "카카오": "(주)캠픽 333-333-333333"
+  };
+  
+  // 선택한 은행 이름 가져오기
+  var apt_at = document.getElementById("bankName").value;
+  
+  if (apt_at == "default") {
+    document.getElementById("paymentResult").textContent = "";
     return;
   }
   
-	// 선택된 숙박 일자에 따라 가격 연산
-	var stayPrice = areaPrice
-		* parseInt(stayElement.value);
-
-	// 결과를 <div> 태그에 표시
-	priceElement.textContent = stayPrice
-		.toLocaleString()
-		+ "원";
+  // 선택한 은행의 계좌 정보 가져오기
+  var selectedBankInfo = bankinfo[apt_at];
+  
+  // 결과를 <div> 태그에 표시
+  var paymentResult = document.getElementById("paymentResult");
+  paymentResult.textContent = `은행 : ${apt_at}, 계좌번호 : ${selectedBankInfo}`;
 }
 
-// 캠핑장 정보를 저장할 변수
-var campgrounds = [
-  { name: "캠핑장 A", maxCapacity: 10, price: 50000 },
-  { name: "캠핑장 B", maxCapacity: 15, price: 70000 },
-  { name: "캠핑장 C", maxCapacity: 20, price: 100000 }
-];
+
+
+
+// 선택한 날짜 정보 가져오기
+function displaySelectedDate() {
+	var selectedDate = document
+		.getElementById("datepicker").value;
+	document
+		.getElementById("startdate").textContent = selectedDate;
+}
+
+
+
+
+
+
+// 숙박 일자가 변경될 때마다 가격을 계산하고 표시하는 함수
+function calculatePrice() {
+    	// 숙박일자를 가져옵니다.
+    	var price = $("#cmp_price").text();
+    	
+        var stayElement = document.getElementById("apt_staydate");
+
+		// 기본적인 숙박 일자가 선택되어 있는지 확인합니다.
+        if (stayElement.value === "default") {
+            alert("숙박 일자를 선택해주세요.");
+            return false;
+        }
+		
+		// 선택된 숙박 일자에 따라 가격 계산
+        const selectedDays = parseInt(stayElement.value);
+        const areaPricePerDay = price; // 
+        const apt_price = areaPricePerDay * selectedDays;
+		
+		
+		var formdata = {
+			cmp_no: $('#contentId').val(),
+			user_id: $('#user_id').val(),
+			apt_startdate: $('#apt_startdate').val(),
+			apt_staydate: $('#apt_staydate').val(),
+			user_nm: $('#user_nm').val(),
+			apt_pp: $('#apt_pp').val(),
+			apt_req: $('#apt_req').val(),
+			apt_at: $('#apt_at').val(),
+			apt_price: apt_price
+			
+			};
+			
+			var url = window.location.href;
+    		var contentId = url.substring(url.lastIndexOf('/') + 1);
+
+			
+		$.ajax({
+			type : "POST",
+			url : "http://localhost:80/apt_user_cmp/"+contentId,
+			contentType: "application/json",
+			data : JSON.stringify(formdata),
+			success : function(result){
+				
+				if(result != null){
+					alert("예약이 완료되었습니다.");
+					location.href="camp_result/"+result;
+				}
+				
+			},
+			error: function(xhr, status, error) {
+        	console.error("AJAX 요청 실패:", status, error); 
+        	alert("서버에서 데이터를 가져오는 중 오류가 발생했습니다.");
+    		}
+			
+		});
+}
+
+
+
+
 
 // 캠핑장 선택 옵션 생성
 //var campgroundSelect = document.getElementById("campground");
@@ -118,6 +228,7 @@ var campgrounds = [
 //});
 
 
+<<<<<<< HEAD
 
 // 결제 방식 : 은행 선택
 function payment() {
@@ -161,6 +272,8 @@ function displaySelectedDate() {
 
 
 
+=======
+>>>>>>> branch 'master' of https://github.com/jjoonyna/campick.git
 // 캠핑장 예약하기 클릭시
 //$(function(){
 //	$("#camp_appointment").click(function(){		
@@ -201,26 +314,23 @@ function displaySelectedDate() {
 // 캠핑장 예약하기 요청
 $(function (){
 	$("#camp_appointment_ok").click(function campappointment(contentId){
-	if($.trim($("#user_nm").val())==""){
-		 alert("예약자 성함을 입력해주세요.");
-		 $("#user_nm").val("").focus();
-		 return false;
-	 }
-	 if($.trim($("#apt_pp").val())==""){
-		 alert("인원을 선택해주세요.");
-		 $("#apt_pp").val("").focus();
-		 return false;
-	 }
-	 if($.trim($("#apt_req").val())==""){
-		 alert("요청사항을 입력해주세요.");
-		 $("#apt_req").val("").focus();
-		 return false;
-	 }
-	 if($.trim($("#user_price").val())==""){
-		 alert("결제 방식을 선택해주세요.");
-		 $("#user_price").val("").focus();
-		 return false;
-	 }
+	// 여기서 금액*숙박일자 연산 처리
+		
+		 // 숙박일자를 가져옵니다.
+        var stayElement = document.getElementById("apt_staydate");
+
+		// 기본적인 숙박 일자가 선택되어 있는지 확인합니다.
+        if (stayElement.value === "default") {
+            alert("숙박 일자를 선택해주세요.");
+            return false;
+        }
+		
+		
+
+		
+		var url = window.location.href;
+    	var contentId = url.substring(url.lastIndexOf('/') + 1);
+    	
 		var formdata = {
 			contentId: $('#contentId').val(),
 			user_id: $('#user_id').val(),
@@ -229,14 +339,12 @@ $(function (){
 			user_nm: $('#user_nm').val(),
 			apt_pp: $('#apt_pp').val(),
 			apt_req: $('#apt_req').val(),
-			price: $('#cmp_price').val()
+			price: $('$apt_price').val()
 			
 			};
-		var url = window.location.href;
-    	var contentId = url.substring(url.lastIndexOf('/') + 1);
 		$.ajax({
 			type : "POST",
-			url : "http://localhost:80/apt_user_cmp/"+contentId,
+			url : "http://localhost:80/camp_appointment/"+contentId,
 			contentType: "application/json",
 			data : JSON.stringify(formdata),
 			success : function(result){
@@ -246,6 +354,7 @@ $(function (){
 					alert("예약이 완료되었습니다.");
 					location.href="../camp_result/"+result;
 				}
+<<<<<<< HEAD
 //				if(result==1){
 //					//성공
 //					alert("예약이 완료되었습니다.");
@@ -260,6 +369,8 @@ $(function (){
 //					alert("예약이 실패되었습니다.");
 //					history.back();
 //				}
+=======
+>>>>>>> branch 'master' of https://github.com/jjoonyna/campick.git
 				
 			},
 			error: function(xhr, status, error) {
@@ -278,14 +389,4 @@ $(function (){
 
 
 
-  // 캠핑장 최대 인원수를 가져오는 함수 예시
-  // 여기에 서버로부터 인원수를 가져오는 AJAX 요청 등을 수행할 수 있습니다.
-  // 가져온 데이터를 사용하여 아래와 같이 옵션을 동적으로 생성합니다.
-  var campgrounds = ["캠핑장 A", "캠핑장 B", "캠핑장 C"]; // 임시 데이터
-  var select = document.getElementById("${cmp_pp}");
-  campgrounds.forEach(function(campground) {
-    var option = document.createElement("option");
-    option.value = campground;
-    option.textContent = campground;
-    select.appendChild(option);
-  });
+

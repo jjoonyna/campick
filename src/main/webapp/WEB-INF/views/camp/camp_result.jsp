@@ -8,8 +8,12 @@
 <jsp:include page="/resources/commons/header.jsp" />
 <jsp:include page="/resources/commons/gnb.jsp" />
 <title>예약 내역</title>
+<<<<<<< HEAD
 <link rel="stylesheet" href="../css/camp_result.css">
 <script type="text/javascript" src="../js/check.js"></script>
+=======
+<link rel="stylesheet" href="./css/camp_result.css">
+>>>>>>> branch 'master' of https://github.com/jjoonyna/campick.git
 </head>
 <body>
 <main>

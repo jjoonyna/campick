@@ -252,19 +252,36 @@ public class AppointmentController {
 		 // 일반 회원 예약 하기
 	      @PostMapping("/apt_user_cmp/{contentId}")
 	      @ResponseBody
-	      public ResponseEntity<String> apt_user_cmp(@RequestBody Appointment apt, 
-	    		  										@PathVariable("contentId") String contentId, HttpSession session){
+	      public ResponseEntity<String> apt_user_cmp(@RequestBody Appointment apt, @PathVariable("contentId") String contentId,
+	    		  									 HttpSession session){
 	    	 
+<<<<<<< HEAD
 	    	  //다른 테이블 컬럼을 가져옴
+=======
+	    	 System.out.println(apt); 
+	    	 System.out.println("cmp_no" + apt.getCmp_no()); 
+	    	 System.out.println("user_id" + apt.getUser_id()); 
+	    	 System.out.println("cmp_no" + apt.getApt_startdate()); 
+	    	 System.out.println("cmp_no" + apt.getUser_nm()); 
+	    	 System.out.println("cmp_no" + apt.getApt_pp()); 
+	    	 System.out.println("cmp_no" + apt.getApt_req()); 
+	    	 System.out.println("cmp_no" + apt.getApt_at()); 
+	    	 System.out.println("cmp_no" + apt.getApt_price()); 
+	    	
+	    	  
+>>>>>>> branch 'master' of https://github.com/jjoonyna/campick.git
 	    	 String cmp_no = contentId;
 	    	 String user_id = (String)session.getAttribute("user_id");
 	    	 Integer cmp_price = (Integer) session.getAttribute("cmp_price");
 	    	 
+<<<<<<< HEAD
 	    	 //해당 model에 값을 넣음
 	    	 apt.setApt_price(String.valueOf(cmp_price));
+=======
+	    	 //apt.setApt_price(String.valueOf(cmp_price));
+>>>>>>> branch 'master' of https://github.com/jjoonyna/campick.git
 	    	 apt.setUser_id(user_id);
 	    	 apt.setCmp_no(cmp_no);
-	    	 System.out.println(contentId);
 	    	 System.out.println(cmp_price);
 	         System.out.println("예약을 할거예요!");
 	         int result = service.aptUserCamp("insertAndGetGeneratedKey",apt);
@@ -275,7 +292,7 @@ public class AppointmentController {
 	         return new ResponseEntity<>(apt_no, HttpStatus.OK);
 	      }
 	      
-	      	@PostMapping("/camp_results/{user_id}")
+	      	@GetMapping("/camp_results/{user_id}")
 		    @ResponseBody
 		    public ResponseEntity<Map<String, Object>> camp_results(@PathVariable("user_id") String user_id) {
 		    	Map map = new HashMap();
