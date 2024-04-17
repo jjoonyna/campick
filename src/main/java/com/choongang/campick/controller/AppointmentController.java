@@ -258,13 +258,11 @@ public class AppointmentController {
 	    	  
 	    	 String cmp_no = contentId;
 	    	 String user_id = (String)session.getAttribute("user_id");
-	    	 Integer cmp_price = (Integer) session.getAttribute("cmp_price");
 	    	 
 	    	 //해당 model에 값을 넣음
 	    	 //apt.setApt_price(String.valueOf(cmp_price));
 	    	 apt.setUser_id(user_id);
 	    	 apt.setCmp_no(cmp_no);
-	    	 System.out.println(cmp_price);
 	         System.out.println("예약을 할거예요!");
 	         int result = service.aptUserCamp("insertAndGetGeneratedKey",apt);
 	         
