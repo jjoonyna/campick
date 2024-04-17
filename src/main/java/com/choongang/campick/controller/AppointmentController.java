@@ -259,6 +259,7 @@ public class AppointmentController {
 	    	 String cmp_no = contentId;
 	    	 String user_id = (String)session.getAttribute("user_id");
 	    	 
+	    	 
 	    	 //해당 model에 값을 넣음
 	    	 //apt.setApt_price(String.valueOf(cmp_price));
 	    	 apt.setUser_id(user_id);
