@@ -175,9 +175,9 @@ $(document).ready(function() {
             window.location.href = ($(this).attr('href'));
         });
         
+		$(document).ready(function() {
 		// 로그아웃 버튼 클릭 시 로그아웃 처리
 		$(".logoutBtn").click(function(event) {
-		//$(document).ready(function() {
 		    $.ajax({
 		        url: "logout_user",
 		        type: "POST",
@@ -196,3 +196,4 @@ $(document).ready(function() {
 		        }
 		    });
 		});
+});

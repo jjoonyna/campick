@@ -29,7 +29,7 @@
 			#{apt_startdate},
 			#{apt_staydate},
 			#{apt_price},
-			'n')
+			#{apt_at})
 		</insert>
 		
 	<!-- 일반회원 예약 상세 조회 -->

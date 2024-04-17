@@ -9,7 +9,6 @@
 <jsp:include page="/resources/commons/gnb.jsp" />
 <title>예약 내역</title>
 <link rel="stylesheet" href="./css/camp_result.css">
-<script type="text/javascript" src="../js/check.js"></script>
 </head>
 <body>
 <main>
