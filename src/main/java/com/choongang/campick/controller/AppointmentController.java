@@ -260,6 +260,7 @@ public class AppointmentController {
 	    	 String user_id = (String)session.getAttribute("user_id");
 	    	 Integer cmp_price = (Integer) session.getAttribute("cmp_price");
 	    	 
+	    	 
 	    	 //해당 model에 값을 넣음
 	    	 //apt.setApt_price(String.valueOf(cmp_price));
 	    	 apt.setUser_id(user_id);
