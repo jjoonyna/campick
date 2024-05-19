@@ -134,7 +134,7 @@
 <br><br><br>
 <h2>DB</h2>
 <img width="762" alt="그림4" src="https://github.com/jjoonyna/campick/assets/150616454/e8284b62-2302-4433-8a15-ea3367ac4ba4">
- 
+ * 사업자/일반유저 테이블 합쳤습니다.
 
 <br><br><br>
 <h2>작업 흐름도</h2>
