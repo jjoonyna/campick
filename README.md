@@ -1,6 +1,6 @@
 ![그림1](https://github.com/jjoonyna/campick/assets/150616454/fee8a794-e409-4dcd-adb5-24b806a84300)
 
-<h1>"날씨에 맟게 캠핑을 즐기고 싶다!"</h1>
+<h1>"날씨에 맞게 캠핑을 즐기고 싶다!"</h1>
 <Strong>CAMPICK</Strong><br>
 : CAMP 와 PICK의 합성어로, "캠핑장을 PICK"라는 뜻입니다.
 <br><br><br>
