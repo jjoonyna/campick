@@ -149,3 +149,18 @@
 ![슬라이드15](https://github.com/jjoonyna/campick/assets/150616454/aad487fd-8d47-4c6b-9169-e7362a248da3)
 
 
+<br><br><br>
+<h2>시연</h2>
+
+![정윤선_CAMPICK-이미지-24](https://github.com/jjoonyna/moggozi2/assets/150616454/85a880d8-24c3-4021-8315-ec71558207d2)
+![정윤선_CAMPICK-이미지-25](https://github.com/jjoonyna/moggozi2/assets/150616454/a22f52c5-54cb-495d-b914-219df6e7d973)
+![정윤선_CAMPICK-이미지-26](https://github.com/jjoonyna/moggozi2/assets/150616454/b5975334-1c8e-42ac-92ce-9fc436960b9b)
+![정윤선_CAMPICK-이미지-27](https://github.com/jjoonyna/moggozi2/assets/150616454/fc3d6738-eca4-4acc-9439-39f4056c552d)
+![정윤선_CAMPICK-이미지-28](https://github.com/jjoonyna/moggozi2/assets/150616454/c8191474-c029-4b09-aaed-ee6ac2ee283c)
+![정윤선_CAMPICK-이미지-29](https://github.com/jjoonyna/moggozi2/assets/150616454/ae72744a-2b53-478e-94a0-0da39f329a70)
+![정윤선_CAMPICK-이미지-30](https://github.com/jjoonyna/moggozi2/assets/150616454/107f4bbf-7132-4681-9fb7-b9b709051887)
+![정윤선_CAMPICK-이미지-31](https://github.com/jjoonyna/moggozi2/assets/150616454/cc4bb61d-de0e-41d4-8377-49f2b25de600)
+![정윤선_CAMPICK-이미지-32](https://github.com/jjoonyna/moggozi2/assets/150616454/badd04c0-5e4a-4150-ae20-4440571c4ae0)
+![정윤선_CAMPICK-이미지-33](https://github.com/jjoonyna/moggozi2/assets/150616454/b8c46a88-6515-469a-8b5f-0799cc414ae7)
+![정윤선_CAMPICK-이미지-34](https://github.com/jjoonyna/moggozi2/assets/150616454/f54c985d-3350-4539-8e3f-31c22bdd5842)
+
