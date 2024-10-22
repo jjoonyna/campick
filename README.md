@@ -29,6 +29,7 @@
       <br>
       <Strong>캠핑장 목록 READ</Strong><br>
 			- 캠핑장/날씨 openAPI를 이용한 캠핑장 목록<br><br>
+			- 검색 기능 구현<br>
 			- 형상 관리<br>
 		</td>
 		<td>
