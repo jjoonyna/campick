@@ -33,7 +33,7 @@
 			- 검색 기능 구현<br><br>
      <Strong>캠핑장 목록 CUD</Strong><br>
 			- 캠핑장 API정보 가져오기<br>
-			- 날씨 정보 가져오기<br>
+			- 날씨 정보 가져오기<br><br>
       <Strong>회원 관리 CUD</Strong><br>
 			- ID, PW찾기<br><br>
 			- 형상 관리<br>
